@@ -12,7 +12,7 @@
 */
 
 Route::group(['middleware' => ['web']], function () {
-Route::get('/', array('as'=>'home','uses'=>'PagesController@dashboard'));
+Route::get('/', array('as'=>'dashboard','uses'=>'UserController@dashboard'));
 	   
 });
 

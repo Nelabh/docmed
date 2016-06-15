@@ -7,14 +7,21 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesResources;
-
+use View;
+use DB;
+use Session;
+use Auth;
 class UserController extends BaseController
 {
     use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
 
-public function __construct()
+/*public function __construct()
 {
     $this->middleware('auth');
+}
+*/
+public function dashboard(){
+	return View::make('dashboard');
 }
 }
 

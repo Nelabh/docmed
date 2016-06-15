@@ -11,6 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['middleware' => ['web']], function () {
+Route::get('/', array('as'=>'home','uses'=>'PagesController@dashboard'));
+	   
 });
+
+Route::group(['middleware' => ['auth']], function () {
+    
+});
+
+

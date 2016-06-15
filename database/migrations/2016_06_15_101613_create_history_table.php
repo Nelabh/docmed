@@ -20,7 +20,6 @@ class CreateHistoryTable extends Migration
             $table->timestamp('datetime');
             $table->string('symptoms');
             $table->string('record_status');
-            $table->rememberToken();
             $table->timestamps();
             $table->foreign('patient_email')->references('email')->on('patients')->onDelete('cascade');
             $table->foreign('doctor_email')->references('email')->on('doctors')->onDelete('cascade');

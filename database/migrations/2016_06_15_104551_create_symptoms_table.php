@@ -14,12 +14,12 @@ class CreateSymptomsTable extends Migration
     {
         Schema::create('symptoms', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('order_id');
+            $table->integer('order_id')->length(10)->unsigned();
             $table->string('symptoms');
             $table->rememberToken();
             $table->timestamps();
-            /*$table->foreign('order_id')->references('order_id')->on('connection')->onDelete('cascade');
-*/
+            $table->foreign('order_id')->references('order_id')->on('connection')->onDelete('cascade');
+
         });
     
     }

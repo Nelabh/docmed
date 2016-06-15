@@ -19,7 +19,7 @@ class CreateDoctorTable extends Migration
             $table->integer('mobile')->length(10);
             $table->string('gender');
             $table->integer('age');
-            $table->integer('speciality')->length(1000)->unsigned();
+            $table->integer('speciality')->length(10)->unsigned();
             $table->string('qualification');
             $table->string('hospital_affiliation');
             $table->integer('years_of_exp');
@@ -36,6 +36,7 @@ class CreateDoctorTable extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->foreign('email')->references('email')->on('users')->onDelete('cascade');
+            $table->foreign('speciality')->references('id')->on('speciality')->onDelete('cascade');
 
         });
         //

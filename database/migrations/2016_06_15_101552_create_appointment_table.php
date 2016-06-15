@@ -18,13 +18,11 @@ class CreateAppointmentTable extends Migration
             $table->string('doctor_email');
             $table->timestamp('datetime');
             $table->string('payment_status');
-            $table->integer('order_id');
-            
-            $table->rememberToken();
+            $table->integer('order_id')->length(10)->unsigned();    
             $table->timestamps();
             $table->foreign('patient_email')->references('email')->on('patients')->onDelete('cascade');
             $table->foreign('doctor_email')->references('email')->on('doctors')->onDelete('cascade');
-            /*$table->foreign('orderid')->references('order_id')->on('connection')->onDelete('cascade');*/
+            $table->foreign('order_id')->references('order_id')->on('connection')->onDelete('cascade');
 
 
         });

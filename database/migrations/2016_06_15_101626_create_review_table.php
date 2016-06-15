@@ -18,7 +18,6 @@ class CreateReviewTable extends Migration
             $table->string('doctor_email');
             $table->string('review');
             $table->integer('stars');
-            $table->rememberToken();
             $table->timestamps();
             $table->foreign('patient_email')->references('email')->on('patients')->onDelete('cascade');
             $table->foreign('doctor_email')->references('email')->on('doctors')->onDelete('cascade');

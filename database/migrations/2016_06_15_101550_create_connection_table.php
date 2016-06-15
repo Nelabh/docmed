@@ -16,12 +16,9 @@ class CreateConnectionTable extends Migration
             $table->increments('order_id');
             $table->string('patient_email');
             $table->string('doctor_email');
-            
-            $table->rememberToken();
             $table->timestamps();
             $table->foreign('patient_email')->references('email')->on('patients')->onDelete('cascade');
             $table->foreign('doctor_email')->references('email')->on('doctors')->onDelete('cascade');
-
         });
     
     }

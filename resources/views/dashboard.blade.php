@@ -69,9 +69,7 @@
 				
 
 				<!-- breadcrumb -->
-				<ol class="breadcrumb">
-					<li>Dashboard</li>
-				</ol>
+				
 				<!-- end breadcrumb -->
 
 				<!-- You can also add more buttons to the
@@ -93,7 +91,7 @@
 
 				<div class="row">
 					<div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
-						<h1 class="page-title txt-color-blueDark"><i class="fa-fw fa fa-home"></i> Dashboard <span>> My Dashboard</span></h1>
+						<h1 class="page-title txt-color-blueDark"><i class="fa-fw fa fa-home"></i> Dashboard </h1>
 					</div>
 					<div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">
 						<ul id="sparks" class="">
@@ -103,7 +101,7 @@
 									1300, 1877, 2500, 2577, 2000, 2100, 3000, 2700, 3631, 2471, 2700, 3631, 2471
 								</div>
 							</li>
-							<li class="sparks-info">
+							<!-- <li class="sparks-info">
 								<h5> Site Traffic <span class="txt-color-purple"><i class="fa fa-arrow-circle-up"></i>&nbsp;45%</span></h5>
 								<div class="sparkline txt-color-purple hidden-mobile hidden-md hidden-sm">
 									110,150,300,130,400,240,220,310,220,300, 270, 210
@@ -114,7 +112,7 @@
 								<div class="sparkline txt-color-greenDark hidden-mobile hidden-md hidden-sm">
 									110,150,300,130,400,240,220,310,220,300, 270, 210
 								</div>
-							</li>
+							</li> -->
 						</ul>
 					</div>
 				</div>
@@ -147,7 +145,6 @@
 		Note: These tiles are completely responsive,
 		you can add as many as you like
 		-->
-		@include('shortcut')
 		<!-- END SHORTCUT AREA -->
 
 		<!--================================================== -->

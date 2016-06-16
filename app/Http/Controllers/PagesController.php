@@ -7,12 +7,15 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesResources;
+use App\Doctor;
+use App\Patient;
+use App\MedVend;
+use App\User;
+use App\Speciality;
 
 class PagesController extends BaseController
 {
 	use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
-
-
 	public function log(){
 		$data = array('email'=>Input::get('email'),'password'=>Input::get('password'),'privilege'=>Input::get('privilege'));
 		$rules=array(
@@ -30,10 +33,10 @@ class PagesController extends BaseController
 		else {
 			if(Auth::attempt($data)){
 				Session::put('email',$data['email']);
-				return Redirect::route('login');
+				return Redirect::route('dashboard');
 			}
 			else{
-				return Redirect::route('dashboard')->with('message','Your email/password combination is incorrect!')->withInput();
+				return Redirect::route('home')->with('message','Your email/password combination is incorrect!')->withInput();
 			}
 		}
 	}

@@ -24,6 +24,7 @@ class CreatePatientTable extends Migration
             $table->string('address');
             $table->string('city');
             $table->integer('pincode');
+            $table->boolean('verified');
             $table->string('state');
             $table->string('country');
             $table->string('upload_photograph');

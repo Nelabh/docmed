@@ -16,7 +16,6 @@ class CreateSymptomsTable extends Migration
             $table->increments('id');
             $table->integer('order_id')->length(10)->unsigned();
             $table->string('symptoms');
-            $table->rememberToken();
             $table->timestamps();
             $table->foreign('order_id')->references('order_id')->on('connection')->onDelete('cascade');
 

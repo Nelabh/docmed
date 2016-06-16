@@ -37,6 +37,25 @@ class PagesController extends BaseController
 			}
 		}
 	}
+	public function signupform(){
+		$data = Input::get('mode');
+		switch ($data) {
+			case '1':
+			return View::make('signup_patient');
+			break;
+			case '2':
+			return View::make('signup_doctor');
+
+			break;
+			case '3':
+			return View::make('signup_medvend');
+			break;
+			
+			default:
+			return Redirect::route('home')->with('error',"Kindly Choose The correct Input");
+			break;
+		}
+	}
 	public function logout()
 	{
 		if(Auth::check()){
@@ -47,16 +66,14 @@ class PagesController extends BaseController
 	}
 	public function signup(){ 
 		$data = Input::all(); 
-
 		$rules=array(
 			'name' => 'min:2',
 			'email' => 'required|unique:users',
 			'password' => 'required|min:4|confirmed',
-			'password_confirmation' => 'required|min:4'
+			'password_confirmation' => 'required|min:4',
+			'privilege' =>'required'
 			);
 		$validator = Validator::make($data, $rules);
-
-
 		if($validator->fails()){
 
     // send back to the page with the input data and errors
@@ -64,14 +81,31 @@ class PagesController extends BaseController
       //  return Redirect::back()->withErrors($validator->errors())->withInput();
 		}
 		else {
+			switch ($data['privilege']) {
 
+				case '1':
+
+				break;
+				case '2':
+				
+
+				break;
+				case '3':
+
+				break;
+
+				default:
+
+				break;
+
+			}
 //Rest of Saving logic
 			if(Auth::attempt($user)){
 				Session::put('email',$data['email']);
 				return 1;
 			}
 			else{
-				return "Registration Failed";
+				return "Registration Failed! Please Try Again...";
 			}
 		}
 	}

@@ -15,6 +15,7 @@ class CreateCategoryTable extends Migration
         Schema::create('speciality', function (Blueprint $table) {
             $table->increments('id');
             $table->string('speciality_name');
+            $table->string('speciality_abbr');
           
 
 

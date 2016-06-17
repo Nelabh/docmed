@@ -60,33 +60,39 @@
 			<div id="logo-group">
 				<span id="logo"> <img src="img/logo.png" alt="SmartAdmin"> </span>
 			</div>
-			<div style="margin-left:75% !important">
 
-					<div class="project-context">
-
-				<span class="project-selector dropdown-toggle " data-toggle="dropdown"><a class="btn btn-danger">Login </a><i class="fa fa-angle-down"></i></span>
-				<!-- Suggestion: populate this list with fetch and push technique -->
-				<ul class="dropdown-menu">
-				<li><a>As Doctor</a></li>
-				<li><a>As Patient</a></li>
-				<li><a>As Medicine Vendor</a></li>
-
-
-
-				
-				</ul>
-				<!-- end dropdown-menu-->
-
-			</div>
+					
 			
-					<div class="project-context">
+										<div class="widget-body no-padding">
+						
+						<form id="checkout-form" class="smart-form" novalidate="novalidate">
 
-				<span class="project-selector dropdown-toggle " data-toggle="dropdown"><a class="btn btn-danger">create account </a><i class="fa fa-angle-down"></i></span>
+								
+								<div class="row" style="padding-top:2.5%">
+									<section class="col col-3">
+										<label class="input"> <i class="icon-prepend fa fa-envelope-o"></i>
+											<input type="email" name="email" placeholder="E-mail">
+										</label>
+									</section>
+									<section class="col col-3">
+										<label class="input"> <i class="icon-prepend fa fa-phone"></i>
+											<input type="tel" name="phone" placeholder="Phone" data-mask="(999) 999-9999">
+										</label>
+									</section>
+									<section class="col col-2">
+										<button type="submit" class="btn btn-primary btn-sm">
+									LOG IN
+								</button>
+							</section>
+								<section class="col col-2">
+									<div class="project-context">
+
+				<span class="project-selector dropdown-toggle " data-toggle="dropdown" style="padding-top:2.5%"><a class="btn btn-primary btn-lg"><i class="fa fa-user-plus">&nbsp;Sign in</i></a></span>
 				<!-- Suggestion: populate this list with fetch and push technique -->
 				<ul class="dropdown-menu">
-				<li><a>As Doctor</a></li>
-				<li><a>As Patient</a></li>
-				<li><a>As Medicine Vendor</a></li>
+				<li><a href="reg_doctor">As Doctor</a></li>
+				<li><a href="reg_patient">As Patient</a></li>
+				<li><a href="reg_medpro">As Medicine Vendor</a></li>
 
 
 
@@ -95,7 +101,15 @@
 				<!-- end dropdown-menu-->
 
 			</div>
-			</div>
+								</section>
+								</div>
+								
+
+								
+						</form>
+
+					</div>
+		
 			
 
 		</header>

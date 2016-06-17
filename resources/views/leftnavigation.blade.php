@@ -9,7 +9,6 @@
 						<span>
 							User Name
 						</span>
-						<i class="fa fa-angle-down"></i>
 					</a> 
 					
 				</span>

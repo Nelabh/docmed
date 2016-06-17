@@ -13,7 +13,7 @@ class Doctor extends Model
      */
     protected $fillable = [
          'email', 'doc_name','mobile','gender','age','speciality',
-         'qualification','hospital_affiliation','year_of_exp','mic','curent_position','address',
+         'qualification','hospital_affiliation','year_of_exp','mci','curent_position','address',
          'city','pincode','state','country','verified','upload_photograph'
     ];
 

@@ -47,7 +47,7 @@
 		* 'fixed-page-footer' - Fixes footer
 		* 'container'         - boxed layout mode (non-responsive: will not work with fixed-navigation & fixed-ribbon)
 	-->
-	<body class="fixed-header fixed-navigation smart-style-3">
+	<body class="fixed-header fixed-navigation smart-style-6">
 
 		<!--  TOP NAVIGATION HEADER -->
 		@include('topnavigation')

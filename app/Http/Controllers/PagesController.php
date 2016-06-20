@@ -14,10 +14,22 @@ use App\Patient;
 use App\MedVend;
 use App\User;
 use App\Speciality;
+use Auth;
+use View;
 
 class PagesController extends BaseController
 {
 	use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
+	
+	public function home(){
+		if(Auth::check()){
+			return Redirect::route('dashboard');
+		}
+		else{
+			return View::make('home');
+		}
+	}
+
 	public function log(){
 		$data = array('email'=>Input::get('email'),'password'=>Input::get('password'),'privilege'=>Input::get('privilege'));
 		$rules=array(
@@ -154,7 +166,7 @@ class PagesController extends BaseController
 		}
 	}
 
-public function signup_doctor($data){ 
+public function signup_medvend($data){ 
 		$user = new User;
 		$user->email = $data['email'];
 		$user->level = 2;

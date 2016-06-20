@@ -18,7 +18,7 @@ use App\Speciality;
 use Auth;
 use Hash;
 use View;
-
+use Session;
 class PagesController extends BaseController
 {
 	use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
@@ -31,7 +31,13 @@ class PagesController extends BaseController
 			return View::make('home');
 		}
 	}
-
+	public function logout(){
+		if(Auth::check()){
+			Auth::logout();
+			Session::forget('email');
+		}
+		return Redirect::route('home');
+	}
 	public function log(){
 		$data = array('email'=>Input::get('email'),'password'=>Input::get('password'),'privilege'=>Input::get('privilege'));
 		$rules=array(
@@ -42,7 +48,7 @@ class PagesController extends BaseController
 		$validator = Validator::make($data, $rules);
 		if($validator->fails()){
 
-   		return Redirect::back()->withErrors($validator->errors())->withInput();
+			return Redirect::back()->withErrors($validator->errors())->withInput();
 		}
 		else {
 			if(Auth::attempt($data)){
@@ -73,13 +79,6 @@ class PagesController extends BaseController
 			break;
 		}
 	}
-	public function logout(){
-		if(Auth::check()){
-			Auth::guard('seller')->logout();
-			Session::forget('seller_email');
-		}
-		return Redirect::to('store/login');
-	}
 
 	public function signupform_doctor(){
 		if(Auth::check()){
@@ -103,17 +102,17 @@ class PagesController extends BaseController
 		if($validator->fails()){
 
    		//return json_encode($validator->errors());
-        return Redirect::back()->withErrors($validator->errors())->withInput();
+			return Redirect::back()->withErrors($validator->errors())->withInput();
 		}
 		else {
 			switch ($data['privilege']) {
 
 				
 				case '1':
-			 	return self::signup_doctor($data);
+				return self::signup_doctor($data);
 				break;
 				case '2':
-				 return self::signup_patient($data);
+				return self::signup_patient($data);
 				break;
 				case '3':
 				return self::signup_medvend($data);
@@ -151,7 +150,7 @@ class PagesController extends BaseController
 	public function signup_doctor($data){ 
 		$user = new User;
 		$user->email = $data['email'];
-		$user->level = 2;
+		$user->level = 1;
 		$user->password = Hash::make($data['password']);
 		$user->save();
 		$doctor = new Doctor;
@@ -172,10 +171,10 @@ class PagesController extends BaseController
 		}
 	}
 
-public function signup_medvend($data){ 
+	public function signup_medvend($data){ 
 		$user = new User;
 		$user->email = $data['email'];
-		$user->level = 2;
+		$user->level = 3;
 		$user->password = Hash::make($data['password']);
 		$user->save();
 		$medvend = new MedVend;
@@ -183,7 +182,6 @@ public function signup_medvend($data){
 		$medvend->email = $data['email'];
 		$medvend->gender = $data['gender'];
 		$medvend->mobile = $data['mobile'];
-		$medvend->age = $data['age'];
 		$medvend->city = $data['city'];
 		$medvend->mci = $data['mci'];
 		$medvend->speciality = $data['speciality'];

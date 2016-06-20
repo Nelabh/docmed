@@ -43,6 +43,22 @@
 					<a href="{{URL::route('history')}}" title="History"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">History</span></a>
 				</li>
 				@endif
+				<li class="top-menu-invisible">
+						<a href="#"><i class="fa fa-lg fa-fw fa-cube"></i> <span class="menu-item-parent">My Profile</span></a>
+						
+					</li>
+					<li>
+						<a href="#"><i class="fa fa-lg fa-fw fa-inbox"></i> <span class="menu-item-parent">History</span> </a>
+					</li>
+					<li>
+						<a href="#"><i class="fa fa-lg fa-fw fa-bar-chart-o"></i> <span class="menu-item-parent">Health Records</span></a>
+						
+					</li>
+					<li>
+						<a href="#"><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">My Bookings</span></a>
+						
+					</li>
+					
 <!-- 					<li class="top-menu-invisible">
 						<a href="#"><i class="fa fa-lg fa-fw fa-cube txt-color-blue"></i> <span class="menu-item-parent">SmartAdmin Intel</span></a>
 						<ul>

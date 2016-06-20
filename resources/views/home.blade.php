@@ -64,17 +64,9 @@
 
 					<div class="project-context">
 
-				<span class="project-selector dropdown-toggle " data-toggle="dropdown"><a class="btn btn-danger">Login </a><i class="fa fa-angle-down"></i></span>
+				<span class="project-selector dropdown-toggle " data-toggle="dropdown"><a class="btn btn-danger" data-toggle="modal" data-target="#myModal">Login </a><i class="fa fa-angle-down"></i></span>
 				<!-- Suggestion: populate this list with fetch and push technique -->
-				<ul class="dropdown-menu">
-				<li><a data-toggle="modal" data-target="#myModal" >As Doctor</a></li>
-				<li><a>As Patient</a></li>
-				<li><a>As Medicine Vendor</a></li>
-
-
-
 				
-				</ul>
 				<!-- end dropdown-menu-->
 
 			</div>
@@ -138,83 +130,104 @@
 						</div>
 
 					</div>
-					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-									&times;
+	
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title">
+					<img src="img/logo.png" width="150" alt="SmartAdmin">
+				</h4>
+			</div>
+			<div class="modal-body no-padding">
+
+				<form id="login-form" class="smart-form">
+
+							<fieldset>
+								<section>
+									<div class="row">
+										<label class="label col col-2">Username</label>
+										<div class="col col-10">
+											<label class="input"> <i class="icon-append fa fa-user"></i>
+												<input type="email" name="email">
+											</label>
+										</div>
+									</div>
+								</section>
+
+								<section>
+									<div class="row">
+										<label class="label col col-2">Password</label>
+										<div class="col col-10">
+											<label class="input"> <i class="icon-append fa fa-lock"></i>
+												<input type="password" name="password">
+											</label>
+											<div class="note">
+												<a href="javascript:void(0)">Forgot password?</a>
+											</div>
+										</div>
+									</div>
+								</section>
+
+
+								<div class="form-group">
+													<label class="col-md-2 control-label">You want to login as:</label>
+													<div class=" col-md-10 inline-group">
+														<label class="radio radio-inline">
+															
+															<input type="radio" class="radiobox" name="style-0a">
+															<span>Doctor</span> 
+															
+														</label>
+														<label class="radio radio-inline">
+															<input type="radio" class="radiobox" name="style-0a">
+															<span>Patient</span>  
+														</label>
+														<label class="radio radio-inline">
+															<input type="radio" class="radiobox" name="style-0a">
+															<span>Medicine Provider</span> 
+														</label>
+													</div>
+												</div>
+								
+
+
+
+
+
+								<section>
+									<div class="row">
+										<div class="col col-2"></div>
+										<div class="col col-10">
+											<label class="checkbox">
+												<input type="checkbox" name="remember" checked="">
+												<i></i>Keep me logged in</label>
+										</div>
+									</div>
+								</section>
+							</fieldset>
+							
+							<footer>
+								<button type="submit" class="btn btn-primary">
+									Sign in
 								</button>
-								<h4 class="modal-title" id="myModalLabel">Article Post</h4>
-							</div>
-							<div class="modal-body">
-				
-								<div class="row">
-									<div class="col-md-12">
-										<div class="form-group">
-											<input type="text" class="form-control" placeholder="Title" required />
-										</div>
-										<div class="form-group">
-											<textarea class="form-control" placeholder="Content" rows="5" required></textarea>
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-md-6">
-										<div class="form-group">
-											<label for="category"> Category</label>
-											<select class="form-control" id="category">
-												<option>Articles</option>
-												<option>Tutorials</option>
-												<option>Freebies</option>
-											</select>
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<label for="tags"> Tags</label>
-											<input type="text" class="form-control" id="tags" placeholder="Tags" />
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-md-12">
-										<div class="well well-sm well-primary">
-											<form class="form form-inline " role="form">
-												<div class="form-group">
-													<input type="text" class="form-control" value="" placeholder="Date" required />
-												</div>
-												<div class="form-group">
-													<select class="form-control">
-														<option>Draft</option>
-														<option>Published</option>
-													</select>
-												</div>
-												<div class="form-group">
-													<button type="submit" class="btn btn-success btn-sm">
-														<span class="glyphicon glyphicon-floppy-disk"></span> Save
-													</button>
-													<button type="button" class="btn btn-default btn-sm">
-														<span class="glyphicon glyphicon-eye-open"></span> Preview
-													</button>
-												</div>
-											</form>
-										</div>
-									</div>
-								</div>
-				
-							</div>
-							<div class="modal-footer">
 								<button type="button" class="btn btn-default" data-dismiss="modal">
 									Cancel
 								</button>
-								<button type="button" class="btn btn-primary">
-									Post Article
-								</button>
-							</div>
-						</div><!-- /.modal-content -->
-					</div><!-- /.modal-dialog -->
-				</div><!-- /.modal -->
+
+							</footer>
+						</form>						
+						
+
+			</div>
+
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 		<!-- 			<div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
 						<div class="well no-padding">
 							<form action="index.html" id="login-form" class="smart-form client-form">

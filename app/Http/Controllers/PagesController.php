@@ -13,10 +13,12 @@ use App\Doctor;
 use App\Patient;
 use App\MedVend;
 use App\User;
+use Redirect;
 use App\Speciality;
 use Auth;
+use Hash;
 use View;
-
+use Session;
 class PagesController extends BaseController
 {
 	use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
@@ -29,7 +31,13 @@ class PagesController extends BaseController
 			return View::make('home');
 		}
 	}
-
+	public function logout(){
+		if(Auth::check()){
+			Auth::logout();
+			Session::forget('email');
+		}
+		return Redirect::route('home');
+	}
 	public function log(){
 		$data = array('email'=>Input::get('email'),'password'=>Input::get('password'),'privilege'=>Input::get('privilege'));
 		$rules=array(
@@ -40,7 +48,7 @@ class PagesController extends BaseController
 		$validator = Validator::make($data, $rules);
 		if($validator->fails()){
 
-   		return Redirect::back()->withErrors($validator->errors())->withInput();
+			return Redirect::back()->withErrors($validator->errors())->withInput();
 		}
 		else {
 			if(Auth::attempt($data)){
@@ -71,12 +79,15 @@ class PagesController extends BaseController
 			break;
 		}
 	}
-	public function logout(){
+
+	public function signupform_doctor(){
 		if(Auth::check()){
-			Auth::guard('seller')->logout();
-			Session::forget('seller_email');
+			return Redirect::route('dashboard');
 		}
-		return Redirect::to('store/login');
+		else{
+			$speciality = Speciality::All();
+			return View::make('signup_doc',compact('speciality'));
+		}
 	}
 	public function verify(){
 		$data = Input::all(); 
@@ -90,33 +101,28 @@ class PagesController extends BaseController
 		$validator = Validator::make($data, $rules);
 		if($validator->fails()){
 
-   		return json_encode($validator->errors());
-        return Redirect::back()->withErrors($validator->errors())->withInput();
+   		//return json_encode($validator->errors());
+			return Redirect::back()->withErrors($validator->errors())->withInput();
 		}
 		else {
 			switch ($data['privilege']) {
 
 				
 				case '1':
-				self::signup_doctor($data);
+				return self::signup_doctor($data);
 				break;
 				case '2':
-				self::signup_patient($data);
+				return self::signup_patient($data);
 				break;
 				case '3':
-				self::signup_medvend($data);
-
+				return self::signup_medvend($data);
 				break;
-
 				default:
-
 				break;
-
 			}
 
 		}
 	}
-
 	public function signup_patient($data){ 
 		$user = new User;
 		$user->email = $data['email'];
@@ -144,7 +150,7 @@ class PagesController extends BaseController
 	public function signup_doctor($data){ 
 		$user = new User;
 		$user->email = $data['email'];
-		$user->level = 2;
+		$user->level = 1;
 		$user->password = Hash::make($data['password']);
 		$user->save();
 		$doctor = new Doctor;
@@ -152,24 +158,23 @@ class PagesController extends BaseController
 		$doctor->email = $data['email'];
 		$doctor->gender = $data['gender'];
 		$doctor->mobile = $data['mobile'];
-		$doctor->age = $data['age'];
 		$doctor->city = $data['city'];
 		$doctor->mci = $data['mci'];
-		$doctor->speciality = $data['speciality'];
+		$doctor->speciality = Speciality::where('id',$data['speciality'])->first()->id;
 		$doctor->save();
 		if(Auth::login($user)){
 			Session::put('email',$data['email']);
-			return 1;
+			return Redirect::route('dashboard');
 		}
 		else{
-			return "Registration Failed! Please Try Again...";
+			return Redirect::route('home');
 		}
 	}
 
-public function signup_medvend($data){ 
+	public function signup_medvend($data){ 
 		$user = new User;
 		$user->email = $data['email'];
-		$user->level = 2;
+		$user->level = 3;
 		$user->password = Hash::make($data['password']);
 		$user->save();
 		$medvend = new MedVend;
@@ -177,7 +182,6 @@ public function signup_medvend($data){
 		$medvend->email = $data['email'];
 		$medvend->gender = $data['gender'];
 		$medvend->mobile = $data['mobile'];
-		$medvend->age = $data['age'];
 		$medvend->city = $data['city'];
 		$medvend->mci = $data['mci'];
 		$medvend->speciality = $data['speciality'];

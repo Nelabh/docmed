@@ -64,7 +64,7 @@
 
 					<div class="project-context">
 
-				<span class="project-selector dropdown-toggle " data-toggle="dropdown"><a class="btn btn-danger" data-toggle="modal" data-target="#myModal">Login </a><i class="fa fa-angle-down"></i></span>
+				<span class="project-selector dropdown-toggle " data-toggle="dropdown"><a class="btn btn-danger" data-toggle="modal" data-target="#myModal">Login </a></span>
 				<!-- Suggestion: populate this list with fetch and push technique -->
 				
 				<!-- end dropdown-menu-->
@@ -179,16 +179,16 @@
 													<div class=" col-md-10 inline-group">
 														<label class="radio radio-inline">
 															
-															<input type="radio" class="radiobox" name="style-0a">
+															<input type="radio"  class="radiobox" name="level">
 															<span>Doctor</span> 
 															
 														</label>
 														<label class="radio radio-inline">
-															<input type="radio" class="radiobox" name="style-0a">
+															<input type="radio" class="radiobox" name="level">
 															<span>Patient</span>  
 														</label>
 														<label class="radio radio-inline">
-															<input type="radio" class="radiobox" name="style-0a">
+															<input type="radio" class="radiobox" name="level">
 															<span>Medicine Provider</span> 
 														</label>
 													</div>
@@ -336,7 +336,10 @@
 							required : true,
 							minlength : 3,
 							maxlength : 20
-						}
+						},
+						level : {
+							required : true,
+								}
 					},
 					// Messages for form validation
 					messages : {
@@ -346,6 +349,9 @@
 						},
 						password : {
 							required : 'Please enter your password'
+						},
+						level : {
+							required : 'Please select your level'
 						}
 					},
 					// Do not change code below

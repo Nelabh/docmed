@@ -76,9 +76,9 @@
 				<span class="project-selector dropdown-toggle " data-toggle="dropdown"><a class="btn btn-danger">create account </a><i class="fa fa-angle-down"></i></span>
 				<!-- Suggestion: populate this list with fetch and push technique -->
 				<ul class="dropdown-menu">
-				<li><a>As Doctor</a></li>
-				<li><a>As Patient</a></li>
-				<li><a>As Medicine Vendor</a></li>
+				<li><a href="{{URL::route('signupform_doctor')}}">As Doctor</a></li>
+				<li><a href="{{URL::route('signupform_patient')}}">As Patient</a></li>
+				<li><a href="{{URL::route('signupform_medvend')}}">As Medicine Vendor</a></li>
 
 
 
@@ -99,7 +99,7 @@
 
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 col-md-7 col-lg-8 hidden-xs hidden-sm">
-						<h1 class="txt-color-red login-header-big">SmartAdmin</h1>
+						<h1 class="txt-color-red login-header-big">DocMed</h1>
 						<div class="hero">
 
 							<div class="pull-left login-desc-box-l">

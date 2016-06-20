@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 <html lang="en-us" id="extr-page">
-<head>
-	<meta charset="utf-8">
-	<title> SmartAdmin</title>
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<head>
+		<meta charset="utf-8">
+		<title> SmartAdmin</title>
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		
+		<!-- #CSS Links -->
+		<!-- Basic Styles -->
+		<link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" media="screen" href="css/font-awesome.min.css">
 
-	<!-- #CSS Links -->
-	<!-- Basic Styles -->
-	<link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" media="screen" href="css/font-awesome.min.css">
+		<!-- SmartAdmin Styles : Caution! DO NOT change the order -->
+		<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-production-plugins.min.css">
+		<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-production.min.css">
+		<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-skins.min.css">
 
-	<!-- SmartAdmin Styles : Caution! DO NOT change the order -->
-	<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-production-plugins.min.css">
-	<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-production.min.css">
-	<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-skins.min.css">
-
-	<!-- SmartAdmin RTL Support -->
-	<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-rtl.min.css"> 
+		<!-- SmartAdmin RTL Support -->
+		<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-rtl.min.css"> 
 
 		<!-- We recommend you use "your_style.css" to override SmartAdmin
 		     specific styles this will also ensure you retrain your customization with each SmartAdmin update.
-		     <link rel="stylesheet" type="text/css" media="screen" href="css/your_style.css"> -->
+		<link rel="stylesheet" type="text/css" media="screen" href="css/your_style.css"> -->
 
-		     <!-- Demo purpose only: goes with demo.js, you can delete this css when designing your own WebApp -->
-		     <link rel="stylesheet" type="text/css" media="screen" href="css/demo.min.css">
+		<!-- Demo purpose only: goes with demo.js, you can delete this css when designing your own WebApp -->
+		<link rel="stylesheet" type="text/css" media="screen" href="css/demo.min.css">
 
-		     <!-- #FAVICONS -->
-		     <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
-		     <link rel="icon" href="img/favicon/favicon.ico" type="image/x-icon">
+		<!-- #FAVICONS -->
+		<link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="img/favicon/favicon.ico" type="image/x-icon">
 
-		     <!-- #GOOGLE FONT -->
-		     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
+		<!-- #GOOGLE FONT -->
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
 
-		     <!-- #APP SCREEN / ICONS -->
+		<!-- #APP SCREEN / ICONS -->
 		<!-- Specifying a Webpage Icon for Web Clip 
-		Ref: https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html -->
+			 Ref: https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html -->
 		<link rel="apple-touch-icon" href="img/splash/sptouch-icon-iphone.png">
 		<link rel="apple-touch-icon" sizes="76x76" href="img/splash/touch-icon-ipad.png">
 		<link rel="apple-touch-icon" sizes="120x120" href="img/splash/touch-icon-iphone-retina.png">
@@ -60,52 +60,42 @@
 			<div id="logo-group">
 				<span id="logo"> <img src="img/logo.png" alt="SmartAdmin"> </span>
 			</div>
+			<div style="margin-left:75% !important">
 
+					<div class="project-context">
 
-			
-			<div class="widget-body no-padding">
-
-				<form id="checkout-form" class="smart-form" novalidate="novalidate">
-
-
-					<div class="row" style="padding-top:2.5%">
-						<section class="col col-3">
-							<label class="input"> <i class="icon-prepend fa fa-envelope-o"></i>
-								<input type="email" name="email" placeholder="E-mail">
-							</label>
-						</section>
-						<section class="col col-3">
-							<label class="input"> <i class="icon-prepend fa fa-lock"></i>
-								<input type="password" name="password" placeholder="***********" >
-							</label>
-						</section>
-						<section class="col col-2">
-							<button type="submit" class="btn btn-primary btn-sm">
-								LOG IN
-							</button>
-						</section>
-						<section class="col col-2">
-							<div class="project-context">
-
-								<span class="project-selector dropdown-toggle " data-toggle="dropdown" style="padding-top:2.5%"><a class="btn btn-primary btn-lg"><i class="fa fa-user-plus">&nbsp;Sign in</i></a></span>
-								<!-- Suggestion: populate this list with fetch and push technique -->
-								<ul class="dropdown-menu">
-									<li><a href="reg_doctor.html">As Doctor</a></li>
-									<li><a href="reg_patient.html">As Patient</a></li>
-									<li><a href="reg_medpro.html">As Medicine Vendor</a></li>			
-								</ul>
-								<!-- end dropdown-menu-->
-
-							</div>
-						</section>
-					</div>
+				<span class="project-selector dropdown-toggle " data-toggle="dropdown"><a class="btn btn-danger">Login </a><i class="fa fa-angle-down"></i></span>
+				<!-- Suggestion: populate this list with fetch and push technique -->
+				<ul class="dropdown-menu">
+				<li><a data-toggle="modal" data-target="#myModal" >As Doctor</a></li>
+				<li><a>As Patient</a></li>
+				<li><a>As Medicine Vendor</a></li>
 
 
 
-				</form>
+				
+				</ul>
+				<!-- end dropdown-menu-->
 
 			</div>
+			
+					<div class="project-context">
 
+				<span class="project-selector dropdown-toggle " data-toggle="dropdown"><a class="btn btn-danger">create account </a><i class="fa fa-angle-down"></i></span>
+				<!-- Suggestion: populate this list with fetch and push technique -->
+				<ul class="dropdown-menu">
+				<li><a>As Doctor</a></li>
+				<li><a>As Patient</a></li>
+				<li><a>As Medicine Vendor</a></li>
+
+
+
+				
+				</ul>
+				<!-- end dropdown-menu-->
+
+			</div>
+			</div>
 			
 
 		</header>
@@ -132,24 +122,170 @@
 
 						</div>
 
-						
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+								<h5 class="about-heading">About SmartAdmin - Are you up to date?</h5>
+								<p>
+									Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.
+								</p>
+							</div>
+							<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+								<h5 class="about-heading">Not just your average template!</h5>
+								<p>
+									Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi voluptatem accusantium!
+								</p>
+							</div>
+						</div>
+
 					</div>
+					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+									&times;
+								</button>
+								<h4 class="modal-title" id="myModalLabel">Article Post</h4>
+							</div>
+							<div class="modal-body">
+				
+								<div class="row">
+									<div class="col-md-12">
+										<div class="form-group">
+											<input type="text" class="form-control" placeholder="Title" required />
+										</div>
+										<div class="form-group">
+											<textarea class="form-control" placeholder="Content" rows="5" required></textarea>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label for="category"> Category</label>
+											<select class="form-control" id="category">
+												<option>Articles</option>
+												<option>Tutorials</option>
+												<option>Freebies</option>
+											</select>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label for="tags"> Tags</label>
+											<input type="text" class="form-control" id="tags" placeholder="Tags" />
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<div class="well well-sm well-primary">
+											<form class="form form-inline " role="form">
+												<div class="form-group">
+													<input type="text" class="form-control" value="" placeholder="Date" required />
+												</div>
+												<div class="form-group">
+													<select class="form-control">
+														<option>Draft</option>
+														<option>Published</option>
+													</select>
+												</div>
+												<div class="form-group">
+													<button type="submit" class="btn btn-success btn-sm">
+														<span class="glyphicon glyphicon-floppy-disk"></span> Save
+													</button>
+													<button type="button" class="btn btn-default btn-sm">
+														<span class="glyphicon glyphicon-eye-open"></span> Preview
+													</button>
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
+				
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">
+									Cancel
+								</button>
+								<button type="button" class="btn btn-primary">
+									Post Article
+								</button>
+							</div>
+						</div><!-- /.modal-content -->
+					</div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->
+		<!-- 			<div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
+						<div class="well no-padding">
+							<form action="index.html" id="login-form" class="smart-form client-form">
+								<header>
+									Sign In
+								</header>
+								<fieldset>
+									
+									<section>
+										<label class="label">E-mail</label>
+										<label class="input"> <i class="icon-append fa fa-user"></i>
+											<input type="email" name="email">
+											<b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i> Please enter email address/username</b></label>
+									</section>
+									<section>
+										<label class="label">Password</label>
+										<label class="input"> <i class="icon-append fa fa-lock"></i>
+											<input type="password" name="password">
+											<b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i> Enter your password</b> </label>
+										<div class="note">
+											<a href="forgotpassword.html">Forgot password?</a>
+										</div>
+									</section>
+									<section>
+										<label class="checkbox">
+											<input type="checkbox" name="remember" checked="">
+											<i></i>Stay signed in</label>
+									</section>
+								</fieldset>
+								<footer>
+									<button type="submit" class="btn btn-primary">
+										Sign in
+									</button>
+								</footer>
+							</form>
+						</div>
+						
+						<h5 class="text-center"> - Or sign in using -</h5>
+															
+							<ul class="list-inline text-center">
+								<li>
+									<a href="javascript:void(0);" class="btn btn-primary btn-circle"><i class="fa fa-facebook"></i></a>
+								</li>
+								<li>
+									<a href="javascript:void(0);" class="btn btn-info btn-circle"><i class="fa fa-twitter"></i></a>
+								</li>
+								<li>
+									<a href="javascript:void(0);" class="btn btn-warning btn-circle"><i class="fa fa-linkedin"></i></a>
+								</li>
+							</ul>
+						
+					</div> -->
+				</div>
+			</div>
 
+		</div>
 
-					<!--================================================== -->	
+		<!--================================================== -->	
 
-					<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
-					<script src="js/plugin/pace/pace.min.js"></script>
+		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
+		<script src="js/plugin/pace/pace.min.js"></script>
 
-					<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
-					<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-					<script> if (!window.jQuery) { document.write('<script src="js/libs/jquery-2.1.1.min.js"><\/script>');} </script>
+	    <!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
+	    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script> if (!window.jQuery) { document.write('<script src="js/libs/jquery-2.1.1.min.js"><\/script>');} </script>
 
-					<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-					<script> if (!window.jQuery.ui) { document.write('<script src="js/libs/jquery-ui-1.10.3.min.js"><\/script>');} </script>
+	    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+		<script> if (!window.jQuery.ui) { document.write('<script src="js/libs/jquery-ui-1.10.3.min.js"><\/script>');} </script>
 
-					<!-- IMPORTANT: APP CONFIG -->
-					<script src="js/app.config.js"></script>
+		<!-- IMPORTANT: APP CONFIG -->
+		<script src="js/app.config.js"></script>
 
 		<!-- JS TOUCH : include this plugin for mobile drag / drop touch events 		
 		<script src="js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script> -->
@@ -167,14 +303,13 @@
 			
 			<h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
 			
-			<![endif]-->
+		<![endif]-->
 
-			<!-- MAIN APP JS FILE -->
-			<script src="js/app.min.js"></script>
+		<!-- MAIN APP JS FILE -->
+		<script src="js/app.min.js"></script>
 
-			<script type="text/javascript">
+		<script type="text/javascript">
 			runAllForms();
-
 			$(function() {
 				// Validation
 				$("#login-form").validate({
@@ -190,7 +325,6 @@
 							maxlength : 20
 						}
 					},
-
 					// Messages for form validation
 					messages : {
 						email : {
@@ -201,13 +335,13 @@
 							required : 'Please enter your password'
 						}
 					},
-
 					// Do not change code below
 					errorPlacement : function(error, element) {
 						error.insertAfter(element.parent());
 					}
 				});
 			});
-			</script>
-		</body>
-		</html>
+		</script>
+
+	</body>
+</html>

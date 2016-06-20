@@ -2,54 +2,54 @@
 <html lang="en-us" id="extr-page">
 <head>
 	<meta charset="utf-8">
-	<title> SmartAdmin</title>
+	<title> DocMed</title>
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 	<!-- #CSS Links -->
 	<!-- Basic Styles -->
-	<link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" media="screen" href="css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="{{URL::asset('css/bootstrap.min.css')}}">
+	<link rel="stylesheet" type="text/css" media="screen" href="{{URL::asset('css/font-awesome.min.css')}}">
 
 	<!-- SmartAdmin Styles : Caution! DO NOT change the order -->
-	<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-production-plugins.min.css">
-	<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-production.min.css">
-	<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-skins.min.css">
+	<link rel="stylesheet" type="text/css" media="screen" href = "{{URL::asset('css/smartadmin-production-plugins.min.css')}}">
+	<link rel="stylesheet" type="text/css" media="screen" href = "{{URL::asset('css/smartadmin-production.min.css')}}">
+	<link rel="stylesheet" type="text/css" media="screen" href = "{{URL::asset('css/smartadmin-skins.min.css')}}">
 
 	<!-- SmartAdmin RTL Support -->
-	<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-rtl.min.css"> 
+	<link rel="stylesheet" type="text/css" media="screen" href = "{{URL::asset('css/smartadmin-rtl.min.css')}}"> 
 
 		<!-- We recommend you use "your_style.css" to override SmartAdmin
 		     specific styles this will also ensure you retrain your customization with each SmartAdmin update.
-		     <link rel="stylesheet" type="text/css" media="screen" href="css/your_style.css"> -->
+		     <link rel="stylesheet" type="text/css" media="screen" href = "css/your_style.css"> -->
 
 		     <!-- Demo purpose only: goes with demo.js, you can delete this css when designing your own WebApp -->
-		     <link rel="stylesheet" type="text/css" media="screen" href="css/demo.min.css">
+		     <link rel="stylesheet" type="text/css" media="screen" href = "{{URL::asset('css/demo.min.css')}}">
 
 		     <!-- #FAVICONS -->
-		     <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
-		     <link rel="icon" href="img/favicon/favicon.ico" type="image/x-icon">
+		     <link rel="shortcut icon" href = "{{URL::asset('img/favicon/favicon.ico')}}" type="image/x-icon">
+		     <link rel="icon" href = "{{URL::asset('img/favicon/favicon.ico')}}" type="image/x-icon">
 
 		     <!-- #GOOGLE FONT -->
-		     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
+		     <link rel="stylesheet" href = "http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
 
 		     <!-- #APP SCREEN / ICONS -->
 		<!-- Specifying a Webpage Icon for Web Clip 
 		Ref: https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html -->
-		<link rel="apple-touch-icon" href="img/splash/sptouch-icon-iphone.png">
-		<link rel="apple-touch-icon" sizes="76x76" href="img/splash/touch-icon-ipad.png">
-		<link rel="apple-touch-icon" sizes="120x120" href="img/splash/touch-icon-iphone-retina.png">
-		<link rel="apple-touch-icon" sizes="152x152" href="img/splash/touch-icon-ipad-retina.png">
+		<link rel="apple-touch-icon" href = "{{URL::asset('img/splash/sptouch-icon-iphone.png')}}">
+		<link rel="apple-touch-icon" sizes="76x76" href = "{{URL::asset('img/splash/touch-icon-ipad.png')}}">
+		<link rel="apple-touch-icon" sizes="120x120" href = "{{URL::asset('img/splash/touch-icon-iphone-retina.png')}}">
+		<link rel="apple-touch-icon" sizes="152x152" href = "{{URL::asset('img/splash/touch-icon-ipad-retina.png')}}">
 		
 		<!-- iOS web-app metas : hides Safari UI Components and Changes Status Bar Appearance -->
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		
 		<!-- Startup image for web apps -->
-		<link rel="apple-touch-startup-image" href="img/splash/ipad-landscape.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)">
-		<link rel="apple-touch-startup-image" href="img/splash/ipad-portrait.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)">
-		<link rel="apple-touch-startup-image" href="img/splash/iphone.png" media="screen and (max-device-width: 320px)">
+		<link rel="apple-touch-startup-image" href = "{{URL::asset('img/splash/ipad-landscape.png')}}" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)">
+		<link rel="apple-touch-startup-image" href = "{{URL::asset('img/splash/ipad-portrait.png')}}" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)">
+		<link rel="apple-touch-startup-image" href = "{{URL::asset('img/splash/iphone.png')}}" media="screen and (max-device-width: 320px)">
 
 	</head>
 	
@@ -59,12 +59,12 @@
 			<!--<span id="logo"></span>-->
 
 			<div id="logo-group">
-				<span id="logo"> <img src="img/logo.png" alt="SmartAdmin"> </span>
+				<span id="logo"> <img src="{{URL::asset('img/logo.png')}}" alt="SmartAdmin"> </span>
 
 				<!-- END AJAX-DROPDOWN -->
 			</div>
 
-			<span id="extr-page-header-space"> <span class="hidden-mobile hiddex-xs">Already registered?</span> <a href="main.html" class="btn btn-danger">Sign In</a> </span>
+			<span id="extr-page-header-space"> <span class="hidden-mobile hiddex-xs">Already registered?</span> <a href = "{{URL::route('home')}}" class="btn btn-danger">Sign In</a> </span>
 
 		</header>
 
@@ -75,7 +75,7 @@
 
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 hidden-xs hidden-sm">
-						<h1 class="txt-color-red login-header-big">SmartAdmin</h1>
+						<h1 class="txt-color-red login-header-big">DocMed</h1>
 						<div class="hero">
 
 							<div class="pull-left login-desc-box-l">
@@ -86,7 +86,7 @@
 								</div>
 							</div>
 							
-							<img src="img/demo/iphoneview.png" alt="" class="pull-right display-image" style="width:210px">
+							<img src = "{{URL::asset('img/demo/iphoneview.png')}}" alt="" class="pull-right display-image" style="width:210px">
 							
 						</div>
 
@@ -95,7 +95,10 @@
 					<div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
 						<div class="well no-padding">
 
-							<form action="{{URL::route('signup_doc')}}" id="smart-form-register" class="smart-form client-form">
+							<form action="{{URL::route('signup_doctor')}}" id="smart-form-register" method = "post" class="smart-form client-form">
+								{{csrf_field()}}
+
+								<input type="hidden" name="privilege" value = "1">
 								<header>
 									Doctor Registration Details
 								</header>
@@ -112,7 +115,11 @@
 											<input type="email" name="email" required placeholder="Email address">
 										</label>
 									</section>
-
+									<section>
+										<label class="input"> <i class="icon-append fa fa-phone"></i>
+											<input type="tel" name="mobile" id = "mobile" maxlength = "10" placeholder="Mobile" aria-required="true" aria-invalid="false" class="valid">
+										</label>
+									</section>
 									<section>
 										<label class="input"> <i class="icon-append fa fa-lock"></i>
 											<input type="password" name="password" required placeholder="Password" id="password">
@@ -120,7 +127,7 @@
 									</section>
 									<section>
 										<label class="input"> <i class="icon-append fa fa-lock"></i>
-											<input type="password" name="password_confirmation" required placeholder="Confirm Password" id="password">
+											<input type="password" name="password_confirmation" required placeholder="Confirm Password" id="password_confirmation">
 										</label>
 									</section>
 
@@ -133,69 +140,15 @@
 								<fieldset>
 									<section>
 										<label class="textarea"> <i class="icon-append fa fa-graduation-cap"></i>
-											<textarea rows="4" cols="50" required name="qualification" placeholder="Enter your Qualification details">
-											</textarea></label>
+											<textarea rows="3" required="required" name="qualification" placeholder="Enter your Qualification details"></textarea>											</textarea></label>
 										</section>
 
 										<section>
 											<label class="select">
 												<select name="speciality" required>
-													<option value="0" selected="" disabled="">Speciality</option>
-													<option value="1">Addiction psychiatrist</option>
-													<option value="1">Adolescent medicine specialist</option>
-													<option value="2">Allergist (immunologist)</option>
-													<option value="3">Anesthesiologist</option>
-													<option value="4">Cardiac electrophysiologist</option>
-													<option value="5">Cardiologist</option>
-													<option value="6">Cardiovascular surgeon</option>
-													<option value="7">Colon and rectal surgeon</option>
-													<option value="8">Critical care medicine specialist</option>
-													<option value="9">Dermatologist</option>
-													<option value="10">Developmental pediatrician</option>
-													<option value="11">Endocrinologist</option>
-													<option value="12">Family medicine physician</option>
-													<option value="13">Forensic pathologist</option>
-													<option value="14">Geriatric medicine specialist</option>
-													<option value="15">Gynecologist</option>
-													<option value="16">Gynecologic oncologist</option>
-													<option value="17">Hand surgeon</option>
-													<option value="18">Hematologist</option>
-													<option value="19">Hepatologist</option>
-													<option value="20">Hospitalist</option>
-													<option value="21">Hospice and palliative medicine specialist</option>
-													<option value="21">Hyperbaric physician</option>
-													<option value="22">Infectious disease specialist</option>
-													<option value="23">Internist</option>
-													<option value="24">Interventional cardiologist</option>
-													<option value="25">Medical examiner</option>
-													<option value="26">Medical geneticist</option>
-													<option value="27">Neonatologist</option>
-													<option value="28">Nuclear medicine specialist</option>
-													<option value="29">Obstetrician</option>
-													<option value="30">Occupational medicine specialist</option>
-													<option value="31">Oncologist</option>
-													<option value="32">Ophthalmologist</option>
-													<option value="33">Oral surgeon (maxillofacial surgeon)</option>
-													<option value="34">Orthopedic surgeon</option>
-													<option value="35">Otolaryngologist (ear, nose, and throat specialist)</option>
-													<option value="36">Pain management specialist</option>
-													<option value="37">Pathologist</option>
-													<option value="38">Perinatologist</option>
-													<option value="39">Physiatrist</option>
-													<option value="40">Plastic surgeon</option>
-													<option value="41">Psychiatrist</option>
-													<option value="42">Pulmonologist</option>
-													<option value="43">Radiation oncologist</option>
-													<option value="44">Radiologist</option>
-													<option value="45">Reproductive endocrinologist</option>
-													<option value="46">Rheumatologist</option>
-													<option value="47">Sleep disorders specialist</option>
-													<option value="48">Spinal cord injury specialist</option>
-													<option value="49">Sports medicine specialist</option>
-													<option value="50">Surgeon</option>
-													<option value="51">Thoracic surgeon</option>
-													<option value="52">Urologist</option>
-													<option value="53">Vascular surgeon</option>
+													@foreach($speciality as $sp)
+													<option value="{{$sp->id}}">{{$sp->speciality_name}}</option>
+													@endforeach
 												</select> <i></i> </label>
 											</section>
 
@@ -278,7 +231,7 @@
 						<!--================================================== -->	
 
 						<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
-						<script src="js/plugin/pace/pace.min.js"></script>
+						<script src = "{{URL::asset('js/plugin/pace/pace.min.js')}}"></script>
 
 						<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
 						<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -288,19 +241,19 @@
 						<script> if (!window.jQuery.ui) { document.write('<script src="js/libs/jquery-ui-1.10.3.min.js"><\/script>');} </script>
 
 						<!-- IMPORTANT: APP CONFIG -->
-						<script src="js/app.config.js"></script>
+						<script src = "{{URL::asset('js/app.config.js')}}"></script>
 
 		<!-- JS TOUCH : include this plugin for mobile drag / drop touch events 		
 		<script src="js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script> -->
 
 		<!-- BOOTSTRAP JS -->		
-		<script src="js/bootstrap/bootstrap.min.js"></script>
+		<script src = "{{URL::asset('js/bootstrap/bootstrap.min.js')}}"></script>
 
 		<!-- JQUERY VALIDATE -->
-		<script src="js/plugin/jquery-validate/jquery.validate.min.js"></script>
+		<script src = "{{URL::asset('js/plugin/jquery-validate/jquery.validate.min.js')}}"></script>
 		
 		<!-- JQUERY MASKED INPUT -->
-		<script src="js/plugin/masked-input/jquery.maskedinput.min.js"></script>
+		<script src = "{{URL::asset('js/plugin/masked-input/jquery.maskedinput.min.js')}}"></script>
 		
 		<!--[if IE 8]>
 			
@@ -309,7 +262,7 @@
 			<![endif]-->
 
 			<!-- MAIN APP JS FILE -->
-			<script src="js/app.min.js"></script>
+			<script src = "{{URL::asset('js/app.min.js')}}"></script>
 
 			<script type="text/javascript">
 			runAllForms();
@@ -332,7 +285,7 @@
 
 					// Rules for form validation
 					rules : {
-						username : {
+						name : {
 							required : true
 						},
 						email : {
@@ -344,19 +297,28 @@
 							minlength : 3,
 							maxlength : 20
 						},
-						passwordConfirm : {
+						password_confirmation : {
 							required : true,
 							minlength : 3,
 							maxlength : 20,
 							equalTo : '#password'
 						},
-						firstname : {
+						city : {
 							required : true
 						},
-						lastname : {
+						qualification : {
+							required : true
+						},
+						mobile : {
+							required : true
+						},
+						speciality : {
 							required : true
 						},
 						gender : {
+							required : true
+						},
+						mci : {
 							required : true
 						},
 						terms : {
@@ -376,32 +338,36 @@
 						password : {
 							required : 'Please enter your password'
 						},
-						passwordConfirm : {
+						password_confirmation : {
 							required : 'Please enter your password one more time',
 							equalTo : 'Please enter the same password as above'
 						},
-						firstname : {
-							required : 'Please select your first name'
+						name : {
+							required : 'Please enter your name'
 						},
-						lastname : {
-							required : 'Please select your last name'
+
+						mobile : {
+							required : 'Please enter your mobile'
+						},
+						speciality : {
+							required : 'Please select your Speciality'
 						},
 						gender : {
 							required : 'Please select your gender'
+						},
+
+						mci : {
+							required : 'Please enter your MCI number'
+						},
+
+						qualification : {
+							required : 'Please enter your Qualification'
 						},
 						terms : {
 							required : 'You must agree with Terms and Conditions'
 						}
 					},
 
-					// Ajax form submition
-					submitHandler : function(form) {
-						$(form).ajaxSubmit({
-							success : function() {
-								$("#smart-form-register").addClass('submited');
-							}
-						});
-					},
 
 					// Do not change code below
 					errorPlacement : function(error, element) {
@@ -410,6 +376,27 @@
 				});
 
 });
+document.getElementById('mobile').addEventListener('keydown', function(e)
+  {
+        // Allow: backspace, delete, tab, escape, enter and .
+        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+             // Allow: Ctrl+A
+            (e.keyCode == 65 && e.ctrlKey === true) ||
+             // Allow: Ctrl+C
+            (e.keyCode == 67 && e.ctrlKey === true) ||
+             // Allow: Ctrl+X
+            (e.keyCode == 88 && e.ctrlKey === true) ||
+             // Allow: home, end, left, right
+            (e.keyCode >= 35 && e.keyCode <= 39)) {
+                 // let it happen, don't do anything
+                 return;
+        }
+        // Ensure that it is a number and stop the keypress
+        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+            e.preventDefault();
+        }
+    });
+
 </script>
 
 </body>

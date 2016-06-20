@@ -13,8 +13,10 @@ use App\Doctor;
 use App\Patient;
 use App\MedVend;
 use App\User;
+use Redirect;
 use App\Speciality;
 use Auth;
+use Hash;
 use View;
 
 class PagesController extends BaseController
@@ -78,6 +80,16 @@ class PagesController extends BaseController
 		}
 		return Redirect::to('store/login');
 	}
+
+	public function signupform_doctor(){
+		if(Auth::check()){
+			return Redirect::route('dashboard');
+		}
+		else{
+			$speciality = Speciality::All();
+			return View::make('signup_doc',compact('speciality'));
+		}
+	}
 	public function verify(){
 		$data = Input::all(); 
 		$rules=array(
@@ -90,7 +102,7 @@ class PagesController extends BaseController
 		$validator = Validator::make($data, $rules);
 		if($validator->fails()){
 
-   		return json_encode($validator->errors());
+   		//return json_encode($validator->errors());
         return Redirect::back()->withErrors($validator->errors())->withInput();
 		}
 		else {
@@ -98,25 +110,20 @@ class PagesController extends BaseController
 
 				
 				case '1':
-				self::signup_doctor($data);
+			 	return self::signup_doctor($data);
 				break;
 				case '2':
-				self::signup_patient($data);
+				 return self::signup_patient($data);
 				break;
 				case '3':
-				self::signup_medvend($data);
-
+				return self::signup_medvend($data);
 				break;
-
 				default:
-
 				break;
-
 			}
 
 		}
 	}
-
 	public function signup_patient($data){ 
 		$user = new User;
 		$user->email = $data['email'];
@@ -152,17 +159,16 @@ class PagesController extends BaseController
 		$doctor->email = $data['email'];
 		$doctor->gender = $data['gender'];
 		$doctor->mobile = $data['mobile'];
-		$doctor->age = $data['age'];
 		$doctor->city = $data['city'];
 		$doctor->mci = $data['mci'];
-		$doctor->speciality = $data['speciality'];
+		$doctor->speciality = Speciality::where('id',$data['speciality'])->first()->id;
 		$doctor->save();
 		if(Auth::login($user)){
 			Session::put('email',$data['email']);
-			return 1;
+			return Redirect::route('dashboard');
 		}
 		else{
-			return "Registration Failed! Please Try Again...";
+			return Redirect::route('home');
 		}
 	}
 

@@ -7,7 +7,7 @@
 			<a href="javascript:void(0);" id="show-shortcut" data-action="toggleShortcut">
 				<img src="img/avatars/sunny.png" alt="me" class="online" /> 
 				<span>
-					User Name
+					{{Auth::user()->email}}
 				</span>
 			</a> 
 
@@ -23,6 +23,7 @@
 				traditional href="" links. See documentation for details.
 			-->
 			<ul>
+
 				@if(Request::path() == 'dashboard')
 				<li class="active">
 					<a href="{{URL::route('dashboard')}}" title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Dashboard</span></a>			
@@ -35,11 +36,11 @@
 
 				@if(Request::path() == 'history')
 				<li class="active">
-					<a href="{{URL::route('dashboard')}}" title="History"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">History</span></a>			
+					<a href="{{URL::route('history')}}" title="History"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">History</span></a>			
 				</li>
 				@else
 				<li>
-					<a href="{{URL::route('dashboard')}}" title="History"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">History</span></a>
+					<a href="{{URL::route('history')}}" title="History"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">History</span></a>
 				</li>
 				@endif
 <!-- 					<li class="top-menu-invisible">

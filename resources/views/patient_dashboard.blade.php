@@ -56,7 +56,7 @@
 		<!-- Left panel : Navigation area -->
 		<!-- Note: This width of the aside area can be adjusted through LESS variables -->
 		
-		@include('leftnavigation')
+		@include('patient_leftnavigation')
 
 		<!-- END NAVIGATION -->
 

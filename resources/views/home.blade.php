@@ -75,8 +75,8 @@
 							</label>
 						</section>
 						<section class="col col-3">
-							<label class="input"> <i class="icon-prepend fa fa-phone"></i>
-								<input type="tel" name="phone" placeholder="Phone" data-mask="(999) 999-9999">
+							<label class="input"> <i class="icon-prepend fa fa-lock"></i>
+								<input type="password" name="password" placeholder="***********" >
 							</label>
 						</section>
 						<section class="col col-2">
@@ -209,6 +209,5 @@
 				});
 			});
 			</script>
-
 		</body>
 		</html>

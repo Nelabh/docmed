@@ -23,7 +23,7 @@
 				traditional href="" links. See documentation for details.
 			-->
 			<ul>
-				@if(Request::path() == '/')
+				@if(Request::path() == 'dashboard')
 				<li class="active">
 					<a href="{{URL::route('dashboard')}}" title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Dashboard</span></a>			
 				</li>

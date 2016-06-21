@@ -136,8 +136,6 @@
 											<input type="text" name="city" required placeholder="City">
 										</label>
 									</section>
-								</fieldset>
-								<fieldset>
 									<section>
 										<label class="textarea"> <i class="icon-append fa fa-graduation-cap"></i>
 											<textarea rows="3" required="required" name="qualification" placeholder="Enter your Qualification details"></textarea>											</textarea></label>
@@ -152,11 +150,7 @@
 												</select> <i></i> </label>
 											</section>
 
-										</fieldset>
-
-										<fieldset>
-
-
+								
 											<div class="row">
 												<section class="col col-6">
 													<label class="select">

@@ -85,6 +85,7 @@ class PagesController extends BaseController
 			return Redirect::route('dashboard');
 		}
 		else{
+			$speciality = Speciality::All();
 			return View::make('signup_doc',compact('speciality'));
 		}
 	}
@@ -94,8 +95,7 @@ class PagesController extends BaseController
 			return Redirect::route('dashboard');
 		}
 		else{
-			$speciality = Speciality::All();
-			return View::make('signup_pat',compact('speciality'));
+			return View::make('signup_pat');
 		}
 	}
 	public function signupform_medvend(){
@@ -104,7 +104,7 @@ class PagesController extends BaseController
 		}
 		else{
 			$speciality = Speciality::All();
-			return View::make('signup_med',compact('speciality'));
+			return View::make('signup_med');
 		}
 	}
 	public function verify(){

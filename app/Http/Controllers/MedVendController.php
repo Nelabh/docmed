@@ -29,7 +29,7 @@ public function dashboard(){
 			return UserController::dashboard();
 			break;
 			case '3':
-			return View::make('medvend_dashboard');
+			return View::make('vendor_dashboard');
 
 			break;
 		/*	default:

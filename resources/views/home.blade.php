@@ -145,8 +145,8 @@
 			</div>
 			<div class="modal-body no-padding">
 
-				<form id="login-form" class="smart-form">
-
+				<form  method="post" action="{{URL::route('login')}}" id="login-form" class="smart-form">
+											{{csrf_field()}}
 							<fieldset>
 								<section>
 									<div class="row">
@@ -179,16 +179,16 @@
 													<div class=" col-md-10 inline-group">
 														<label class="radio radio-inline">
 															
-															<input type="radio"  class="radiobox" name="level">
+															<input type="radio"  class="radiobox" name="level" value="1">
 															<span>Doctor</span> 
 															
 														</label>
 														<label class="radio radio-inline">
-															<input type="radio" class="radiobox" name="level">
+															<input type="radio" class="radiobox" name="level" value="2">
 															<span>Patient</span>  
 														</label>
 														<label class="radio radio-inline">
-															<input type="radio" class="radiobox" name="level">
+															<input type="radio" class="radiobox" name="level" value="3">
 															<span>Medicine Provider</span> 
 														</label>
 													</div>

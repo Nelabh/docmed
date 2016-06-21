@@ -152,16 +152,17 @@ class PagesController extends BaseController
 		$patient->email = $data['email'];
 		$patient->gender = $data['gender'];
 		$patient->mobile = $data['mobile'];
-		$patient->age = $data['age'];
+		$patient->bloodgroup = $data['bloodgroup'];
 		$patient->city = $data['city'];
 		$patient->save();
-		if(Auth::login($user)){
+			if(Auth::login($user)){
 			Session::put('email',$data['email']);
-			return 1;
+			return Redirect::route('dashboard');
 		}
 		else{
-			return "Registration Failed! Please Try Again...";
+			return Redirect::route('home');
 		}
+
 	}
 
 
@@ -204,13 +205,14 @@ class PagesController extends BaseController
 		$medvend->mci = $data['mci'];
 		$medvend->speciality = $data['speciality'];
 		$medvend->save();
-		if(Auth::login($user)){
+			if(Auth::login($user)){
 			Session::put('email',$data['email']);
-			return 1;
+			return Redirect::route('dashboard');
 		}
 		else{
-			return "Registration Failed! Please Try Again...";
+			return Redirect::route('home');
 		}
+
 	}
 
 }

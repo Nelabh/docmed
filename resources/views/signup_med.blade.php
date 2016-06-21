@@ -95,10 +95,14 @@
 					<div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
 						<div class="well no-padding">
 
-							<form action="php/demo-register.php" id="smart-form-register" class="smart-form client-form">
+							<form action="{{URL::route('signup_medvend')}}" method="post" id="smart-form-register" class="smart-form client-form">
 								<header>
 									Medicine Provider Registration Details
 								</header>
+								{{csrf_field()}}
+
+								<input type="hidden" name="privilege" value = "3">
+								
 
 								<fieldset>
 									<section>
@@ -123,20 +127,23 @@
 											<input type="password" name="password_confirmation" placeholder="Confirm Password" id="password_confirmation">
 										</label>
 									</section>
-
+									<section>
+										<label class="input"> <i class="icon-append fa fa-phone"></i>
+											<input type="tel" name="mobile" id = "mobile" maxlength = "10" placeholder="Mobile" aria-required="true" aria-invalid="false" class="valid">
+										</label>
+									</section>
+									
 									<section>
 										<label class="input"> <i class="icon-append fa fa-location-arrow"></i>
 											<input type="text" name="city" placeholder="City">
 										</label>
 									</section>
-								</fieldset>
-								<fieldset>
-									<section>
+								<section>
 										<label class="textarea"> <i class="icon-append fa fa-graduation-cap"></i>
-											<textarea rows="4" cols="50" name="qualification" placeholder="Enter your Qualification details">
-											</textarea></label>
+											<textarea rows="3" required="required" name="qualification" placeholder="Enter your Qualification details"></textarea>											</textarea></label>
 										</section>
 
+									
 									
 
 										</fieldset>
@@ -299,6 +306,9 @@
 						gender : {
 							required : true
 						},
+						mobile : {
+							required : true
+						},
 						terms : {
 							required : true
 						}
@@ -332,6 +342,9 @@
 						},
 						gender : {
 							required : 'Please select your gender'
+						},
+						mobile : {
+							required : 'Please select your Mobile Number'
 						},
 						terms : {
 							required : 'You must agree with Terms and Conditions'

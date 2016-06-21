@@ -22,5 +22,5 @@ class Patient extends Model
      *
      * @var array
      */
-    protected $table = 'med_providers';
+    protected $table = 'patients';
 }

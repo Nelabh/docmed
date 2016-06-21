@@ -95,7 +95,7 @@
 					<div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
 						<div class="well no-padding">
 
-							<form action="{{URL::route('signup_patient')}}" id="smart-form-register" class="smart-form client-form">
+							<form action="{{URL::route('signup_patient')}}" method="post" id="smart-form-register" class="smart-form client-form">
 								<header>
 									Patient Registration Details
 								</header>

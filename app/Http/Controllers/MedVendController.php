@@ -7,8 +7,8 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesResources;
-use MedWendController;
-use DoctorController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\DoctorController;
 use View;
 use Auth;
 class MedWendController extends BaseController
@@ -19,7 +19,7 @@ public function __construct()
 {
     $this->middleware('auth');
 }
-public function dashboard(){
+public static function dashboard(){
 
 		switch (Auth::user()->level) {
 			case '1':

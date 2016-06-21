@@ -15,12 +15,15 @@ Route::group(['middleware' => ['web']], function () {
 Route::get('/', array('as'=>'home','uses'=>'PagesController@home'));
 Route::get('signup-doctor',array('as'=>'signupform_doctor','uses'=>'PagesController@signupform_doctor'));
 Route::get('signup-patient',array('as'=>'signupform_patient','uses'=>'PagesController@signupform_patient'));	   
-Route::get('signup-vendor',array('as'=>'signupform_medvend','uses'=>'PagesController@signupform_medvend'));	   
+Route::get('signup-vendor',array('as'=>'signupform_medvend','uses'=>'PagesController@signupform_medvend'));
 Route::get('logout',array('as'=>'logout','uses'=>'PagesController@logout'));
+
 
 Route::post('signdoc',array('as'=>'signup_doctor','uses'=>'PagesController@verify'));
 Route::post('signpat',array('as'=>'signup_patient','uses'=>'PagesController@verify'));
 Route::post('signmed',array('as'=>'signup_medvend','uses'=>'PagesController@verify'));
+Route::post('log',array('as'=>'login','uses'=>'PagesController@log'));
+
 });
 
 Route::group(['middleware' => ['auth']], function () {

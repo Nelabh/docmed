@@ -39,11 +39,11 @@ class PagesController extends BaseController
 		return Redirect::route('home');
 	}
 	public function log(){
-		$data = array('email'=>Input::get('email'),'password'=>Input::get('password'),'privilege'=>Input::get('privilege'));
+		$data = array('email'=>Input::get('email'),'password'=>Input::get('password'),'level'=>Input::get('level'));
 		$rules=array(
 			'email' => 'required',
 			'password' => 'required',
-			'privilege' => 'required'
+			'level' => 'required'
 			);
 		$validator = Validator::make($data, $rules);
 		if($validator->fails()){

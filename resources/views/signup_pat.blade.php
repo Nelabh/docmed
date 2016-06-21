@@ -2,7 +2,7 @@
 <html lang="en-us" id="extr-page">
 <head>
 	<meta charset="utf-8">
-	<title> SmartAdmin</title>
+	<title> DocMed</title>
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -64,7 +64,7 @@
 				<!-- END AJAX-DROPDOWN -->
 			</div>
 
-			<span id="extr-page-header-space"> <span class="hidden-mobile hiddex-xs">Already registered?</span> <a href = "{{URL::asset('main.html')}}" class="btn btn-danger">Sign In</a> </span>
+			<span id="extr-page-header-space"> <span class="hidden-mobile hiddex-xs">Already registered?</span> <a href = "{{URL::route('home')}}" class="btn btn-danger">Sign In</a> </span>
 
 		</header>
 
@@ -75,7 +75,7 @@
 
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 hidden-xs hidden-sm">
-						<h1 class="txt-color-red login-header-big">SmartAdmin</h1>
+						<h1 class="txt-color-red login-header-big">DocMed</h1>
 						<div class="hero">
 
 							<div class="pull-left login-desc-box-l">

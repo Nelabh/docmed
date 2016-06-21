@@ -393,7 +393,7 @@
 
 
 					<div class="row well text-center">
-						<a style="padding-top: 10px;width: 320px;height: 50px;font-weight: bold;font-size: 20px;" href="javascript:void(0);" class="btn btn-labeled btn-danger "> <i class="fa fa-user-plus"></i>&nbsp;Consult a doctor </a>
+						<a style="padding-top: 10px;width: 320px;height: 50px;font-weight: bold;font-size: 20px;" href="{{URL::route('dashboard2')}}" class="btn btn-labeled btn-danger "> <i class="fa fa-user-plus"></i>&nbsp;Consult a doctor </a>
 					</div>
 
 					<!-- end row -->

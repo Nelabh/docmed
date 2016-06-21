@@ -35,5 +35,10 @@ class UserController extends BaseController
 			break;
 */		}
 	}
+	public function dashboard2(){
+		return View::make('patient_dashboard2');
+	}
+
+
 }
 

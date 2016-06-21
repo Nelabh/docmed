@@ -17,7 +17,7 @@ class UserController extends BaseController
 {
 	use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
 
-	public function dashboard(){
+	public static function dashboard(){
 	//	dd(Auth::user()->level);
 		switch (Auth::user()->level) {
 			case '1':

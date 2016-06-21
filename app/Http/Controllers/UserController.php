@@ -9,15 +9,15 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesResources;
 use View;
 use DB;
-use DoctorController;
-use MedVendController;
+use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\MedVendController;
 use Session;
 use Auth;
 class UserController extends BaseController
 {
 	use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
 
-	public function dashboard(){
+	public static function dashboard(){
 	//	dd(Auth::user()->level);
 		switch (Auth::user()->level) {
 			case '1':

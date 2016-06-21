@@ -202,8 +202,7 @@ class PagesController extends BaseController
 		$medvend->gender = $data['gender'];
 		$medvend->mobile = $data['mobile'];
 		$medvend->city = $data['city'];
-		$medvend->mci = $data['mci'];
-		$medvend->speciality = $data['speciality'];
+		$medvend->mci = $data['registration'];
 		$medvend->save();
 			if(Auth::login($user)){
 			Session::put('email',$data['email']);

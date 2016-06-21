@@ -138,104 +138,100 @@
 											<input type="text" name="city" placeholder="City">
 										</label>
 									</section>
-								<section>
+									<section>
 										<label class="textarea"> <i class="icon-append fa fa-graduation-cap"></i>
 											<textarea rows="3" required="required" name="qualification" placeholder="Enter your Qualification details"></textarea>											</textarea></label>
 										</section>
 
-									
-									
-
-										</fieldset>
-
-										<fieldset>
+										
+										
 
 
-											<div class="row">
+										<div class="row">
+											<section class="col col-6">
+												<label class="select">
+													<select name="gender">
+														<option value="0" selected="" disabled="">Gender</option>
+														<option value="1">Male</option>
+														<option value="2">Female</option>
+														<option value="3">Prefer not to answer</option>
+													</select> <i></i> </label>
+												</section>
 												<section class="col col-6">
-													<label class="select">
-														<select name="gender">
-															<option value="0" selected="" disabled="">Gender</option>
-															<option value="1">Male</option>
-															<option value="2">Female</option>
-															<option value="3">Prefer not to answer</option>
-														</select> <i></i> </label>
-													</section>
-													<section class="col col-6">
-														<label class="input"> <i class="icon-append fa fa-question"></i>
-															<input type="text" name="registration" placeholder="Registration Number">
-														</label>
-													</section>
-												</div>
+													<label class="input"> <i class="icon-append fa fa-question"></i>
+														<input type="text" name="registration" placeholder="Registration Number">
+													</label>
+												</section>
+											</div>
 
-												<section>
+											<section>
 
-													<label class="checkbox">
-														<input type="checkbox" name="terms" id="terms">
-														<i></i>I agree with the <a href="#" data-toggle="modal" data-target="#myModal"> Terms and Conditions </a></label>
-													</section>
-												</fieldset>
-												<footer>
-													<button type="submit" class="btn btn-primary">
-														Register
-													</button>
-												</footer>
+												<label class="checkbox">
+													<input type="checkbox" name="terms" id="terms">
+													<i></i>I agree with the <a href="#" data-toggle="modal" data-target="#myModal"> Terms and Conditions </a></label>
+												</section>
+											</fieldset>
+											<footer>
+												<button type="submit" class="btn btn-primary">
+													Register
+												</button>
+											</footer>
 
 
-											</form>
-
-										</div>
+										</form>
 
 									</div>
+
 								</div>
 							</div>
-
 						</div>
 
-						<!-- Modal -->
-						<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-							<div class="modal-dialog">
-								<div class="modal-content">
-									<div class="modal-header">
-										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-											&times;
-										</button>
-									</div>
-									<div class="modal-body custom-scroll terms-body">
+					</div>
 
-										<div id="left">
+					<!-- Modal -->
+					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+										&times;
+									</button>
+								</div>
+								<div class="modal-body custom-scroll terms-body">
 
-
-
-
+									<div id="left">
 
 
-										</div>
 
-										<br><br>
 
 
 
 									</div>
 
-								</div><!-- /.modal-content -->
-							</div><!-- /.modal-dialog -->
-						</div><!-- /.modal -->
+									<br><br>
 
-						<!--================================================== -->	
 
-						<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
-						<script src="js/plugin/pace/pace.min.js"></script>
 
-						<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
-						<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-						<script> if (!window.jQuery) { document.write('<script src="js/libs/jquery-2.1.1.min.js"><\/script>');} </script>
+								</div>
 
-						<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-						<script> if (!window.jQuery.ui) { document.write('<script src="js/libs/jquery-ui-1.10.3.min.js"><\/script>');} </script>
+							</div><!-- /.modal-content -->
+						</div><!-- /.modal-dialog -->
+					</div><!-- /.modal -->
 
-						<!-- IMPORTANT: APP CONFIG -->
-						<script src="js/app.config.js"></script>
+					<!--================================================== -->	
+
+					<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
+					<script src="js/plugin/pace/pace.min.js"></script>
+
+					<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
+					<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+					<script> if (!window.jQuery) { document.write('<script src="js/libs/jquery-2.1.1.min.js"><\/script>');} </script>
+
+					<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+					<script> if (!window.jQuery.ui) { document.write('<script src="js/libs/jquery-ui-1.10.3.min.js"><\/script>');} </script>
+
+					<!-- IMPORTANT: APP CONFIG -->
+					<script src="js/app.config.js"></script>
 
 		<!-- JS TOUCH : include this plugin for mobile drag / drop touch events 		
 		<script src="js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script> -->

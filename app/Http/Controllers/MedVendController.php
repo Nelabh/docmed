@@ -11,7 +11,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\DoctorController;
 use View;
 use Auth;
-class MedWendController extends BaseController
+class MedVendController extends BaseController
 {
     use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
 

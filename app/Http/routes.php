@@ -21,7 +21,7 @@ Route::post('signdoc',array('as'=>'signup_doctor','uses'=>'PagesController@verif
 Route::post('signpat',array('as'=>'signup_patient','uses'=>'PagesController@verify'));
 Route::post('signmed',array('as'=>'signup_medvend','uses'=>'PagesController@verify'));
 Route::post('log',array('as'=>'login','uses'=>'PagesController@log'));
-Route::get('admin',array('as'=>'admin_login','uses'=>'PagesController@admin'))
+Route::get('admin',array('as'=>'admin_login','uses'=>'PagesController@admin'));
 });
 
 Route::group(['middleware' => ['auth']], function () {

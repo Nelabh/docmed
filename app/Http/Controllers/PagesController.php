@@ -224,7 +224,7 @@ class PagesController extends BaseController
 		if(Auth::check()){
 			return Redirect::route('admin_dashboard');
 		}
-		return View::make('admin\ogin');
+		return View::make('admin\home');
 
 	}
 

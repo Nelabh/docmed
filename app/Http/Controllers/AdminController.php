@@ -17,7 +17,11 @@ class AdminController extends BaseController
 {
 	use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
 
-	
-
+	public function verify_doctor(){
+		return View::make('admin\verify_doctor');
+	}
+	public function admin_dashboard(){
+		return View::make('admin\admin_dashboard');
+	}
 }
 

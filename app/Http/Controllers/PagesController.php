@@ -60,6 +60,28 @@ class PagesController extends BaseController
 			}
 		}
 	}
+	public function logadmin(){
+		$data = array('email'=>Input::get('email'),'password'=>Input::get('password'),'level'=>Input::get('level'));
+		$rules=array(
+			'email' => 'required',
+			'password' => 'required',
+			'level' => 'required'
+			);
+		$validator = Validator::make($data, $rules);
+		if($validator->fails()){
+
+			return Redirect::back()->withErrors($validator->errors())->withInput();
+		}
+		else {
+			if(Auth::attempt($data)){
+				Session::put('email',$data['email']);
+				return Redirect::route('admin_dashboard');
+			}
+			else{
+				return Redirect::route('admin')->with('message','Your email/password combination is incorrect!')->withInput();
+			}
+		}
+	}
 	public function signupform(){
 		$data = Input::get('mode');
 		switch ($data) {

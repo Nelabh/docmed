@@ -155,7 +155,7 @@ class PagesController extends BaseController
 		$patient->bloodgroup = $data['bloodgroup'];
 		$patient->city = $data['city'];
 		$patient->save();
-			if(Auth::login($user)){
+		if(Auth::login($user)){
 			Session::put('email',$data['email']);
 			return Redirect::route('dashboard');
 		}
@@ -204,7 +204,7 @@ class PagesController extends BaseController
 		$medvend->city = $data['city'];
 		$medvend->mci = $data['registration'];
 		$medvend->save();
-			if(Auth::login($user)){
+		if(Auth::login($user)){
 			Session::put('email',$data['email']);
 			return Redirect::route('dashboard');
 		}
@@ -213,5 +213,20 @@ class PagesController extends BaseController
 		}
 
 	}
+
+/*
+******************
+***ADMIN ROUTE****
+******************
+*/
+
+	public function admin(){
+		if(Auth::check()){
+			return Redirect::route('admin_dashboard');
+		}
+		return View::make('admin\ogin');
+
+	}
+
 
 }

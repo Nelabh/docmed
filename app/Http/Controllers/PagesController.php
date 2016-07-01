@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Input;
 use Validator;
 use App\Doctor;
 use App\Patient;
+use App\Pathology;
 use App\MedVend;
 use App\User;
 use Redirect;
@@ -48,12 +49,12 @@ class PagesController extends BaseController
 		$validator = Validator::make($data, $rules);
 		if($validator->fails()){
 
-			return Redirect::back()->withErrors($validator->errors())->withInput();
+		return Redirect::back()->withErrors($validator->errors())->withInput();
 		}
 		else {
 			if(Auth::attempt($data)){
 				Session::put('email',$data['email']);
-				return Redirect::route('dashboard');
+				return Redirect::intended('dashboard');
 			}
 			else{
 				return Redirect::route('home')->with('message','Your email/password combination is incorrect!')->withInput();
@@ -82,26 +83,6 @@ class PagesController extends BaseController
 			}
 		}
 	}
-	public function signupform(){
-		$data = Input::get('mode');
-		switch ($data) {
-			case '1':
-			return View::make('signup_patient');
-			break;
-			case '2':
-			return View::make('signup_doctor');
-
-			break;
-			case '3':
-			return View::make('signup_medvend');
-			break;
-			
-			default:
-			return Redirect::route('home')->with('error',"Kindly Choose The correct Input");
-			break;
-		}
-	}
-
 	public function signupform_doctor(){
 		if(Auth::check()){
 			return Redirect::route('dashboard');
@@ -127,6 +108,16 @@ class PagesController extends BaseController
 		else{
 			$speciality = Speciality::All();
 			return View::make('signup_med');
+		}
+	}
+
+	public function signupform_pathology(){
+		if(Auth::check()){
+			return Redirect::route('dashboard');
+		}
+		else{
+			$speciality = Speciality::All();
+			return View::make('signup_pathology');
 		}
 	}
 	public function verify(){
@@ -157,11 +148,38 @@ class PagesController extends BaseController
 				case '3':
 				return self::signup_medvend($data);
 				break;
+
+				case '4':
+				return self::signup_pathology($data);
+				break;
 				default:
 				break;
 			}
 
 		}
+	}
+	public function signup_pathology($data){
+	$user = new User;
+		$user->email = $data['email'];
+		$user->level = 4;
+		$user->password = Hash::make($data['password']);
+		$user->save();
+		$pathology = new Pathology;
+		$pathology->name = $data['name'];
+		$pathology->email = $data['email'];
+		$pathology->gender = $data['gender'];
+		$pathology->mobile = $data['mobile'];
+		$pathology->city = $data['city'];
+		$pathology->mci = $data['registration'];
+		$pathology->save();
+		
+		if(Auth::login($user)){
+			Session::put('email',$data['email']);
+			return Redirect::route('dashboard');
+		}
+		else{
+			return Redirect::route('home');
+		}	
 	}
 	public function signup_patient($data){ 
 		$user = new User;
@@ -244,7 +262,11 @@ class PagesController extends BaseController
 
 	public function admin(){
 		if(Auth::check()){
+			if(Auth::user()->level > 4)
 			return Redirect::route('admin_dashboard');
+			else
+			return Redirect::route('dashboard');
+
 		}
 		return View::make('admin\home');
 

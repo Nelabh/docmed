@@ -72,13 +72,21 @@
 				</div>
 			
 				<div class="project-context col-xs-4 col-xs-push-3">
+					 @if($errors->has())
+            <div class="has-error" >
+                <p>
+                  {{$errors->first('email',':message')}} </p>
+                  <p>  {{$errors->first('password',':message')}} </p>
+              </div>
 
+                  @endif
 				<span class="project-selector dropdown-toggle " data-toggle="dropdown"><a class="btn btn-danger">Sign Up</a><i class="fa fa-angle-down"></i></span>
 				<!-- Suggestion: populate this list with fetch and push technique -->
 				<ul class="dropdown-menu">
 				<li><a href="{{URL::route('signupform_doctor')}}">As Doctor</a></li>
 				<li><a href="{{URL::route('signupform_patient')}}">As Patient</a></li>
 				<li><a href="{{URL::route('signupform_medvend')}}">As Medicine Vendor</a></li>
+				<li><a href="{{URL::route('signupform_pathology')}}">As Pathology Labs</a></li>
 
 
 

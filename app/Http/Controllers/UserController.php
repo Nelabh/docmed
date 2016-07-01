@@ -10,13 +10,21 @@ use Illuminate\Foundation\Auth\Access\AuthorizesResources;
 use View;
 use DB;
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\PathologyController;
 use App\Http\Controllers\MedVendController;
 use Session;
 use Auth;
+use App\Doctor;
+use App\Patient;
+use App\MedVend;
+use App\User;
 class UserController extends BaseController
 {
 	use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
-
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
 	public static function dashboard(){
 	//	dd(Auth::user()->level);
 		switch (Auth::user()->level) {
@@ -24,10 +32,14 @@ class UserController extends BaseController
 			return DoctorController::dashboard();
 			break;
 			case '2':
-			return View::make('patient_dashboard');
+			$name = Patient::where('email',Auth::user()->email)->first()->patient_name;
+			return View::make('patient_dashboard',compact('name'));
 			break;
 			case '3':
 			return MedVendController::dashboard();
+			break;
+			case '4':
+			return PathologyController::dashboard();
 			break;
 		/*	default:
 

@@ -7,7 +7,7 @@
 			<a href="javascript:void(0);" id="show-shortcut" data-action="toggleShortcut">
 				<img src="img/avatars/sunny.png" alt="me" class="online" /> 
 				<span>
-					{{Auth::user()->email}}
+					{{$name}}
 				</span>
 			</a> 
 

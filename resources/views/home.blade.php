@@ -78,7 +78,6 @@
 							{{$errors->first('email',':message')}} </p>
 							<p>  {{$errors->first('password',':message')}} </p>
 						</div>
-
 						@endif
 						<span class="project-selector dropdown-toggle " data-toggle="dropdown"><a class="btn btn-danger">Sign Up</a><i class="fa fa-angle-down"></i></span>
 						<!-- Suggestion: populate this list with fetch and push technique -->

@@ -33,7 +33,10 @@ class UserController extends BaseController
 			break;
 			case '2':
 			$name = Patient::where('email',Auth::user()->email)->first()->patient_name;
-			return View::make('patient_dashboard',compact('name'));
+			if(Patient::where('email',Auth::user()->email)->first()->first == 0)
+				return View::make('patient_dashboard_first',compact('name'));
+			else
+				return View::make('patient_dashboard',compact('name'));
 			break;
 			case '3':
 			return MedVendController::dashboard();

@@ -18,6 +18,7 @@ use App\Doctor;
 use App\Patient;
 use App\MedVend;
 use App\User;
+use App\Speciality;
 class UserController extends BaseController
 {
 	use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
@@ -33,10 +34,13 @@ class UserController extends BaseController
 			break;
 			case '2':
 			$name = Patient::where('email',Auth::user()->email)->first()->patient_name;
-			if(Patient::where('email',Auth::user()->email)->first()->first == 0)
-				return View::make('patient_dashboard_first',compact('name'));
-			else
+			if(Patient::where('email',Auth::user()->email)->first()->first == 0){
+				$speciality = Speciality::all();
+				return View::make('patient_dashboard_first',compact('name','speciality'));
+			}
+			else{
 				return View::make('patient_dashboard',compact('name'));
+			}
 			break;
 			case '3':
 			return MedVendController::dashboard();

@@ -14,7 +14,7 @@ input[type=text] {
 	background-position: 10px 10px;
 	background-repeat: no-repeat;
 	padding: 12px 20px 12px 40px;
-	
+
 }
 
 </style>
@@ -87,7 +87,7 @@ input[type=text] {
 		<!-- MAIN PANEL -->
 		<div id="main" role="main">
 
-			
+
 
 			<!-- MAIN CONTENT -->
 			<div id="content">
@@ -96,7 +96,7 @@ input[type=text] {
 					<div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
 						<h1 class="page-title txt-color-blueDark"><i class="fa-fw fa fa-home"></i> Dashboard </h1>
 					</div>
-					
+
 				</div>
 				<!-- widget grid -->
 				<section id="widget-grid" class="">
@@ -111,14 +111,20 @@ input[type=text] {
 
 					<!-- end row -->
 					<div class="row">
-						
+
 						<div class="col-sm-12">
-							
-							
+
+
 							<div id="myTabContent1" class="tab-content bg-color-white padding-10" style = "">
 								<div class="tab-pane fade in active" id="s1">
 									<div class="input-group input-group-lg hidden-mobile">
-										<input class="form-control input-lg" type="text" placeholder="Search again..." id="search-project">
+										<input class="form-control input-lg" type="text" placeholder="Search Doctors..." id="search-project" list="list">
+										<datalist id="list">
+											@foreach($speciality as $sp)
+															<option value="{{$sp->speciality_name}}">{{$sp->speciality_name	}}</option>
+											@endforeach
+										</datalist>
+														
 										<div class="input-group-btn">
 											<button type="submit" class="btn btn-default">
 												&nbsp;&nbsp;&nbsp;<i class="fa fa-fw fa-search fa-lg"></i>&nbsp;&nbsp;&nbsp;
@@ -126,16 +132,16 @@ input[type=text] {
 										</div>
 									</div>	
 								</div>
-								
-								
-								
+
+
+
 							</div>
-							
+
 						</div>
-						
+
 					</div>
 
-					
+
 				</section>
 				<!-- end widget grid -->
 

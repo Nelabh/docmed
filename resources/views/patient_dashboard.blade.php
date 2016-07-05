@@ -109,32 +109,6 @@ input[type=text] {
 						</article>
 					</div>
 
-					<!-- end row -->
-<div class="row">
-				
-					<div class="col-sm-12">
-				
-						
-						<div id="myTabContent1" class="tab-content bg-color-white padding-10" style = "">
-							<div class="tab-pane fade in active" id="s1">
-								<div class="input-group input-group-lg hidden-mobile">
-									<input class="form-control input-lg" type="text" placeholder="Search again..." id="search-project">
-									<div class="input-group-btn">
-										<button type="submit" class="btn btn-default">
-											&nbsp;&nbsp;&nbsp;<i class="fa fa-fw fa-search fa-lg"></i>&nbsp;&nbsp;&nbsp;
-										</button>
-									</div>
-								</div>	
-							</div>
-				
-							
-				
-						</div>
-				
-					</div>
-				
-				</div>
-				
 
 					<!-- row -->
 
@@ -144,7 +118,7 @@ input[type=text] {
 
 
 							<!-- new widget -->
-							<div class="jarviswidget jarviswidget-color-blue" id="wid-id-4" data-widget-editbutton="false" data-widget-colorbutton="false">
+							<div class="jarviswidget jarviswidget-color-blue" id="wid-id-4" data-widget-editbutton="false" data-widget-deletebutton="false" data-widget-colorbutton="false">
 
 								<!-- widget options:
 								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
@@ -222,7 +196,7 @@ input[type=text] {
 						<article class="col-sm-12 col-md-12 col-lg-6">
 
 							<!-- new widget -->
-							<div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-1" data-widget-editbutton="false" data-widget-fullscreenbutton="false">
+							<div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-1" data-widget-editbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false">
 
 								<!-- widget options:
 								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">

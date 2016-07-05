@@ -119,7 +119,12 @@ input[type=text] {
 								<div class="tab-pane fade in active" id="s1">
 									<form action = "{{URL::route('search')}}">
 									<div class="input-group input-group-lg hidden-mobile">
+										@if($data != "")
+										<input class="form-control input-lg" type="text" name = "query" value = "{{$data}}" placeholder="Search..." id="search-project" list="list">
+										@else
 										<input class="form-control input-lg" type="text" name = "query" placeholder="Search..." id="search-project" list="list">
+
+										@endif
 										<datalist id="list">
 											@foreach($speciality as $sp)
 															<option value="{{$sp->speciality_name}}">{{$sp->speciality_name	}}</option>
@@ -136,11 +141,32 @@ input[type=text] {
 									</form>	
 								</div>
 
-
-
 							</div>
+							
 
 						</div>
+						<div class="row">
+										<div class="text">
+												@if(count($result))
+											@foreach($result as $re)
+											<div class="col-sm-12 col-md-6 col-lg-3">
+												<div class="well text-center connect">
+													<img src="{{URL::asset('img/avatars/male.png')}}" alt="img" class="margin-bottom-5 margin-top-5">
+													<br>
+													<span class="font-xs"><b>{{$re['doc_name']}}</b></span>
+													<a href="javascript:void(0);" class="btn btn-xs btn-success margin-top-5 margin-bottom-5"> <span class="font-xs">Connect</span> </a>
+												</div>
+											</div>
+											@endforeach
+												@else
+												<div class="col-sm-12 col-md-12 col-lg-12">
+												<div class="well text-center connect">
+												 NO RESULT FOUND
+												</div>
+											</div>
+												@endif
+										</div>
+									</div>	
 
 					</div>
 

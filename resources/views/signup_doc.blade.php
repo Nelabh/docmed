@@ -150,7 +150,7 @@
 												</select> <i></i> </label>
 											</section>
 
-								
+
 											<div class="row">
 												<section class="col col-6">
 													<label class="select">
@@ -179,6 +179,42 @@
 													<button type="submit" class="btn btn-primary">
 														Register
 													</button>
+													@if($errors->has())
+													<div class="has-error" >
+														<p>
+															{{$errors->first('name',':message')}} 
+														</p>
+
+														<p>
+															{{$errors->first('email',':message')}} 
+														</p>
+														<p>
+															{{$errors->first('password',':message')}} 
+														</p>
+														<p>
+															{{$errors->first('password_confirmation',':message')}} 
+														</p>
+														<p>
+															{{$errors->first('city',':message')}} 
+														</p>
+														<p>
+															{{$errors->first('qualification',':message')}}
+														</p>
+														<p>
+															{{$errors->first('speciality',':message')}}
+														</p>
+														<p>
+															{{$errors->first('gender',':message')}}
+														</p>
+														<p> 
+															{{$errors->first('mci',':message')}} 
+														</p>
+													</div>
+													@endif
+													
+													@if(Session::has('message'))
+													<div class = "alert alert-block alert-danger">{{Session::get('message')}}</div>
+													@endif
 												</footer>
 
 
@@ -371,23 +407,23 @@
 
 });
 document.getElementById('mobile').addEventListener('keydown', function(e)
-  {
+{
         // Allow: backspace, delete, tab, escape, enter and .
         if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
              // Allow: Ctrl+A
-            (e.keyCode == 65 && e.ctrlKey === true) ||
+             (e.keyCode == 65 && e.ctrlKey === true) ||
              // Allow: Ctrl+C
-            (e.keyCode == 67 && e.ctrlKey === true) ||
+             (e.keyCode == 67 && e.ctrlKey === true) ||
              // Allow: Ctrl+X
-            (e.keyCode == 88 && e.ctrlKey === true) ||
+             (e.keyCode == 88 && e.ctrlKey === true) ||
              // Allow: home, end, left, right
-            (e.keyCode >= 35 && e.keyCode <= 39)) {
+             (e.keyCode >= 35 && e.keyCode <= 39)) {
                  // let it happen, don't do anything
-                 return;
-        }
+             return;
+         }
         // Ensure that it is a number and stop the keypress
         if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
-            e.preventDefault();
+        	e.preventDefault();
         }
     });
 

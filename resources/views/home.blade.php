@@ -60,6 +60,9 @@
 			<div class="col-sm-3 col-xs-12" id="logo-group">
 				<span id="logo"> <img src="img/logo.png" alt="SmartAdmin"> </span>
 			</div>
+			@if(Session::has('message'))
+			<div class = "alert alert-block alert-danger">{{Session::get('message')}}</div>
+			@endif
 			<div class="col-sm-4 col-xs-12 col-sm-push-5" >
 
 				<div class="project-context col-xs-4 col-sm-push-3 col-xs-push-4">

@@ -31,8 +31,7 @@ Route::group(['middleware' => ['auth']], function () {
 Route::get('dashboard', array('as'=>'dashboard','uses'=>'UserController@dashboard'));
 Route::get('history', array('as'=>'history','uses'=>'UserController@history'));
 Route::get('dash',array('as'=>'dashboard2','uses'=>'UserController@dashboard2'));
-
-    
+Route::get('search',array('as'=>'search','uses'=>'UserController@search'));
 });
 
 

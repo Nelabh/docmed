@@ -131,14 +131,10 @@ class PagesController extends BaseController
 			);
 		$validator = Validator::make($data, $rules);
 		if($validator->fails()){
-
-   		//return json_encode($validator->errors());
 			return Redirect::back()->withErrors($validator->errors())->withInput();
 		}
 		else {
 			switch ($data['privilege']) {
-
-				
 				case '1':
 				return self::signup_doctor($data);
 				break;
@@ -148,7 +144,6 @@ class PagesController extends BaseController
 				case '3':
 				return self::signup_medvend($data);
 				break;
-
 				case '4':
 				return self::signup_pathology($data);
 				break;
@@ -178,7 +173,7 @@ class PagesController extends BaseController
 			return Redirect::route('dashboard');
 		}
 		else{
-			return Redirect::route('home');
+			return Redirect::route('home')->with('message','Login Failed!!! Please Try Again!!!');
 		}	
 	}
 	public function signup_patient($data){ 
@@ -200,7 +195,7 @@ class PagesController extends BaseController
 			return Redirect::route('dashboard');
 		}
 		else{
-			return Redirect::route('home');
+			return Redirect::route('home')->with('message','Login Failed!!! Please Try Again!!!');
 		}
 
 	}
@@ -226,7 +221,7 @@ class PagesController extends BaseController
 			return Redirect::route('dashboard');
 		}
 		else{
-			return Redirect::route('home');
+			return Redirect::route('home')->with('message','Login Failed!!! Please Try Again!!!');
 		}
 	}
 

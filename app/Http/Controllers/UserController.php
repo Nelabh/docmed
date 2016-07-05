@@ -18,6 +18,7 @@ use Auth;
 use App\Doctor;
 use App\Patient;
 use App\MedVend;
+use App\Review;
 use App\User;
 use App\Speciality;
 class UserController extends BaseController
@@ -64,7 +65,6 @@ class UserController extends BaseController
 			$name = Patient::where('email',Auth::user()->email)->first()->patient_name;
 			$speciality = Speciality::all();
 			$a=$b=0;
-		//$result = array();
 			if($data != ""){
 				$doc = Doctor::where('email',$data)->orWhere('doc_name','like','%'.$data.'%')->orderBy('doc_id')->get()->toArray();
 				if(Speciality::where('speciality_name',$data)->first()){
@@ -80,10 +80,11 @@ class UserController extends BaseController
 					$j=0;
 					$k=0;
 					while (($i < $a) ||($j < $b)) {
-						if($doc[$i]->id < $doc2[$j]->id){
+						if($doc[$i]['doc_id'] < $doc2[$j]['doc_id']){
 							$result[] = $doc[$i];
+
 							$i++;
-						}else if($doc[$i]->id > $doc2[$j]->id){
+						}else if($doc[$i]['doc_id'] > $doc2[$j]['doc_id']){
 							$result[] = $doc2[$j];
 							$j++;
 						}else{
@@ -104,8 +105,15 @@ class UserController extends BaseController
 			else{
 				$result = Doctor::all();
 			}
-		//	dd($result);
-			return View::make('search',compact('name','speciality','result','data'));
+			$review = array();
+			foreach ($result as $res) {
+				if(count(Review::where('doctor_email',$res['email'])->get())){
+					$sum = Review::where('doctor_email',$res['email'])->sum('stars');
+					$count = Review::where('doctor_email',$res['email'])->count();
+					$review =array("".$res['email'].""=>intval($sum/$count)); 
+				}
+			}
+			return View::make('search',compact('name','speciality','result','data','review'));
 		}
 
 	}

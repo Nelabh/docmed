@@ -118,26 +118,26 @@ input[type=text] {
 							<div id="myTabContent1" class="tab-content bg-color-white padding-10" style = "">
 								<div class="tab-pane fade in active" id="s1">
 									<form action = "{{URL::route('search')}}">
-									<div class="input-group input-group-lg hidden-mobile">
-										@if($data != "")
-										<input class="form-control input-lg" type="text" name = "query" value = "{{$data}}" placeholder="Search..." id="search-project" list="list">
-										@else
-										<input class="form-control input-lg" type="text" name = "query" placeholder="Search..." id="search-project" list="list">
+										<div class="input-group input-group-lg hidden-mobile">
+											@if($data != "")
+											<input class="form-control input-lg" type="text" name = "query" value = "{{$data}}" placeholder="Search..." id="search-project" list="list">
+											@else
+											<input class="form-control input-lg" type="text" name = "query" placeholder="Search..." id="search-project" list="list">
 
-										@endif
-										<datalist id="list">
-											@foreach($speciality as $sp)
-															<option value="{{$sp->speciality_name}}">{{$sp->speciality_name	}}</option>
-											@endforeach
+											@endif
+											<datalist id="list">
+												@foreach($speciality as $sp)
+												<option value="{{$sp->speciality_name}}">{{$sp->speciality_name	}}</option>
+												@endforeach
 
-										</datalist>
-														
-										<div class="input-group-btn">
-											<button type="submit" class="btn btn-default">
-												&nbsp;&nbsp;&nbsp;<i class="fa fa-fw fa-search fa-lg"></i>&nbsp;&nbsp;&nbsp;
-											</button>
+											</datalist>
+
+											<div class="input-group-btn">
+												<button type="submit" class="btn btn-default">
+													&nbsp;&nbsp;&nbsp;<i class="fa fa-fw fa-search fa-lg"></i>&nbsp;&nbsp;&nbsp;
+												</button>
+											</div>
 										</div>
-									</div>
 									</form>	
 								</div>
 
@@ -146,27 +146,48 @@ input[type=text] {
 
 						</div>
 						<div class="row">
-										<div class="text">
-												@if(count($result))
-											@foreach($result as $re)
-											<div class="col-sm-12 col-md-6 col-lg-3">
-												<div class="well text-center connect">
-													<img src="{{URL::asset('img/avatars/male.png')}}" alt="img" class="margin-bottom-5 margin-top-5">
-													<br>
-													<span class="font-xs"><b>{{$re['doc_name']}}</b></span>
-													<a href="javascript:void(0);" class="btn btn-xs btn-success margin-top-5 margin-bottom-5"> <span class="font-xs">Connect</span> </a>
-												</div>
-											</div>
-											@endforeach
-												@else
-												<div class="col-sm-12 col-md-12 col-lg-12">
-												<div class="well text-center connect">
-												 NO RESULT FOUND
-												</div>
-											</div>
-												@endif
+							<div class="text">
+								@if(count($result))
+								@foreach($result as $re)
+								<div class="col-sm-12 col-md-6 col-lg-3">
+									<div class="well text-center connect">
+										<img src="{{URL::asset('img/avatars/male.png')}}" alt="img" class="margin-bottom-5 margin-top-5">
+										<br>
+										<span class="font-xs"><b>{{$re['doc_name']}}</b></span>
+										<div class="row"><span class="font-xs">
+											@if(isset($review[$re['email']]))
+											
+											@for($i=1;$i <= $review[$re['email']]; $i++)
+											<i class="fa fa-star fa-2x text-primary"></i>
+											@endfor
+
+											@for($i=1;$i <= 5 - $review[$re['email']]; $i++)
+											<i class="fa fa-star fa-2x text-muted"></i>
+											@endfor
+											@else
+											<i class="fa fa-star fa-2x text-muted"></i>
+											<i class="fa fa-star fa-2x text-muted"></i>
+											<i class="fa fa-star fa-2x text-muted"></i>
+											<i class="fa fa-star fa-2x text-muted"></i>
+											<i class="fa fa-star fa-2x text-muted"></i>
+
+
+											@endif
+										</span>
 										</div>
-									</div>	
+										<a href="javascript:void(0);" class="btn btn-xs btn-success margin-top-5 margin-bottom-5"> <span class="font-xs">Connect</span> </a>
+									</div>
+								</div>
+								@endforeach
+								@else
+								<div class="col-sm-12 col-md-12 col-lg-12">
+									<div class="well text-center connect">
+										NO DOCTORS FOUND 	
+									</div>
+								</div>
+								@endif
+							</div>
+						</div>	
 
 					</div>
 

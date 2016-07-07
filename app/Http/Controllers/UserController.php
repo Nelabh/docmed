@@ -110,7 +110,10 @@ class UserController extends BaseController
 				if(count(Review::where('doctor_email',$res['email'])->get())){
 					$sum = Review::where('doctor_email',$res['email'])->sum('stars');
 					$count = Review::where('doctor_email',$res['email'])->count();
-					$review =array("".$res['email'].""=>intval($sum/$count)); 
+					if($count)
+					$review = array("".$res['email'].""=>intval($sum/$count));
+					else
+					$review = array("".$res['email'].""=>0); 
 				}
 			}
 			return View::make('search',compact('name','speciality','result','data','review'));
@@ -122,10 +125,17 @@ class UserController extends BaseController
 			$doctor->speci = Speciality::where('id',$doctor->speciality)->first()->speciality_name;
 			$sum = Review::where('doctor_email',$doctor->email)->sum('stars');
 			$count = Review::where('doctor_email',$doctor->email)->count();
-			$review =array("".$doctor->email.""=>intval($sum/$count));
-			$doctor->review = $review;
+			if($count)
+				$stars = intval($sum/$count);
+			else
+				$stars = 0;
+			$doctor->stars = $stars;
 			$doctor->tot_review = $count;
-			return View::make('profile',compact('name','doctor','review'));
+			$review = Review::where('doctor_email',$doctor->email)->get();
+			foreach ($review as $rev) {
+				$rev->name = User::where('email',$rev->patient_email)->first()->patient_name;
+			}
+			return View::make('profile',compact('name','doctor','review','stars'));
 		}
 	}
 

@@ -85,15 +85,15 @@
 				<!-- widget grid -->
 				<section id="widget-grid" class="">
 
-	<div class="row">
+					<div class="row">
 
 						<div class="col-sm-12 col-md-12 col-lg-12">
 							<!-- product -->
 							<div class="product-content product-wrap clearfix product-deatil">
 								<div class="row">
-										<div class="col-md-5 col-sm-12 col-xs-12 ">
-											<div class="product-image"> 
-												<div id="myCarousel-3" class="carousel fade">
+									<div class="col-md-5 col-sm-12 col-xs-12 ">
+										<div class="product-image"> 
+											<div id="myCarousel-3" class="carousel fade">
 												
 												<div class="carousel-inner">
 													<!-- Slide 1 -->
@@ -101,37 +101,47 @@
 														<img src="{{URL::asset('img/avatars/male.png')}}" alt="">
 													</div>
 												</div>
-												</div>
 											</div>
 										</div>
-										<div class="col-md-7 col-sm-12 col-xs-12">
-									
+									</div>
+									<div class="col-md-7 col-sm-12 col-xs-12">
+
 										<h2 class="name">
 											{{$doctor->doc_name}} 
 											<small>Speciality : <a target = "_blank" href="{{URL::route('search',['query'=>$doctor->speci])}}">{{$doctor->speci}}</a></small>
+											@if($stars)
+											
+											@for($i=1;$i <= $stars; $i++)
 											<i class="fa fa-star fa-2x text-primary"></i>
-											<i class="fa fa-star fa-2x text-primary"></i>
-											<i class="fa fa-star fa-2x text-primary"></i>
-											<i class="fa fa-star fa-2x text-primary"></i>
+											@endfor
+
+											@for($i=1;$i <= 5 - $stars; $i++)
 											<i class="fa fa-star fa-2x text-muted"></i>
+											@endfor
+											@else
+											<i class="fa fa-star fa-2x text-muted"></i>
+											<i class="fa fa-star fa-2x text-muted"></i>
+											<i class="fa fa-star fa-2x text-muted"></i>
+											<i class="fa fa-star fa-2x text-muted"></i>
+											<i class="fa fa-star fa-2x text-muted"></i>
+											@endif
 											<span class="fa fa-2x"><h5>{{$doctor->tot_review}} Votes</h5></span>	
 										</h2>
 										<hr>
 										<div class="row">
-											
 											<div class="col-sm-6">
-											<h3 class="price-container">
-												$129.54
-												<small>*includes tax</small>
-											</h3>
+												<h3 class="price-container">
+													Fees : $129.54
+													<small>*includes tax</small>
+												</h3>
 											</div>
 											<div class="col-sm-6 text-right">
-												<a href="javascript:void(0);" class="btn btn-primary">Add to cart ($129.54)</a>
+												<a href="javascript:void(0);" class="btn btn-primary">Connect ($129.54)</a>
 											</div>
 										</div>
 										
 										
-									
+
 										
 
 										<hr>
@@ -139,8 +149,8 @@
 
 
 											<ul id="myTab2" class="nav nav-tabs">
-												<li class="active"><a href="#more-information2" data-toggle="tab" class="no-margin">Product Description </a></li>
-												<li class=""><a href="#specifications2" data-toggle="tab">Specifications</a></li>
+												<li class="active"><a href="#more-information2" data-toggle="tab" class="no-margin">Doctor Description </a></li>
+												<li class=""><a href="#specifications2" data-toggle="tab">Education</a></li>
 												<li class=""><a href="#reviews2" data-toggle="tab">Reviews</a></li>
 											</ul>
 											<div id="myTabContent2" class="tab-content">
@@ -152,19 +162,19 @@
 												<div class="tab-pane fade" id="specifications2">
 													<br>
 													<dl class="">
-															<dt>Gravina</dt>
-					                                        <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
-					                                        <dd>Donec id elit non mi porta gravida at eget metus.</dd>
-					                                        <dd>Eget lacinia odio sem nec elit.</dd>
-					                                        <br>
+														<dt>Gravina</dt>
+														<dd>Etiam porta sem malesuada magna mollis euismod.</dd>
+														<dd>Donec id elit non mi porta gravida at eget metus.</dd>
+														<dd>Eget lacinia odio sem nec elit.</dd>
+														<br>
 
-					                                        <dt>Test lists</dt>
-					                                        <dd>A description list is perfect for defining terms.</dd>
-					                                        <br>	
+														<dt>Test lists</dt>
+														<dd>A description list is perfect for defining terms.</dd>
+														<br>	
 
-					                                        <dt>Altra porta</dt>
-					                                        <dd>Vestibulum id ligula porta felis euismod semper</dd>
-					                                    </dl>
+														<dt>Altra porta</dt>
+														<dd>Vestibulum id ligula porta felis euismod semper</dd>
+													</dl>
 												</div>
 												<div class="tab-pane fade" id="reviews2">
 													<br>
@@ -183,90 +193,64 @@
 
 													<div class="chat-body no-padding profile-message">
 														<ul>
+															@if(count($review))
+															@foreach($review as $rev)
 															<li class="message">
 																<img src="{{URL::asset('img/avatars/1.png')}}" class="online">
-																<span class="message-text"> <a href="javascript:void(0);" class="username">John Doe <small class="text-muted pull-right ultra-light"> 2 Minutes ago </small></a> Can't divide were divide fish forth fish to. Was can't form the, living life grass darkness very image let unto fowl isn't in blessed fill life yielding above all moved </span>
-																<ul class="list-inline font-xs">
-																	<li>
-																		<a href="javascript:void(0);" class="text-info"><i class="fa fa-reply"></i> Reply</a>
-																	</li>
-																	<li>
-																		<a href="javascript:void(0);" class="text-danger"><i class="fa fa-thumbs-up"></i> Like</a>
-																	</li>
-																	<li>
-																		<a href="javascript:void(0);" class="text-muted">Show All Comments (14)</a>
-																	</li>
-																	<li>
-																		<a href="javascript:void(0);" class="text-primary">Hide</a>
-																	</li>
-																</ul>
-															</li>
-															<li class="message message-reply">
-																<img src="{{URL::asset('img/avatars/3.png')}}" class="online">
-																<span class="message-text"> <a href="javascript:void(0);" class="username">Serman Syla</a> eget lacinia odio sem nec eliteget lacinia odio sem nec elit. <i class="fa fa-smile-o txt-color-orange"></i> </span>
+																<span class="message-text"> <a href="javascript:void(0);" class="username">{{$rev->name}} </a>
+																	@if($rev->stars)
 
-																<ul class="list-inline font-xs">
-																	<li>
-																		<a href="javascript:void(0);" class="text-muted">1 minute ago </a>
-																	</li>
-																	<li>
-																		<a href="javascript:void(0);" class="text-danger"><i class="fa fa-thumbs-up"></i> Like</a>
-																	</li>
-																</ul>
-
-															</li>
-															<li class="message message-reply">
-																<img src="{{URL::asset('img/avatars/4.png')}}" class="online">
-																<span class="message-text"> <a href="javascript:void(0);" class="username">Sadi Orlaf </a> Eet lacinia odio sem nec elit. <i class="fa fa-smile-o txt-color-orange"></i> </span>
-
-																<ul class="list-inline font-xs">
-																	<li>
-																		<a href="javascript:void(0);" class="text-muted">a moment ago </a>
-																	</li>
-																	<li>
-																		<a href="javascript:void(0);" class="text-danger"><i class="fa fa-thumbs-up"></i> Like</a>
-																	</li>
-																</ul>
-
-															</li>
-														</ul>
+																	@for($i=1;$i <= $rev->stars; $i++)
+																	<i class="fa fa-star fa-2x text-primary"></i>
+																	@endfor
+																	@for($i=1;$i <= 5 - $rev->stars; $i++)
+																	<i class="fa fa-star fa-2x text-muted"></i>
+																	@endfor
+																	@else
+																	<i class="fa fa-star fa-2x text-muted"></i>
+																	<i class="fa fa-star fa-2x text-muted"></i>
+																	<i class="fa fa-star fa-2x text-muted"></i>
+																	<i class="fa fa-star fa-2x text-muted"></i>
+																	<i class="fa fa-star fa-2x text-muted"></i>
+																	@endif
+																	<br> {{$rev->review}} </span>
+																</li>
+																@endforeach
+																@else
+																<li class="message">
+																	<span class="message-text">No Review Added Yet. </span>
+																</li>
+																@endif
+															</ul>
+														</div>
 													</div>
 												</div>
+
+
 											</div>
-									
+											<hr>
 
 										</div>
-										<hr>
-										<div class="row">
-											<div class="col-sm-12 col-md-12 col-lg-12">
-												<div class="btn-group">
-						                            <button class="btn btn-white btn-default"><i class="fa fa-star"></i> Add to wishlist </button>
-						                            <button class="btn btn-white btn-default"><i class="fa fa-envelope"></i> Contact Seller</button>
-						                        </div>
-											</div>
-										</div>
-										
 									</div>
 								</div>
-							</div>
-							<!-- end product -->
-						</div>	
+								<!-- end product -->
+							</div>	
 
-					</div>
+						</div>
 
 
-				</section>
-				<!-- end widget grid -->
+					</section>
+					<!-- end widget grid -->
+
+				</div>
+				<!-- END MAIN CONTENT -->
 
 			</div>
-			<!-- END MAIN CONTENT -->
+			<!-- END MAIN PANEL -->
 
-		</div>
-		<!-- END MAIN PANEL -->
-
-		<!-- PAGE FOOTER -->
-		@include('footer')
-		<!-- END PAGE FOOTER -->
+			<!-- PAGE FOOTER -->
+			@include('footer')
+			<!-- END PAGE FOOTER -->
 
 		<!-- SHORTCUT AREA : With large tiles (activated via clicking user name tag)
 		Note: These tiles are completely responsive,

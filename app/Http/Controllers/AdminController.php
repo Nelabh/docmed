@@ -13,6 +13,8 @@ use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\MedVendController;
 use Session;
 use Auth;
+use App\Doctor;
+use Response;
 class AdminController extends BaseController
 {
 	use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
@@ -23,5 +25,12 @@ class AdminController extends BaseController
 	public function admin_dashboard(){
 		return View::make('admin\admin_dashboard');
 	}
+	public function verify_vendor(){
+
+
+		return View::make('admin\verify_vendor');
+	}
+
+
 }
 

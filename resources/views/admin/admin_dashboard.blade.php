@@ -153,75 +153,7 @@
 									<!-- widget content -->
 									<div class="widget-body no-padding">
 				
-										<table id="dt_basic" class="table table-striped table-bordered table-hover" width="80%">
-											<thead>			                
-												<tr>
-													<th data-hide="phone">Sno.</th>
-													<th data-class="expand"><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i>Patient Name</th>
-													<th>Symptoms</th>
-													<th data-hide="phone,tablet">Location</th>
-													<th data-hide="phone,tablet">Status</th>
-
-
-													<th data-hide="phone,tablet">Accept</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>1</td>
-													<td>Jennifer</td>
-													<td>1-342-463-8341</td>
-													<td>Et Rutrum Non Associates</td>
-													<td>Pending</td>
-
-													<td><a href="javascript:void(0);" class="btn btn-success btn-circle"><i class="fa fa-check"></i></a></td>
-
-												</tr>
-												<tr>
-													<td>2</td>
-													<td>Clark</td>
-													<td>1-516-859-1120</td>
-													<td>Nam Ac Inc.</td>
-													<td>Urgent</td>
-
-													<td><a href="javascript:void(0);" class="btn btn-success btn-circle"><i class="fa fa-check"></i></a></td>
-
-
-												</tr>
-												<tr>
-													<td>3</td>
-													<td>Brendan</td>
-													<td>1-724-406-2487</td>
-													<td>Enim Commodo Limited</td>
-													<td>Pending</td>
-
-													<td><a href="javascript:void(0);" class="btn btn-success btn-circle"><i class="fa fa-check"></i></a></td>
-													
-												</tr>
-												<tr>
-													<td>4</td>
-													<td>Warren</td>
-													<td>1-412-485-9725</td>
-													<td>Odio Etiam Institute</td>
-													<td>Urgent</td>
-
-													<td><a href="javascript:void(0);" class="btn btn-success btn-circle"><i class="fa fa-check"></i></a></td>
-
-												</tr>
-												<tr>
-													<td>5</td>
-													<td>Rajah</td>
-													<td>1-849-642-8777</td>
-													<td>Neque Ltd</td>
-													<td>Urgent</td>
-
-													<td><a href="javascript:void(0);" class="btn btn-success btn-circle"><i class="fa fa-check"></i></a></td>
-
-												</tr>
-												
-											</tbody>
-										</table>
-
+					
 									</div>
 									<!-- end widget content -->
 				

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
+<link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css"/>
 
 	@include('admin\header')
 	
@@ -136,41 +137,53 @@
 								-->
 								<header>
 									<span class="widget-icon"> <i class="fa fa-table"></i> </span>
-									<h2>List of Patients Request </h2>
+									<h2>List of Doctors</h2>
 				
 								</header>
 				
 								<!-- widget div-->
 								<div>
-				
+									
 									<!-- widget edit box -->
 									<div class="jarviswidget-editbox">
 										<!-- This area used as dropdown edit box -->
-				
+										<input class="form-control" type="text">	
 									</div>
 									<!-- end widget edit box -->
-				
+									
 									<!-- widget content -->
 									<div class="widget-body no-padding">
 										
+										<!--table id="example" class="display projects-table table table-striped table-bordered table-hover" cellspacing="0" width="100%">
+									        <thead>
+									            <tr>
+									                <th></th><th>NAMe</th><th><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i> Email</th>
+									                <th>Contact</th>
+									                <th>Age</th>
+									                <th>Speciality</th>
+
+	
+									            </tr>
+									        </thead>
+									    </table-->
 										<table id="example" class="display projects-table table table-striped table-bordered table-hover" cellspacing="0" width="100%">
 									        <thead>
 									            <tr>
-									                <th></th><th>Projects</th><th><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i> EST</th>
-									                <th>Contacts</th>
-									                <th>Status</th>
-									                <th><i class="fa fa-circle txt-color-darken font-xs"></i> Target/ <i class="fa fa-circle text-danger font-xs"></i> Actual</th>
-									                <th><i class="fa fa-fw fa-calendar text-muted hidden-md hidden-sm hidden-xs"></i> Starts</th>
-									                <th><i class="fa fa-fw fa-calendar text-muted hidden-md hidden-sm hidden-xs"></i> Ends</th>
-									                <th>Tracker</th>
+									                <th></th><th>Name</th><th><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i>Contact</th>
+									                <th>Email</th>
+									                <th>Age</th>
+									                <th>Speciality</th>
+           											<button class='btn btn-xs btn-danger pull-right' style='margin-left:5px'>Delete Record</button>
+            										<button class='btn btn-xs btn-success pull-right'>Save Changes</button> 
+
+
 									            </tr>
 									        </thead>
 									    </table>
 
 									</div>
-									
 									<!-- end widget content -->
-				
+									
 								</div>
 								<!-- end widget div -->
 				
@@ -206,96 +219,13 @@
 
 		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
 		@include('admin\js');
+		<script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
 			<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
-		<script data-pace-options='{ "restartOnRequestAfter": true }' src="js/plugin/pace/pace.min.js"></script>
-
-		<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-		<script>
-			if (!window.jQuery) {
-				document.write('<script src="js/libs/jquery-2.1.1.min.js"><\/script>');
-			}
-		</script>
-
-		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-		<script>
-			if (!window.jQuery.ui) {
-				document.write('<script src="js/libs/jquery-ui-1.10.3.min.js"><\/script>');
-			}
-		</script>
-
-		<!-- IMPORTANT: APP CONFIG -->
-		<script src="js/app.config.js"></script>
-
-		<!-- JS TOUCH : include this plugin for mobile drag / drop touch events-->
-		<script src="js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script> 
-
-		<!-- BOOTSTRAP JS -->
-		<script src="js/bootstrap/bootstrap.min.js"></script>
-
-		<!-- CUSTOM NOTIFICATION -->
-		<script src="js/notification/SmartNotification.min.js"></script>
-
-		<!-- JARVIS WIDGETS -->
-		<script src="js/smartwidgets/jarvis.widget.min.js"></script>
-
-		<!-- EASY PIE CHARTS -->
-		<script src="js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
-
-		<!-- SPARKLINES -->
-		<script src="js/plugin/sparkline/jquery.sparkline.min.js"></script>
-
-		<!-- JQUERY VALIDATE -->
-		<script src="js/plugin/jquery-validate/jquery.validate.min.js"></script>
-
-		<!-- JQUERY MASKED INPUT -->
-		<script src="js/plugin/masked-input/jquery.maskedinput.min.js"></script>
-
-		<!-- JQUERY SELECT2 INPUT -->
-		<script src="js/plugin/select2/select2.min.js"></script>
-
-		<!-- JQUERY UI + Bootstrap Slider -->
-		<script src="js/plugin/bootstrap-slider/bootstrap-slider.min.js"></script>
-
-		<!-- browser msie issue fix -->
-		<script src="js/plugin/msie-fix/jquery.mb.browser.min.js"></script>
-
-		<!-- FastClick: For mobile devices -->
-		<script src="js/plugin/fastclick/fastclick.min.js"></script>
-
-		<!--[if IE 8]>
-
-		<h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
-
-		<![endif]-->
-
-		<!-- Demo purpose only -->
-		<script src="js/demo.min.js"></script>
-
-		<!-- MAIN APP JS FILE -->
-		<script src="js/app.min.js"></script>
-
-		<!-- ENHANCEMENT PLUGINS : NOT A REQUIREMENT -->
-		<!-- Voice command : plugin -->
-		<script src="js/speech/voicecommand.min.js"></script>
-
-		<!-- SmartChat UI : plugin -->
-		<script src="js/smart-chat-ui/smart.chat.ui.min.js"></script>
-		<script src="js/smart-chat-ui/smart.chat.manager.min.js"></script>
-
-		<!-- PAGE RELATED PLUGIN(S) 
-		<script src="..."></script>-->
-
-		<script src="js/plugin/datatables/jquery.dataTables.min.js"></script>
-		<script src="js/plugin/datatables/dataTables.colVis.min.js"></script>
-		<script src="js/plugin/datatables/dataTables.tableTools.min.js"></script>
-		<script src="js/plugin/datatables/dataTables.bootstrap.min.js"></script>
-		<script src="js/plugin/datatable-responsive/datatables.responsive.min.js"></script>
-
 		<script type="text/javascript">
 
 			$(document).ready(function() {
 			 	
+					
 				/* DO NOT REMOVE : GLOBAL FUNCTIONS!
 				 *
 				 * pageSetUp(); WILL CALL THE FOLLOWING FUNCTIONS
@@ -352,34 +282,46 @@
 				    // `d` is the original data object for the row
 				    return '<table cellpadding="5" cellspacing="0" border="0" class="table table-hover table-condensed">'+
 				        '<tr>'+
-				            '<td style="width:100px">Project Title:</td>'+
+				            '<td style="width:100px">Doctor Name</td>'+
 				            '<td>'+d.name+'</td>'+
 				        '</tr>'+
 				        '<tr>'+
-				            '<td>Deadline:</td>'+
-				            '<td>'+d.ends+'</td>'+
+				            '<td>Qualifiaction</td>'+
+				            '<td>'+d.qualification+'</td>'+
 				        '</tr>'+
 				        '<tr>'+
-				            '<td>Extra info:</td>'+
-				            '<td>And any further details here (images etc)...</td>'+
+				            '<td>Years of experirence</td>'+
+				            '<td>'+d.y_o_e+'</td>'+
 				        '</tr>'+
 				        '<tr>'+
-				            '<td>Comments:</td>'+
-				            '<td>'+d.comments+'</td>'+
+				            '<td>MCI</td>'+
+				            '<td>'+d.mci+'</td>'+
 				        '</tr>'+
 				        '<tr>'+
-				            '<td>Action:</td>'+
-				            '<td>'+d.action+'</td>'+
+				            '<td>Current Position</td>'+
+				            '<td>'+d.current_position+'</td>'+
 				        '</tr>'+
+				         '<tr>'+
+				            '<td>Action</td>'+
+				            '<td>'action+'</td>'+
+				        '</tr>'+
+
+
+
+
+
+
+
 				    '</table>';
 				}
+
 
 				// clears the variable if left blank
 			    var table = $('#example').DataTable( {
 			    	"sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-12 hidden-xs'l>r>"+
 						"t"+
 						"<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-6'p>>",
-			        "ajax": "data/dataList.json",
+			        "ajax": "{{URL::Route('getdata')}}",
 			        "bDestroy": true,
 			        "iDisplayLength": 15,
 			        "oLanguage": {
@@ -393,13 +335,11 @@
 			                "defaultContent": ''
 			            },
 			            { "data": "name" },
-			            { "data": "est" },
-			            { "data": "contacts" },
-			            { "data": "status" },
-			            { "data": "target-actual" },
-			            { "data": "starts" },
-			            { "data": "ends" },
-			            { "data": "tracker" },
+			            { "data": "contact" },
+			            { "data": "email" },
+			            { "data": "age" },
+			            { "data": "speciality" },
+			            
 			        ],
 			        "order": [[1, 'asc']],
 			        "fnDrawCallback": function( oSettings ) {
@@ -430,22 +370,7 @@
 		
 		</script>
 
-		<!-- Your GOOGLE ANALYTICS CODE Below -->
-		<script type="text/javascript">
-			var _gaq = _gaq || [];
-				_gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
-				_gaq.push(['_trackPageview']);
-			
-			(function() {
-				var ga = document.createElement('script');
-				ga.type = 'text/javascript';
-				ga.async = true;
-				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-				var s = document.getElementsByTagName('script')[0];
-				s.parentNode.insertBefore(ga, s);
-			})();
-
-		</script>
+		
 
 	</body>
 

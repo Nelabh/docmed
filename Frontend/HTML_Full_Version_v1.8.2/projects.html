@@ -917,13 +917,11 @@
 										<table id="example" class="display projects-table table table-striped table-bordered table-hover" cellspacing="0" width="100%">
 									        <thead>
 									            <tr>
-									                <th></th><th>Projects</th><th><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i> EST</th>
-									                <th>Contacts</th>
-									                <th>Status</th>
-									                <th><i class="fa fa-circle txt-color-darken font-xs"></i> Target/ <i class="fa fa-circle text-danger font-xs"></i> Actual</th>
-									                <th><i class="fa fa-fw fa-calendar text-muted hidden-md hidden-sm hidden-xs"></i> Starts</th>
-									                <th><i class="fa fa-fw fa-calendar text-muted hidden-md hidden-sm hidden-xs"></i> Ends</th>
-									                <th>Tracker</th>
+									                <th></th><th>Name</th><th><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i>Contact</th>
+									                <th>Email</th>
+									                <th>Age</th>
+									                
+									                <th>Spciality</th>
 									            </tr>
 									        </thead>
 									    </table>
@@ -1197,7 +1195,7 @@
 				    // `d` is the original data object for the row
 				    return '<table cellpadding="5" cellspacing="0" border="0" class="table table-hover table-condensed">'+
 				        '<tr>'+
-				            '<td style="width:100px">Project Title:</td>'+
+				            '<td style="width:100px">Doc</td>'+
 				            '<td>'+d.name+'</td>'+
 				        '</tr>'+
 				        '<tr>'+
@@ -1238,13 +1236,11 @@
 			                "defaultContent": ''
 			            },
 			            { "data": "name" },
-			            { "data": "est" },
-			            { "data": "contacts" },
-			            { "data": "status" },
-			            { "data": "target-actual" },
-			            { "data": "starts" },
-			            { "data": "ends" },
-			            { "data": "tracker" },
+			            { "data": "contact" },
+			            { "data": "email" },
+			            { "data": "age" },
+			            { "data": "speciality" },
+			            
 			        ],
 			        "order": [[1, 'asc']],
 			        "fnDrawCallback": function( oSettings ) {

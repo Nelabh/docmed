@@ -170,12 +170,10 @@ input[type=text] {
 											<i class="fa fa-star fa-2x text-muted"></i>
 											<i class="fa fa-star fa-2x text-muted"></i>
 											<i class="fa fa-star fa-2x text-muted"></i>
-
-
 											@endif
 										</span>
 										</div>
-										<a href="javascript:void(0);" class="btn btn-xs btn-success margin-top-5 margin-bottom-5"> <span class="font-xs">Connect</span> </a>
+										<a href="{{URL::route('profile',$re['doc_id'])}}" class="btn btn-xs btn-success margin-top-5 margin-bottom-5"> <span class="font-xs">View Profile</span> </a>
 									</div>
 								</div>
 								@endforeach

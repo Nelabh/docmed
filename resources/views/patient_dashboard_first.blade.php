@@ -100,17 +100,7 @@ input[type=text] {
 				</div>
 				<!-- widget grid -->
 				<section id="widget-grid" class="">
-
-					<!-- row -->
-					<div class="row">
-						<article class="col-sm-12">
-							
-
-						</article>
-					</div>
-
-					<!-- end row -->
-					<div class="row">
+<div class="row">
 
 						<div class="col-sm-12">
 

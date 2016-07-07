@@ -116,5 +116,17 @@ class UserController extends BaseController
 			return View::make('search',compact('name','speciality','result','data','review'));
 		}
 
+		public function profile($id){
+			$name = Patient::where('email',Auth::user()->email)->first()->patient_name;
+			$doctor = Doctor::where('doc_id',$id)->first();
+			$doctor->speci = Speciality::where('id',$doctor->speciality)->first()->speciality_name;
+			$sum = Review::where('doctor_email',$doctor->email)->sum('stars');
+			$count = Review::where('doctor_email',$doctor->email)->count();
+			$review =array("".$doctor->email.""=>intval($sum/$count));
+			$doctor->review = $review;
+			$doctor->tot_review = $count;
+			return View::make('profile',compact('name','doctor','review'));
+		}
 	}
+
 

@@ -18,7 +18,10 @@ use Response;
 class AdminController extends BaseController
 {
 	use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
-
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
 	public function verify_doctor(){
 		return View::make('admin\verify_doctor');
 	}

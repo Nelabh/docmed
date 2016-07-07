@@ -69,8 +69,8 @@
 		<!-- Voice command : plugin -->
 		
 		<!-- SmartChat UI : plugin -->
-		<script src="js/smart-chat-ui/smart.chat.ui.min.js"></script>
-		<script src="js/smart-chat-ui/smart.chat.manager.min.js"></script>
+		<script src="{{URL::asset('js/smart-chat-ui/smart.chat.ui.min.js')}}"></script>
+		<script src="{{URL::asset('js/smart-chat-ui/smart.chat.manager.min.js')}}"></script>
 		
 		<!-- PAGE RELATED PLUGIN(S) -->
 	

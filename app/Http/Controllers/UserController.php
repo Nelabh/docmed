@@ -137,6 +137,12 @@ class UserController extends BaseController
 			}
 			return View::make('profile',compact('name','doctor','review','stars'));
 		}
+		public function basic_info()
+		{
+			$name = Patient::where('email',Auth::user()->email)->first()->patient_name;
+			return View::make('basic_info',compact('name'));
+			
+		}
 	}
 
 

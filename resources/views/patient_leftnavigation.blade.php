@@ -36,26 +36,23 @@
 
 				@if(Request::path() == 'history')
 				<li class="active">
-					<a href="{{URL::route('history')}}" title="History"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">History</span></a>			
+					<a href="{{URL::route('history')}}" title="History"><i class="fa fa-lg fa-fw fa-inbox"></i> <span class="menu-item-parent">Consultation</span></a>			
 				</li>
 				@else
 				<li>
-					<a href="{{URL::route('history')}}" title="History"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">History</span></a>
+					<a href="{{URL::route('history')}}" title="History"><i class="fa fa-lg fa-fw fa-inbox"></i> <span class="menu-item-parent">Consultation</span></a>
 				</li>
 				@endif
 				<li class="top-menu-invisible">
-						<a href="#"><i class="fa fa-lg fa-fw fa-cube"></i> <span class="menu-item-parent">My Profile</span></a>
+						<a href="#"><i class="fa fa-lg fa-fw fa-cube"></i> <span class="menu-item-parent">My Queries</span></a>
 						
-					</li>
-					<li>
-						<a href="#"><i class="fa fa-lg fa-fw fa-inbox"></i> <span class="menu-item-parent">History</span> </a>
 					</li>
 					<li>
 						<a href="#"><i class="fa fa-lg fa-fw fa-bar-chart-o"></i> <span class="menu-item-parent">Health Records</span></a>
 						
 					</li>
 					<li>
-						<a href="#"><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">My Bookings</span></a>
+						<a href="#"><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">Basic Info</span></a>
 						
 					</li>
 					

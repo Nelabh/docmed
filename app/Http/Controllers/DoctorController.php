@@ -11,6 +11,7 @@ use View;
 use Auth;
 use App\Http\Controllers\MedWendController;
 use App\Http\Controllers\DoctorController;
+use App\Doctor;
 class DoctorController extends BaseController
 {
     use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
@@ -38,5 +39,6 @@ public function __construct()
 		
 	}
 
+	
 }
 

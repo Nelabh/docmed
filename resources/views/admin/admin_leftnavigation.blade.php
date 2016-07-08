@@ -34,7 +34,7 @@
 				</li>
 				@endif
 
-				@if(Request::path() == 'admin/verify_doctor')
+				@if(Request::path() == 'admin/verify-doctor')
 				<li class="active">
 					<a href="{{URL::route('verify_doctor')}}" title="doctor"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Doctors</span></a>			
 				</li>
@@ -45,7 +45,7 @@
 				@endif
 
 
-				@if(Request::path() == 'admin/verify_vendor')
+				@if(Request::path() == 'admin/verify-vendor')
 				<li class="top-menu-invisible">
 						<a href="{{URL::route('verify_vendor')}}"><i class="fa fa-lg fa-fw fa-cube"></i> <span class="menu-item-parent">Medicine Vendors</span></a>
 						
@@ -55,6 +55,18 @@
 						<a href="{{URL::route('verify_vendor')}}"><i class="fa fa-lg fa-fw fa-cube"></i> <span class="menu-item-parent">Medicine Vendors</span></a>
 					</li>
 				@endif
+
+				@if(Request::path() == 'admin/edit-doctor')
+				<li class="active">
+					<a href="{{URL::route('edit_doctor')}}" title="doctor"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Edit Doctors</span></a>			
+				</li>
+				@else
+				<li class="active">
+					<a href="{{URL::route('edit_doctor')}}" title="doctor"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Edit Doctors</span></a>			
+				</li>
+				@endif
+
+
 					
 					
 <!-- 					<li class="top-menu-invisible">

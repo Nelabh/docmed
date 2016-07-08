@@ -85,7 +85,7 @@ class PagesController extends BaseController
 				return Redirect::route('admin_dashboard');
 			}
 			else{
-				return Redirect::route('admin')->with('message','Your email/password combination is incorrect!')->withInput();
+				return Redirect::route('admin_login')->with('message','Your email/password combination is incorrect!')->withInput();
 			}
 		}
 	}

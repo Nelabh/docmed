@@ -173,8 +173,7 @@
 									                <th>Email</th>
 									                <th>Age</th>
 									                <th>Speciality</th>
-           											<button class='btn btn-xs btn-danger pull-right' style='margin-left:5px'>Delete Record</button>
-            										<button class='btn btn-xs btn-success pull-right'>Save Changes</button> 
+           											 
 
 
 									            </tr>
@@ -303,7 +302,7 @@
 				        '</tr>'+
 				         '<tr>'+
 				            '<td>Action</td>'+
-				            '<td>'action+'</td>'+
+				            '<td>'+d.action+'</td>'+
 				        '</tr>'+
 
 

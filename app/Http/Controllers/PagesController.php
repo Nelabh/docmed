@@ -36,15 +36,15 @@ class PagesController extends BaseController
 		if(Auth::check()){
 			Auth::logout();
 			Session::forget('email');
-		
-		if(Auth::user()->level > 4)
-			return Redirect::route('admin');
-		else
-		return Redirect::route('home');
-	}
-	return Redirect::route('home'); 
+			
+			if(Auth::user()->level > 4)
+				return Redirect::route('admin');
+			else
+				return Redirect::route('home');
+		}
+		return Redirect::route('home'); 
 
-}
+	}
 	public function log(){
 		$data = array('email'=>Input::get('email'),'password'=>Input::get('password'),'level'=>Input::get('level'));
 		$rules=array(
@@ -55,7 +55,7 @@ class PagesController extends BaseController
 		$validator = Validator::make($data, $rules);
 		if($validator->fails()){
 
-		return Redirect::back()->withErrors($validator->errors())->withInput();
+			return Redirect::back()->withErrors($validator->errors())->withInput();
 		}
 		else {
 			if(Auth::attempt($data)){
@@ -160,7 +160,7 @@ class PagesController extends BaseController
 		}
 	}
 	public function signup_pathology($data){
-	$user = new User;
+		$user = new User;
 		$user->email = $data['email'];
 		$user->level = 4;
 		$user->password = Hash::make($data['password']);
@@ -261,31 +261,18 @@ class PagesController extends BaseController
 ******************
 */
 
-	public function admin(){
-		if(Auth::check()){
-			if(Auth::user()->level > 4)
+public function admin(){
+	if(Auth::check()){
+		if(Auth::user()->level > 4)
 			return Redirect::route('admin_dashboard');
-			else
+		else
 			return Redirect::route('dashboard');
 
-		}
-		return View::make('admin\home');
-
 	}
+	return View::make('admin\home');
 
+}
 
-	public function getdata(){
-		$data = array();
-		$doctor = Doctor::all();
-    foreach ($doctor as $doc) {
-
-    $data[] = array("name" => $doc->doc_name,"email" => $doc->email,"contact" => $doc->mobile,"age" => $doc->age,"speciality" => $doc->speciality,"qualification"=>$doc->qualification,"hospital_affiliation"=>$doc->hospital_affiliation,"y_o_e"=>$doc->years_of_exp,"mci"=>$doc->mci,"current_position"=>$doc->current_position);
-
-        	}    	
-
-            
-		return response()->json(['data'=>$data]);
-	}
 
 
 }

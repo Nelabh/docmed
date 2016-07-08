@@ -41,7 +41,13 @@ Route::group(['prefix' => 'admin','middleware' => ['auth']], function () {
 Route::get('verify-doctor',array('as'=>'verify_doctor','uses'=>'AdminController@verify_doctor'));
 Route::get('verify-vendor',array('as'=>'verify_vendor','uses'=>'AdminController@verify_vendor'));
 Route::get('admin_dashboard',array('as'=>'admin_dashboard','uses'=>'AdminController@admin_dashboard'));
-Route::get('getdata',array('as'=>'getdata','uses'=>'PagesController@getdata'));
+Route::get('getdata',array('as'=>'getdata','uses'=>'AdminController@getdata'));
+Route::get('getdatamv',array('as'=>'getdatamv','uses'=>'AdminController@getdatamv'));
+Route::get('/verify_d/{id}',array('as'=>'verify_d','uses'=>'AdminController@verify_d'));
+Route::get('/delete_doctor/{id}',array('as'=>'delete_doctor','uses'=>'AdminController@delete_doctor'));
+
+
+
 
 
 

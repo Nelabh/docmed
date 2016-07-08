@@ -36,9 +36,15 @@ class PagesController extends BaseController
 		if(Auth::check()){
 			Auth::logout();
 			Session::forget('email');
-		}
+		
+		if(Auth::user()->level > 4)
+			return Redirect::route('admin');
+		else
 		return Redirect::route('home');
 	}
+	return Redirect::route('home'); 
+
+}
 	public function log(){
 		$data = array('email'=>Input::get('email'),'password'=>Input::get('password'),'level'=>Input::get('level'));
 		$rules=array(
@@ -62,11 +68,11 @@ class PagesController extends BaseController
 		}
 	}
 	public function logadmin(){
-		$data = array('email'=>Input::get('email'),'password'=>Input::get('password'),'level'=>Input::get('level'));
+		$data = array('email'=>Input::get('email'),'password'=>Input::get('password'));
 		$rules=array(
 			'email' => 'required',
-			'password' => 'required',
-			'level' => 'required'
+			'password' => 'required'
+			
 			);
 		$validator = Validator::make($data, $rules);
 		if($validator->fails()){
@@ -265,6 +271,20 @@ class PagesController extends BaseController
 		}
 		return View::make('admin\home');
 
+	}
+
+
+	public function getdata(){
+		$data = array();
+		$doctor = Doctor::all();
+    foreach ($doctor as $doc) {
+
+    $data[] = array("name" => $doc->doc_name,"email" => $doc->email,"contact" => $doc->mobile,"age" => $doc->age,"speciality" => $doc->speciality,"qualification"=>$doc->qualification,"hospital_affiliation"=>$doc->hospital_affiliation,"y_o_e"=>$doc->years_of_exp,"mci"=>$doc->mci,"current_position"=>$doc->current_position);
+
+        	}    	
+
+            
+		return response()->json(['data'=>$data]);
 	}
 
 

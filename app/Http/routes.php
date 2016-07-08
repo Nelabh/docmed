@@ -25,6 +25,7 @@ Route::post('signmed',array('as'=>'signup_medvend','uses'=>'PagesController@veri
 Route::post('log',array('as'=>'login','uses'=>'PagesController@log'));
 Route::get('admin',array('as'=>'admin_login','uses'=>'PagesController@admin'));
 Route::post('logadmin',array('as'=>'logadmin','uses'=>'PagesController@logadmin'));
+
 });
 
 Route::group(['middleware' => ['auth']], function () {
@@ -37,9 +38,11 @@ Route::get('profile/{id}',array('as'=>'profile','uses'=>'UserController@profile'
 
 
 Route::group(['prefix' => 'admin','middleware' => ['auth']], function () {
-Route::get('verify_doctor',array('as'=>'verify_doctor','uses'=>'AdminController@verify_doctor'));
-Route::get('verify_vendor',array('as'=>'verify_vendor','uses'=>'AdminController@verify_vendor'));
+Route::get('verify-doctor',array('as'=>'verify_doctor','uses'=>'AdminController@verify_doctor'));
+Route::get('verify-vendor',array('as'=>'verify_vendor','uses'=>'AdminController@verify_vendor'));
 Route::get('admin_dashboard',array('as'=>'admin_dashboard','uses'=>'AdminController@admin_dashboard'));
+Route::get('getdata',array('as'=>'getdata','uses'=>'PagesController@getdata'));
+
 
 
    

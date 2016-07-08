@@ -136,7 +136,7 @@
 												</h3>
 											</div>
 											<div class="col-sm-6 text-right">
-												<a href="javascript:void(0);" class="btn btn-primary">Connect ($129.54)</a>
+												<a href="javascript:void(0);" class="btn btn-primary">Consult ($129.54)</a>
 											</div>
 										</div>
 										

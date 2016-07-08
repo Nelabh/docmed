@@ -131,23 +131,21 @@
 										<div class="row">
 											<div class="col-sm-6">
 												<h3 class="price-container">
-													Fees : $129.54
+													Fees : &#8377;{{$doctor->fees}}
 													<small>*includes tax</small>
 												</h3>
+												<a href="javascript:void(0);" class="btn btn-primary">Consult </a>
 											</div>
-											<div class="col-sm-6 text-right">
-												<a href="javascript:void(0);" class="btn btn-primary">Consult ($129.54)</a>
+											<div class="col-sm-6">
+												<h3 class="price-container">
+													Urgent : &#8377;{{$doctor->ufees}}
+													<small>*includes tax</small>
+												</h3>
+												<a href="javascript:void(0);" class="btn btn-danger">Consult With Urgency</a>
 											</div>
 										</div>
-										
-										
-
-										
-
 										<hr>
 										<div class="description description-tabs">
-
-
 											<ul id="myTab2" class="nav nav-tabs">
 												<li class="active"><a href="#more-information2" data-toggle="tab" class="no-margin">Doctor Description </a></li>
 												<li class=""><a href="#specifications2" data-toggle="tab">Education</a></li>

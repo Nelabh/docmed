@@ -289,7 +289,7 @@
 				            '<td>'+d.qualification+'</td>'+
 				        '</tr>'+
 				        '<tr>'+
-				            '<td>Years of experirence</td>'+
+				            '<td>Shop Name</td>'+
 				            '<td>'+d.shop_name+'</td>'+
 				        '</tr>'+
 				        '<tr>'+

@@ -87,7 +87,7 @@ class AdminController extends BaseController
 	}   
 	public function verify_v($id)
 	{
-		$med=MedVend::where('id',$id)->first();
+		$med = MedVend::where('id',$id)->first();
 		
 		$med->verified=1;
 
@@ -105,7 +105,7 @@ class AdminController extends BaseController
 		$path->save();
 
 
-		return Redirect::to('admin\verify-pathology')->with('message','Successfully verified');
+		return Redirect::to('admin\verify-pathologist')->with('message','Successfully verified');
 	}    
 
      public function getdata(){
@@ -123,7 +123,7 @@ class AdminController extends BaseController
 	   $data = array();
 	   $medpro = MedVend::where('verified',0)->get();
 	      foreach ($medpro as $mp) {
-		     $data[] = array("name" => $mp->mp_name,"email" => $mp->email,"contact" => $mp->mobile,"age" => $mp->age,"qualification"=>$mp->qualification,"shop_name"=>$mp->shop_name,"mci"=>$mp->mci,"city"=>$mp->city,"action"=>"<a href= ".route('delete_vendor',$mp->id)." class='btn btn-xs btn-danger pull-right' style='margin-left:5px'>Delete Record</a> <a href= ".route('verify_v',$doc->id)." class='btn btn-xs btn-success pull-right'>Verify</a> ");
+		     $data[] = array("name" => $mp->mp_name,"email" => $mp->email,"contact" => $mp->mobile,"age" => $mp->age,"qualification"=>$mp->qualification,"shop_name"=>$mp->shop_name,"mci"=>$mp->mci,"city"=>$mp->city,"action"=>"<a href= ".route('delete_vendor',$mp->id)." class='btn btn-xs btn-danger pull-right' style='margin-left:5px'>Delete Record</a> <a href= ".route('verify_v',$mp->id)." class='btn btn-xs btn-success pull-right'>Verify</a> ");
 
 	      }    	
 
@@ -135,7 +135,7 @@ class AdminController extends BaseController
 	   $data = array();
 	   $path = Pathology::where('verified',0)->get();
 	      foreach ($path as $p) {
-		     $data[] = array("name" => $p->name,"email" => $p->email,"contact" => $p->mobile,"age" => $p->age,"qualification"=>$p->qualification,"shop_name"=>$p->shop_name,"mci"=>$p->mci,"city"=>$p->city,"action"=>"<a href= ".route('delete_pathologist',$p->id)." class='btn btn-xs btn-danger pull-right' style='margin-left:5px'>Delete Record</a> <a href= ".route('verify_v',$p->id)." class='btn btn-xs btn-success pull-right'>Verify</a> ");
+		     $data[] = array("name" => $p->name,"email" => $p->email,"contact" => $p->mobile,"age" => $p->age,"qualification"=>$p->qualification,"shop_name"=>$p->shop_name,"mci"=>$p->mci,"city"=>$p->city,"action"=>"<a href= ".route('delete_pathologist',$p->id)." class='btn btn-xs btn-danger pull-right' style='margin-left:5px'>Delete Record</a> <a href= ".route('verify_p',$p->id)." class='btn btn-xs btn-success pull-right'>Verify</a> ");
 
 	      }    	
 

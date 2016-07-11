@@ -34,6 +34,9 @@ class AdminController extends BaseController
 
 		return View::make('admin\verify_vendor');
 	}
+	public function edit_doctor(){
+		return View::make('admin\edit_doctor');
+	}
 	public function delete_doctor($id)
 	{
 		$doc=Doctor::where('id',$id)->first();

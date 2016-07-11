@@ -46,6 +46,8 @@ Route::get('getdata',array('as'=>'getdata','uses'=>'AdminController@getdata'));
 Route::get('getdatamv',array('as'=>'getdatamv','uses'=>'AdminController@getdatamv'));
 Route::get('/verify_d/{id}',array('as'=>'verify_d','uses'=>'AdminController@verify_d'));
 Route::get('/delete_doctor/{id}',array('as'=>'delete_doctor','uses'=>'AdminController@delete_doctor'));
+Route::get('edit-doctor',array('as'=>'edit_doctor','uses'=>'AdminController@edit_doctor'));
+
 
 
 

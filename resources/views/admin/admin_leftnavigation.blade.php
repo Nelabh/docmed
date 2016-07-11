@@ -55,6 +55,16 @@
 						<a href="{{URL::route('verify_vendor')}}"><i class="fa fa-lg fa-fw fa-cube"></i> <span class="menu-item-parent">Medicine Vendors</span></a>
 					</li>
 				@endif
+				@if(Request::path() == 'admin/verify-pathologist')
+				<li class="top-menu-invisible">
+						<a href="{{URL::route('verify_pathologist')}}"><i class="fa fa-lg fa-fw fa-cube"></i> <span class="menu-item-parent">Pathologist</span></a>
+						
+					</li>
+				@else
+				<li class="top-menu-invisible">
+						<a href="{{URL::route('verify_pathologist')}}"><i class="fa fa-lg fa-fw fa-cube"></i> <span class="menu-item-parent">Pathologist</span></a>
+					</li>
+				@endif
 
 				@if(Request::path() == 'admin/edit-doctor')
 				<li class="active">
@@ -65,6 +75,29 @@
 					<a href="{{URL::route('edit_doctor')}}" title="doctor"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Edit Doctors</span></a>			
 				</li>
 				@endif
+
+				@if(Request::path() == 'admin/edit-vendor')
+				<li class="active">
+					<a href="{{URL::route('edit_vendor')}}" title="vendor"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Edit Vendor</span></a>			
+				</li>
+				@else
+				<li class="active">
+					<a href="{{URL::route('edit_vendor')}}" title="vendor"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Edit Vendor</span></a>			
+				</li>
+				@endif
+
+				@if(Request::path() == 'admin/edit-pathologist')
+				<li class="active">
+					<a href="{{URL::route('edit_pathologist')}}" title="pathology"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Edit Pathologist</span></a>			
+				</li>
+				@else
+				<li class="active">
+					<a href="{{URL::route('edit_pathologist')}}" title="pathology"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Edit Patholoist</span></a>			
+				</li>
+				@endif
+
+
+
 
 
 					

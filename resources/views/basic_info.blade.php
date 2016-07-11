@@ -75,25 +75,250 @@
 
 				</div>
 				<!-- widget grid -->
-				<section id="widget-grid" class="">
+				<article class="col-sm-12 col-md-12 col-lg-12">
 
-							<!-- Widget ID (each widget will need unique ID)-->
-							
-							<!-- end widget -->
+					<!-- Widget ID (each widget will need unique ID)-->
+					<div class="jarviswidget" id="wid-id-1" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-custombutton="false">
+								<!-- widget options:
+								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+				
+								data-widget-colorbutton="false"
+								data-widget-editbutton="false"
+								data-widget-togglebutton="false"
+								data-widget-deletebutton="false"
+								data-widget-fullscreenbutton="false"
+								data-widget-custombutton="false"
+								data-widget-collapsed="true"
+								data-widget-sortable="false"
+				
+							-->
 
 
-				</section>
-				<!-- end widget grid -->
+							<!-- widget div-->
+							<div>
 
-			</div>
-			<!-- END MAIN CONTENT -->
+								<!-- widget content -->
+								<div class="widget-body no-padding">
 
-		</div>
-		<!-- END MAIN PANEL -->
+									<form class="smart-form">
+										<footer>
+											<a type="button" data-toggle="modal"  class="btn btn-primary" href="#myModal">
+												Edit
+											</a>
+										</footer>
+										<fieldset>
+											<section>
+												<label class="label">Name</label>
+												<label class="input">
+													<input type="text" disabled="disabled" value ="" >
+												</label>
+											</section>
+											<section>
+												<label class="label">Mobile</label>
+												<label class="input">
+													<input type="text" disabled="disabled" value ="" >
+												</label>
+											</section>
+											<section>
+												<label class="label">Gender</label>
+												<div class="inline-group">
+													<label class="radio">
+														<input type="radio" name="gender" disabled="disabled">
+														<i></i>Male</label>
+														<label class="radio">
+															<input type="radio" name="gender" disabled="disabled">
+															<i></i>Female</label>
+														</div>
 
-		<!-- PAGE FOOTER -->
-		@include('footer')
-		<!-- END PAGE FOOTER -->
+													</section>
+													<section>
+														<label class="label">Blood Group</label>
+														<label class="select">
+															<select disabled = "disabled">
+																<option value="0">Choose Blood Group</option>
+																<option value="O+">O+</option>
+																<option value="O-">O-</option>
+																<option value="A-">A-</option>
+																<option value="A+">A+</option>
+																<option value="B-">B-</option>
+																<option value="B+">B+</option>
+																<option value="AB-">AB-</option>
+																<option value="AB+">AB+</option>
+															</select> <i></i> </label>
+														</section>
+														<section>
+															<label class="label">Occupation</label>
+															<label class="input">
+																<input type="text" disabled="disabled" value ="" >
+															</label>
+														</section>
+
+														<section>
+															<label class="label">Address</label>
+															<label class="textarea"> 										
+																<textarea rows="3" class="custom-scroll" disabled="disabled"></textarea> 
+															</label>
+														</section>
+														<section>
+															<label class="label">Country</label>
+															<label class="input">
+																<input type="text" disabled="disabled" value ="" >
+															</label>
+														</section>
+														<section>
+															<label class="label">State</label>
+															<label class="input">
+																<input type="text" disabled="disabled" value ="" >
+															</label>
+														</section>
+														<section>
+															<label class="label">City</label>
+															<label class="input">
+																<input type="text" disabled="disabled" value ="" >
+															</label>
+														</section>
+														<section>
+															<label class="label">Pincode</label>
+															<label class="input">
+																<input type="text" disabled="disabled" value ="" >
+															</label>
+														</section>
+													</fieldset>
+												</form>
+											</div>
+											<!-- end widget content -->
+										</div>
+										<!-- end widget div -->
+									</div>
+									<!-- end widget -->
+								</article>
+								<!-- end widget grid -->
+							</div>
+							<!-- END MAIN CONTENT -->
+						</div>
+						<!-- END MAIN PANEL -->
+						<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+											&times;
+										</button>
+										<h4 class="modal-title">
+											<!-- ` -->
+										</h4>
+									</div>
+									<div class="modal-body no-padding">
+
+										<form id="login-form" class="smart-form">
+
+											<fieldset>
+												<section>
+													<label class="label">Name</label>
+													<label class="input">
+														<input type="text" name = "name"  value ="" required>
+													</label>
+												</section>
+												<section>
+													<label class="label">Contact</label>
+													<label class="input">
+														<input type="text" name="contact"  value ="" required>
+													</label>
+												</section>
+												<section>
+													<label class="label">Gender</label>
+													<div class="inline-group">
+														<label class="radio">
+															<input type="radio" value = "female" name="gender" required>
+															<i></i>Male</label>
+															<label class="radio">
+																<input type="radio" value = "male" name="gender" >
+																<i></i>Female</label>
+															</div>
+														</section>
+														<section>
+															<label class="label">Blood Group</label>
+															<label class="select">
+																<select name = "blood_group" required>
+																	<option value="0">Choose Blood Group</option>
+																	<option value="O+">O+</option>
+																	<option value="O-">O-</option>
+																	<option value="A-">A-</option>
+																	<option value="A+">A+</option>
+																	<option value="B-">B-</option>
+																	<option value="B+">B+</option>
+																	<option value="AB-">AB-</option>
+																	<option value="AB+">AB+</option>
+																</select> <i></i> </label>
+															</section>
+															<section>
+																<label class="label">Occupation</label>
+																<label class="input">
+																	<input type="text" name = "occupation" required value ="" >
+																</label>
+															</section>
+
+															<section>
+																<label class="label">Address</label>
+																<label class="textarea"> 										
+																	<textarea rows="3" name = "address" required class="custom-scroll" ></textarea> 
+																</label>
+															</section>
+															<section>
+																<label class="label">Country</label>
+																<label class="select">
+																	<select name="country" class="countries" id="countryId">
+																		<option value="">Select Country</option>
+																	</select>	</label>
+																</section>
+																<section>
+																	<label class="label">State</label>
+																	<label class="select">
+																		<select name="state" class="states" id="stateId">
+																			<option value="">Select State</option>
+																		</select>
+																	</label>
+																</label>
+															</section>
+															<section>
+																<label class="label">City</label>
+																<label class="select">
+																	<select name="city" class="cities" id="cityId">
+																		<option value="">Select City</option>
+																	</select>
+																</label>
+															</section>
+															<section>
+																<label class="label">Pincode</label>
+																<label class="input">
+																	<input type="text"  value ="" name = "city" id="cityId" >
+																</label>
+															</section>
+														</fieldset>
+
+
+
+														<footer>
+															<button type="submit" class="btn btn-primary">
+																Save Changes
+															</button>
+															<button type="button" class="btn btn-default" data-dismiss="modal">
+																Cancel
+															</button>
+
+														</footer>
+													</form>						
+
+
+												</div>
+
+											</div><!-- /.modal-content -->
+										</div><!-- /.modal-dialog -->
+									</div>
+
+									<!-- PAGE FOOTER -->
+									@include('footer')
+									<!-- END PAGE FOOTER -->
 
 		<!-- SHORTCUT AREA : With large tiles (activated via clicking user name tag)
 		Note: These tiles are completely responsive,
@@ -105,7 +330,7 @@
 
 	<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
 	@include('js');
-
+	<script src="http://iamrohit.in/lab/js/location.js"></script>
 
 </body>
 

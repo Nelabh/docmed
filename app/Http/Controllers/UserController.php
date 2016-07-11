@@ -67,6 +67,7 @@ class UserController extends BaseController
 			$a=$b=0;
 			if($data != ""){
 				$doc = Doctor::where('email',$data)->orWhere('doc_name','like','%'.$data.'%')->orderBy('doc_id')->get()->toArray();
+				$doc2 = array();
 				if(Speciality::where('speciality_name',$data)->first()){
 					$doc2 = Doctor::where('speciality',Speciality::where('speciality_name',$data)->first()->id)->orderBy('doc_id')->get()->toArray();
 					$b = count($doc2);
@@ -139,8 +140,9 @@ class UserController extends BaseController
 		}
 		public function basic_info()
 		{
+			$patient = Patient::where('email',Auth::user()->email)->first();
 			$name = Patient::where('email',Auth::user()->email)->first()->patient_name;
-			return View::make('basic_info',compact('name'));
+			return View::make('basic_info',compact('name','patient'));
 			
 		}
 	}

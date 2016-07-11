@@ -16,6 +16,7 @@ use Auth;
 use App\Doctor;
 use Response;
 use Redirect;
+use Illuminate\Support\Facades\Input;
 class AdminController extends BaseController
 {
 	use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
@@ -35,7 +36,8 @@ class AdminController extends BaseController
 		return View::make('admin\verify_vendor');
 	}
 	public function edit_doctor(){
-		return View::make('admin\edit_doctor');
+		$data = Doctor::all();
+		return View::make('admin\edit_doctor',compact('data'));
 	}
 	public function delete_doctor($id)
 	{
@@ -58,18 +60,34 @@ class AdminController extends BaseController
 		return Redirect::to('admin\verify-doctor')->with('message','Successfully verified');
 	}   
 
-public function getdata(){
-	$data = array();
-	$doctor = Doctor::where('verified',0)->get();
-	foreach ($doctor as $doc) {
-		$data[] = array("name" => $doc->doc_name,"email" => $doc->email,"contact" => $doc->mobile,"age" => $doc->age,"speciality" => $doc->speciality,"qualification"=>$doc->qualification,"hospital_affiliation"=>$doc->hospital_affiliation,"y_o_e"=>$doc->years_of_exp,"mci"=>$doc->mci,"current_position"=>$doc->current_position,"action"=>"<a href= ".route('delete_doctor',$doc->id)." class='btn btn-xs btn-danger pull-right' style='margin-left:5px'>Delete Record</a> <a href= ".route('verify_d',$doc->id)." class='btn btn-xs btn-success pull-right'>Verify</a> ");
+     public function getdata(){
+	   $data = array();
+	   $doctor = Doctor::where('verified',0)->get();
+	      foreach ($doctor as $doc) {
+		     $data[] = array("name" => $doc->doc_name,"email" => $doc->email,"contact" => $doc->mobile,"age" => $doc->age,"speciality" => $doc->speciality,"qualification"=>$doc->qualification,"hospital_affiliation"=>$doc->hospital_affiliation,"y_o_e"=>$doc->years_of_exp,"mci"=>$doc->mci,"current_position"=>$doc->current_position,"action"=>"<a href= ".route('delete_doctor',$doc->id)." class='btn btn-xs btn-danger pull-right' style='margin-left:5px'>Delete Record</a> <a href= ".route('verify_d',$doc->id)." class='btn btn-xs btn-success pull-right'>Verify</a> ");
 
-	}    	
+	      }    	
 
 	
-	return response()->json(['data'=>$data]);
-}
+	 return response()->json(['data'=>$data]);
+   }
+   public function editdoctor($id)
+   {
+   		 $data = Input::all();
+   		 $doc = Doctor::where('id','=',$id)->first();
+   		 $doc->doc_name = $data['name'];
+   		 $doc->age = $data['age'];
+   		 $doc->qualification=$data['qualification'];
+   		 $doc->years_of_exp=$data['years_of_exp'];
+   		 $doc->mci=$data['mci'];
+   		 $doc->mobile=$data['mobile'];
+   		 $doc->save();
+
+		return Redirect::to('admin\edit-doctor')->with('message','Successfully edited');
+   		     
+   }
 
 
+   
 }
 

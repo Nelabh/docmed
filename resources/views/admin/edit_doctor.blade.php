@@ -2,8 +2,8 @@
 <html lang="en-us">
 <link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css"/>
 
-	@include('admin\header')
-	
+@include('admin\header')
+
 	<!--
 
 	TABLE OF CONTENTS.
@@ -32,9 +32,9 @@
 	
 	===================================================================
 	
-	-->
-	
-	<!-- #BODY -->
+-->
+
+<!-- #BODY -->
 	<!-- Possible Classes
 
 		* 'smart-style-{SKIN#}'
@@ -82,21 +82,21 @@
 				<span id="search" class="btn btn-ribbon hidden-xs" data-title="search"><i class="fa-grid"></i> Change Grid</span>
 				<span id="add" class="btn btn-ribbon hidden-xs" data-title="add"><i class="fa-plus"></i> Add</span>
 				<span id="search" class="btn btn-ribbon" data-title="search"><i class="fa-search"></i> <span class="hidden-mobile">Search</span></span>
-				</span> -->
+			</span> -->
 
-			</div>
-			<!-- END RIBBON -->
+		</div>
+		<!-- END RIBBON -->
 
-			<!-- MAIN CONTENT -->
-			<div id="content">
+		<!-- MAIN CONTENT -->
+		<div id="content">
 
-				<div class="row">
-					<div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
-						<h1 class="page-title txt-color-blueDark"><i class="fa-fw fa fa-home"></i> Edit info </h1>
-					</div>
-					<div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">
-						<ul id="sparks" class="">
-							
+			<div class="row">
+				<div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+					<h1 class="page-title txt-color-blueDark"><i class="fa-fw fa fa-home"></i> Edit Doctor details </h1>
+				</div>
+				<div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">
+					<ul id="sparks" class="">
+
 							<!-- <li class="sparks-info">
 								<h5> Site Traffic <span class="txt-color-purple"><i class="fa fa-arrow-circle-up"></i>&nbsp;45%</span></h5>
 								<div class="sparkline txt-color-purple hidden-mobile hidden-md hidden-sm">
@@ -113,230 +113,271 @@
 					</div>
 				</div>
 				<!-- widget grid -->
+				<section id="widget-grid" class="">
 
-<section id="widget-grid" class="">
-
-					<!-- row -->
 					<div class="row">
 
 						<!-- NEW WIDGET START -->
-						<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
-							<table id="jqgrid"></table>
-							<div id="pjqgrid"></div>
+		<div class="widget-body no-padding">
+					<table id="dt_basic" class="table table-striped table-bordered table-hover" width="100%">
+											<thead>			                
+												<tr>
+													<th data-hide="phone">ID</th>
+													<th data-class="expand"><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i> Name</th>
+													<th >Email</th>
+													<th data-hide="phone"><i class="fa fa-fw fa-phone text-muted hidden-md hidden-sm hidden-xs"></i> Phone</th>
+													<th>Specification</th>
+													<th data-hide="phone,tablet">City</th>
+													<th>Qualification</th>
+													<th>Age</th>
+													<th>Years of Experience</th>
+													<th>Action</th>
+												</tr>
+											</thead>
+											<tbody>
+												<?php $id=0 ?>
+												@if(count($data))
+												@foreach($data as $d)
+												<tr>
+													<?php $id++ ?>
+													<td>{{$id}}</td>
+													<td>{{$d->doc_name}}</td>
+													<td>{{$d->email}}</td>
+													<td>{{$d->mobile}}</td>
+													<td>{{$d->specification}}</td>
+													<td>{{$d->city}}</td>
+													<td>{{$d->qualification}}</td>
+													<td>{{$d->age}}</td>
+													<td>{{$d->years_of_exp}}</td>
 
-							<br>
-							<a href="javascript:void(0)" id="m1">Get Selected id's</a>
-							<br>
-							<a href="javascript:void(0)" id="m1s">Select(Unselect) row 13</a>
 
-						</article>
-						<!-- WIDGET END -->
 
-					</div>
 
-					<!-- end row -->
+		<!-- Button trigger modal -->
+		<td><a data-toggle="modal" href="#my_{{$d->id}}" class="btn btn-success btn-lg pull-right header-btn hidden-mobile">Edit</a></td>
+	
 
-				</section>
-				<!-- end widget grid -->
-				<!-- end widget grid -->
+													
+												</tr>
+												@endforeach
 
-			</div>
-			<!-- END MAIN CONTENT -->
+												@else
+												<center><tr col-span="9"><h2>No record found</h2></tr></center>
+												@endif
+											</tbody>
+										</table>
+		</div>
 
 		</div>
-		<!-- END MAIN PANEL -->
 
-		<!-- PAGE FOOTER -->
-		@include('admin\footer')
-		<!-- END PAGE FOOTER -->
+	</section>
+	<!-- end widget grid -->
+
+</div>
+<!-- END MAIN CONTENT -->
+	@foreach($data as $d)
+<!-- Modal -->
+<div class="modal fade" id="my_{{$d->id}}" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h1 class="modal-title">
+					Edit details
+				</h1>
+			</div>
+			<div class="modal-body no-padding">
+
+				<form id="login-form" class="smart-form" method="post" action = "{{URL::route('editdoctor',$d->id)}}">
+
+							<fieldset>
+								<section>
+								<input type="hidden"  name="id" value = "{{$d->id}}">
+									<div class="row">
+										<label class="label col col-2">Email</label>
+										<div class="col col-10">
+											<label class="input"> <i class="icon-append fa fa-user"></i>
+												<input type="email"  disabled="disabled" name="email" value = "{{$d->email}}">
+											</label>
+										</div>
+									</div>
+									{{csrf_field()}}
+									<div class="row">
+										<label class="label col col-2">Name</label>
+										<div class="col col-10">
+											<label class="input"> <i class="icon-append fa fa-user"></i>
+												<input type="text" name="name" value = "{{$d->doc_name}}">
+											</label>
+										</div>
+									</div>
+								
+									<div class="row">
+										<label class="label col col-2">Phone</label>
+										<div class="col col-10">
+											<label class="input"> <i class="icon-append fa fa-user"></i>
+												<input type="text" name="mobile" value = "{{$d->mobile}}">
+											</label>
+										</div>
+									</div>
+									<div class="row">
+										<label class="label col col-2">Qualification</label>
+										<div class="col col-10">
+											<label class="input"> <i class="icon-append fa fa-user"></i>
+												<input type="text" name="qualification" value = "{{$d->qualification}}">
+											</label>
+										</div>
+									</div>
+									<div class="row">
+										<label class="label col col-2">M.C.I</label>
+										<div class="col col-10">
+											<label class="input"> <i class="icon-append fa fa-user"></i>
+												<input type="text" name="mci" value = "{{$d->mci}}">
+											</label>
+										</div>
+									</div>
+								
+									<div class="row">
+										<label class="label col col-2">Years of Experience</label>
+										<div class="col col-10">
+											<label class="input"> <i class="icon-append fa fa-user"></i>
+												<input type="text" name="years_of_exp" value = "{{$d->years_of_exp}}">
+											</label>
+										</div>
+									</div>
+									<div class="row">
+										<label class="label col col-2">Age</label>
+										<div class="col col-10">
+											<label class="input"> <i class="icon-append fa fa-user"></i>
+												<input type="text" name="age" value = "{{$d->age}}">
+											</label>
+										</div>
+									</div>
+								</section>
+
+
+								
+
+								<section>
+									<div class="row">
+										<div class="col col-2"></div>
+										<div class="col col-10">
+											<label class="checkbox">
+												<input type="checkbox" name="remember" checked="">
+												<i></i>Are you sure ??</label>
+										</div>
+									</div>
+								</section>
+							</fieldset>
+							
+							<footer>
+								<button  class="btn btn-primary">
+								Edit
+								</button>
+								<button type="button" class="btn btn-default" data-dismiss="modal">
+									Cancel
+								</button>
+
+							</footer>
+						</form>						
+						
+
+			</div>
+
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+@endforeach
+
+</div>
+<!-- END MAIN PANEL -->
+
+<!-- PAGE FOOTER -->
+@include('admin\footer')
+<!-- END PAGE FOOTER -->
 
 		<!-- SHORTCUT AREA : With large tiles (activated via clicking user name tag)
 		Note: These tiles are completely responsive,
 		you can add as many as you like
-		-->
-		<!-- END SHORTCUT AREA -->
+	-->
+	<!-- END SHORTCUT AREA -->
 
-		<!--================================================== -->
+	<!--================================================== -->
 
-		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
-		@include('admin\js');
-		<script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-			<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
+	<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
+	@include('admin\js');
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+	<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
+	<script type="text/javascript">
 
-					<script src="{{URL::asset('js/plugin/jqgrid/jquery.jqGrid.min.js')}}"></script>
-		<script src="{{URL::asset('js/plugin/jqgrid/grid.locale-en.min.js')}}"></script>
-
-
-		<script type="text/javascript">
-			var _gaq = _gaq || [];
-			_gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
-			_gaq.push(['_trackPageview']);
-
-			(function() {
-				var ga = document.createElement('script');
-				ga.type = 'text/javascript';
-				ga.async = true;
-				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-				var s = document.getElementsByTagName('script')[0];
-				s.parentNode.insertBefore(ga, s);
-			})();
-
-		</script>
+	$(document).ready(function() {
 
 
-		<script type="text/javascript">
-			$(document).ready(function() {
-				pageSetUp();
+				/* DO NOT REMOVE : GLOBAL FUNCTIONS!
+				 *
+				 * pageSetUp(); WILL CALL THE FOLLOWING FUNCTIONS
+				 *
+				 * // activate tooltips
+				 * $("[rel=tooltip]").tooltip();
+				 *
+				 * // activate popovers
+				 * $("[rel=popover]").popover();
+				 *
+				 * // activate popovers with hover states
+				 * $("[rel=popover-hover]").popover({ trigger: "hover" });
+				 *
+				 * // activate inline charts
+				 * runAllCharts();
+				 *
+				 * // setup widgets
+				 * setup_widgets_desktop();
+				 *
+				 * // run form elements
+				 * runAllForms();
+				 *
+				 ********************************
+				 *
+				 * pageSetUp() is needed whenever you load a page.
+				 * It initializes and checks for all basic elements of the page
+				 * and makes rendering easier.
+				 *
+				 */
 
-				var jqgrid_data = [{
-					id : "1",
-					date : "2007-10-01",
-					name : "test",
-					note : "note",
-					amount : "200.00",
-					tax : "10.00",
-					total : "210.00"
-				}, {
-					id : "2",
-					date : "2007-10-02",
-					name : "test2",
-					note : "note2",
-					amount : "300.00",
-					tax : "20.00",
-					total : "320.00"
-				}, {
-					id : "3",
-					date : "2007-09-01",
-					name : "test3",
-					note : "note3",
-					amount : "400.00",
-					tax : "30.00",
-					total : "430.00"
-				},];
+				 pageSetUp();
+				 
+				/*
+				 * ALL PAGE RELATED SCRIPTS CAN GO BELOW HERE
+				 * eg alert("my home function");
+				 * 
+				 * var pagefunction = function() {
+				 *   ...
+				 * }
+				 * loadScript("js/plugin/_PLUGIN_NAME_.js", pagefunction);
+				 * 
+				 * TO LOAD A SCRIPT:
+				 * var pagefunction = function (){ 
+				 *  loadScript(".../plugin.js", run_after_loaded);	
+				 * }
+				 * 
+				 * OR
+				 * 
+				 * loadScript(".../plugin.js", run_after_loaded);
+				 */
 
-				jQuery("#jqgrid").jqGrid({
-					data : jqgrid_data,
-					datatype : "local",
-					height : 'auto',
-					colNames : ['Actions', 'Inv No', 'Date', 'Client', 'Amount', 'Tax', 'Total', 'Notes'],
-					colModel : [{
-						name : 'act',
-						index : 'act',
-						sortable : false
-					}, {
-						name : 'id',
-						index : 'id'
-					}, {
-						name : 'date',
-						index : 'date',
-						editable : true
-					}, {
-						name : 'name',
-						index : 'name',
-						editable : true
-					}, {
-						name : 'amount',
-						index : 'amount',
-						align : "right",
-						editable : true
-					}, {
-						name : 'tax',
-						index : 'tax',
-						align : "right",
-						editable : true
-					}, {
-						name : 'total',
-						index : 'total',
-						align : "right",
-						editable : true
-					}, {
-						name : 'note',
-						index : 'note',
-						sortable : false,
-						editable : true
-					}],
-					rowNum : 10,
-					rowList : [10, 20, 30],
-					pager : '#pjqgrid',
-					sortname : 'id',
-					toolbarfilter : true,
-					viewrecords : true,
-					sortorder : "asc",
-					gridComplete : function() {
-						var ids = jQuery("#jqgrid").jqGrid('getDataIDs');
-						for (var i = 0; i < ids.length; i++) {
-							var cl = ids[i];
-							be = "<button class='btn btn-xs btn-default' data-original-title='Edit Row' onclick=\"jQuery('#jqgrid').editRow('" + cl + "');\"><i class='fa fa-pencil'></i></button>";
-							se = "<button class='btn btn-xs btn-default' data-original-title='Save Row' onclick=\"jQuery('#jqgrid').saveRow('" + cl + "');\"><i class='fa fa-save'></i></button>";
-							ca = "<button class='btn btn-xs btn-default' data-original-title='Cancel' onclick=\"jQuery('#jqgrid').restoreRow('" + cl + "');\"><i class='fa fa-times'></i></button>";
-							//ce = "<button class='btn btn-xs btn-default' onclick=\"jQuery('#jqgrid').restoreRow('"+cl+"');\"><i class='fa fa-times'></i></button>";
-							//jQuery("#jqgrid").jqGrid('setRowData',ids[i],{act:be+se+ce});
-							jQuery("#jqgrid").jqGrid('setRowData', ids[i], {
-								act : be + se + ca
-							});
-						}
-					},
-					editurl : "dummy.html",
-					caption : "SmartAdmin jQgrid Skin",
-					multiselect : true,
-					autowidth : true,
+				 /* Formatting function for row details - modify as you need */
 
-				});
-				jQuery("#jqgrid").jqGrid('navGrid', "#pjqgrid", {
-					edit : false,
-					add : false,
-					del : true
-				});
-				jQuery("#jqgrid").jqGrid('inlineNav', "#pjqgrid");
-				/* Add tooltips */
-				$('.navtable .ui-pg-button').tooltip({
-					container : 'body'
-				});
 
-				jQuery("#m1").click(function() {
-					var s;
-					s = jQuery("#jqgrid").jqGrid('getGridParam', 'selarrrow');
-					alert(s);
-				});
-				jQuery("#m1s").click(function() {
-					jQuery("#jqgrid").jqGrid('setSelection', "13");
-				});
+</script>
 
-				// remove classes
-				$(".ui-jqgrid").removeClass("ui-widget ui-widget-content");
-				$(".ui-jqgrid-view").children().removeClass("ui-widget-header ui-state-default");
-				$(".ui-jqgrid-labels, .ui-search-toolbar").children().removeClass("ui-state-default ui-th-column ui-th-ltr");
-				$(".ui-jqgrid-pager").removeClass("ui-state-default");
-				$(".ui-jqgrid").removeClass("ui-widget-content");
 
-				// add classes
-				$(".ui-jqgrid-htable").addClass("table table-bordered table-hover");
-				$(".ui-jqgrid-btable").addClass("table table-bordered table-striped");
 
-				
-				$(".ui-icon.ui-icon-seek-prev").wrap("<div class='btn btn-sm btn-default'></div>");
-				$(".ui-icon.ui-icon-seek-prev").removeClass().addClass("fa fa-backward");
 
-				$(".ui-icon.ui-icon-seek-first").wrap("<div class='btn btn-sm btn-default'></div>");
-				$(".ui-icon.ui-icon-seek-first").removeClass().addClass("fa fa-fast-backward");
 
-				$(".ui-icon.ui-icon-seek-next").wrap("<div class='btn btn-sm btn-default'></div>");
-				$(".ui-icon.ui-icon-seek-next").removeClass().addClass("fa fa-forward");
 
-				$(".ui-icon.ui-icon-seek-end").wrap("<div class='btn btn-sm btn-default'></div>");
-				$(".ui-icon.ui-icon-seek-end").removeClass().addClass("fa fa-fast-forward");
 
-			})
 
-			$(window).on('resize.jqGrid', function() {
-				$("#jqgrid").jqGrid('setGridWidth', $("#content").width());
-			})
-
-		</script>
-
-		
-
-	</body>
+</body>
 
 </html>

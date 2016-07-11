@@ -110,215 +110,224 @@
 											<section>
 												<label class="label">Name</label>
 												<label class="input">
-													<input type="text" disabled="disabled" value ="" >
+													<input type="text" disabled="disabled" value ="{{$patient->patient_name}}" >
 												</label>
 											</section>
 											<section>
 												<label class="label">Mobile</label>
 												<label class="input">
-													<input type="text" disabled="disabled" value ="" >
+													<input type="text" disabled="disabled" value ="{{$patient->mobile}}" >
 												</label>
 											</section>
 											<section>
 												<label class="label">Gender</label>
-												<div class="inline-group">
-													<label class="radio">
-														<input type="radio" name="gender" disabled="disabled">
-														<i></i>Male</label>
-														<label class="radio">
-															<input type="radio" name="gender" disabled="disabled">
-															<i></i>Female</label>
-														</div>
+												<label class="input">
+													@if($patient->gender ==  '1')
+													<input type="text" disabled="disabled" value ="Male" >
+													@else
+													<input type="text" disabled="disabled" value ="Female" >
+													@endif
+												</label>
+											</section>
+											<section>
+												<label class="label">Blood Group</label>
+												<label class="input">
+													<input type="text" disabled="disabled" value ="{{$patient->bloodgroup}}" >
+												</label>
+											</section>
+											<section>
+												<label class="label">Age</label>
+												<label class="input">
+													<input type="text" disabled="disabled" value ="{{$patient->age}}" >
+												</label>
+											</section>
+											<section>
+												<label class="label">Occupation</label>
+												<label class="input">
+													<input type="text" disabled="disabled" value ="{{$patient->occupation}}" >
+												</label>
+											</section>
 
+											<section>
+												<label class="label">Address</label>
+												<label class="textarea"> 										
+													<textarea rows="3" class="custom-scroll" disabled="disabled" value = "{{$patient->address}}"></textarea> 
+												</label>
+											</section>
+											<section>
+												<label class="label">Country</label>
+												<label class="input">
+													<input type="text" disabled="disabled" value ="{{$patient->country}}" >
+												</label>
+											</section>
+											<section>
+												<label class="label">State</label>
+												<label class="input">
+													<input type="text" disabled="disabled" value ="{{$patient->state}}" >
+												</label>
+											</section>
+											<section>
+												<label class="label">City</label>
+												<label class="input">
+													<input type="text" disabled="disabled" value ="{{$patient->city}}" >
+												</label>
+											</section>
+											<section>
+												<label class="label">Pincode</label>
+												<label class="input">
+													<input type="text" disabled="disabled" value ="{{$patient->pincode}}" >
+												</label>
+											</section>
+										</fieldset>
+									</form>
+								</div>
+								<!-- end widget content -->
+							</div>
+							<!-- end widget div -->
+						</div>
+						<!-- end widget -->
+					</article>
+					<!-- end widget grid -->
+				</div>
+				<!-- END MAIN CONTENT -->
+			</div>
+			<!-- END MAIN PANEL -->
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+								&times;
+							</button>
+							<h4 class="modal-title">
+								<!-- ` -->
+							</h4>
+						</div>
+						<div class="modal-body no-padding">
+
+							<form id="login-form" class="smart-form" method = "post" action = "{{URL::route('edit_patientinfo')}}">
+								{{csrf_field()}}
+								<fieldset>
+									<section>
+										<label class="label">Name</label>
+										<label class="input">
+											<input type="text" name = "name"  value ="{{$patient->patient_name}}" required>
+										</label>
+									</section>
+									<section>
+										<label class="label">Mobile</label>
+										<label class="input">
+											<input type="text" name="mobile"  value ="{{$patient->mobile}}" required>
+										</label>
+									</section>
+									<section>
+										<label class="label">Gender</label>
+										<div class="inline-group">
+											<label class="radio">
+												@if($patient->gender == '1')
+												<input type="radio" value = "1" name="gender" checked required>
+												<i></i>Male</label>
+												<label class="radio">
+													<input type="radio" value = "0" name="gender" >
+													<i></i>Female</label>
+													@else
+													<input type="radio" value = "1" name="gender"  required>
+													<i></i>Male</label>
+													<label class="radio">
+														<input type="radio" value = "0" checked name="gender" >
+														<i></i>Female</label>
+
+														@endif
+													</div>
+												</section>
+												<section>
+													<label class="label">Blood Group</label>
+													<label class="select">
+														<select name = "bloodgroup" required>
+															<option value="0">Choose Blood Group</option>
+															<option value="O+">O+</option>
+															<option value="O-">O-</option>
+															<option value="A-">A-</option>
+															<option value="A+">A+</option>
+															<option value="B-">B-</option>
+															<option value="B+">B+</option>
+															<option value="AB-">AB-</option>
+															<option value="AB+">AB+</option>
+														</select> <i></i> </label>
 													</section>
 													<section>
-														<label class="label">Blood Group</label>
+														<label class="label">Occupation</label>
+														<label class="input">
+															<input type="text" name = "occupation" required value ="" >
+														</label>
+													</section>
+													<section>
+														<label class="label">Age</label>
+														<label class="input">
+															<input type="text" name = "age" value ="{{$patient->age}}" >
+														</label>
+													</section>
+													<section>
+														<label class="label">Address</label>
+														<label class="textarea"> 										
+															<textarea rows="3" name = "address" required class="custom-scroll" >{{$patient->address}}</textarea> 
+														</label>
+													</section>
+													<section>
+														<label class="label">Country</label>
 														<label class="select">
-															<select disabled = "disabled">
-																<option value="0">Choose Blood Group</option>
-																<option value="O+">O+</option>
-																<option value="O-">O-</option>
-																<option value="A-">A-</option>
-																<option value="A+">A+</option>
-																<option value="B-">B-</option>
-																<option value="B+">B+</option>
-																<option value="AB-">AB-</option>
-																<option value="AB+">AB+</option>
-															</select> <i></i> </label>
-														</section>
-														<section>
-															<label class="label">Occupation</label>
-															<label class="input">
-																<input type="text" disabled="disabled" value ="" >
-															</label>
-														</section>
-
-														<section>
-															<label class="label">Address</label>
-															<label class="textarea"> 										
-																<textarea rows="3" class="custom-scroll" disabled="disabled"></textarea> 
-															</label>
-														</section>
-														<section>
-															<label class="label">Country</label>
-															<label class="input">
-																<input type="text" disabled="disabled" value ="" >
-															</label>
+															<select name="country" class="countries" id="countryId">
+																<option value="">Select Country</option>
+															</select>	</label>
 														</section>
 														<section>
 															<label class="label">State</label>
-															<label class="input">
-																<input type="text" disabled="disabled" value ="" >
-															</label>
-														</section>
-														<section>
-															<label class="label">City</label>
-															<label class="input">
-																<input type="text" disabled="disabled" value ="" >
-															</label>
-														</section>
-														<section>
-															<label class="label">Pincode</label>
-															<label class="input">
-																<input type="text" disabled="disabled" value ="" >
-															</label>
-														</section>
-													</fieldset>
-												</form>
-											</div>
-											<!-- end widget content -->
-										</div>
-										<!-- end widget div -->
-									</div>
-									<!-- end widget -->
-								</article>
-								<!-- end widget grid -->
-							</div>
-							<!-- END MAIN CONTENT -->
-						</div>
-						<!-- END MAIN PANEL -->
-						<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
-							<div class="modal-dialog">
-								<div class="modal-content">
-									<div class="modal-header">
-										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-											&times;
-										</button>
-										<h4 class="modal-title">
-											<!-- ` -->
-										</h4>
-									</div>
-									<div class="modal-body no-padding">
-
-										<form id="login-form" class="smart-form">
-
-											<fieldset>
-												<section>
-													<label class="label">Name</label>
-													<label class="input">
-														<input type="text" name = "name"  value ="" required>
-													</label>
-												</section>
-												<section>
-													<label class="label">Contact</label>
-													<label class="input">
-														<input type="text" name="contact"  value ="" required>
-													</label>
-												</section>
-												<section>
-													<label class="label">Gender</label>
-													<div class="inline-group">
-														<label class="radio">
-															<input type="radio" value = "female" name="gender" required>
-															<i></i>Male</label>
-															<label class="radio">
-																<input type="radio" value = "male" name="gender" >
-																<i></i>Female</label>
-															</div>
-														</section>
-														<section>
-															<label class="label">Blood Group</label>
 															<label class="select">
-																<select name = "blood_group" required>
-																	<option value="0">Choose Blood Group</option>
-																	<option value="O+">O+</option>
-																	<option value="O-">O-</option>
-																	<option value="A-">A-</option>
-																	<option value="A+">A+</option>
-																	<option value="B-">B-</option>
-																	<option value="B+">B+</option>
-																	<option value="AB-">AB-</option>
-																	<option value="AB+">AB+</option>
-																</select> <i></i> </label>
-															</section>
-															<section>
-																<label class="label">Occupation</label>
-																<label class="input">
-																	<input type="text" name = "occupation" required value ="" >
-																</label>
-															</section>
-
-															<section>
-																<label class="label">Address</label>
-																<label class="textarea"> 										
-																	<textarea rows="3" name = "address" required class="custom-scroll" ></textarea> 
-																</label>
-															</section>
-															<section>
-																<label class="label">Country</label>
-																<label class="select">
-																	<select name="country" class="countries" id="countryId">
-																		<option value="">Select Country</option>
-																	</select>	</label>
-																</section>
-																<section>
-																	<label class="label">State</label>
-																	<label class="select">
-																		<select name="state" class="states" id="stateId">
-																			<option value="">Select State</option>
-																		</select>
-																	</label>
-																</label>
-															</section>
-															<section>
-																<label class="label">City</label>
-																<label class="select">
-																	<select name="city" class="cities" id="cityId">
-																		<option value="">Select City</option>
-																	</select>
-																</label>
-															</section>
-															<section>
-																<label class="label">Pincode</label>
-																<label class="input">
-																	<input type="text"  value ="" name = "city" id="cityId" >
-																</label>
-															</section>
-														</fieldset>
+																<select name="state" class="states" id="stateId">
+																	<option value="">Select State</option>
+																</select>
+															</label>
+														</label>
+													</section>
+													<section>
+														<label class="label">City</label>
+														<label class="select">
+															<select name="city" class="cities" id="cityId">
+																<option value="">Select City</option>
+															</select>
+														</label>
+													</section>
+													<section>
+														<label class="label">Pincode</label>
+														<label class="input">
+															<input type="text" name = "pincode" value ="{{$patient->pincode}}">
+														</label>
+													</section>
+												</fieldset>
 
 
 
-														<footer>
-															<button type="submit" class="btn btn-primary">
-																Save Changes
-															</button>
-															<button type="button" class="btn btn-default" data-dismiss="modal">
-																Cancel
-															</button>
+												<footer>
+													<button type="submit" class="btn btn-primary">
+														Save Changes
+													</button>
+													<button type="button" class="btn btn-default" data-dismiss="modal">
+														Cancel
+													</button>
 
-														</footer>
-													</form>						
+												</footer>
+											</form>						
 
 
-												</div>
+										</div>
 
-											</div><!-- /.modal-content -->
-										</div><!-- /.modal-dialog -->
-									</div>
+									</div><!-- /.modal-content -->
+								</div><!-- /.modal-dialog -->
+							</div>
 
-									<!-- PAGE FOOTER -->
-									@include('footer')
-									<!-- END PAGE FOOTER -->
+							<!-- PAGE FOOTER -->
+							@include('footer')
+							<!-- END PAGE FOOTER -->
 
 		<!-- SHORTCUT AREA : With large tiles (activated via clicking user name tag)
 		Note: These tiles are completely responsive,

@@ -17,6 +17,7 @@ use App\User;
 use Redirect;
 use App\Speciality;
 use Auth;
+use Redirect;
 use Hash;
 use View;
 use Session;
@@ -34,13 +35,16 @@ class PagesController extends BaseController
 	}
 	public function logout(){
 		if(Auth::check()){
-			Auth::logout();
-			Session::forget('email');
-			
-			if(Auth::user()->level > 4)
+			if(Auth::user()->level > 4){
+				Auth::logout();
+				Session::forget('email');
 				return Redirect::route('admin');
-			else
+			}
+			else{
+				Auth::logout();
+				Session::forget('email');
 				return Redirect::route('home');
+			}
 		}
 		return Redirect::route('home'); 
 

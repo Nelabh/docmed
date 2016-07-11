@@ -35,6 +35,7 @@ Route::get('dash',array('as'=>'dashboard2','uses'=>'UserController@dashboard2'))
 Route::get('search',array('as'=>'search','uses'=>'UserController@search'));
 Route::get('profile/{id}',array('as'=>'profile','uses'=>'UserController@profile'));
 Route::get('basic-info',array('as'=>'basic_info','uses'=>'UserController@basic_info'));
+Route::post('edit-patientinfo',array('as'=>'edit_patientinfo','uses'=>'UserController@edit_patientinfo'));
 });
 
 

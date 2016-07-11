@@ -3,17 +3,17 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class RenameUsersTable extends Migration
+class RenameMedId extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up()
+  public function up()
     {
-     Schema::table('doctors', function ($table) {
-        $table->renameColumn('doc_id', 'id');
+     Schema::table('med_providers', function ($table) {
+        $table->renameColumn('mp_id', 'id');
     });
  }
 
@@ -24,8 +24,8 @@ class RenameUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('doctors', function ($table) {
-            $table->renameColumn('id', 'doc_id');
+        Schema::table('med_providers', function ($table) {
+            $table->renameColumn('id', 'mp_id');
         });
     }
 }

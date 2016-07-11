@@ -142,9 +142,25 @@ class UserController extends BaseController
 		{
 			$patient = Patient::where('email',Auth::user()->email)->first();
 			$name = Patient::where('email',Auth::user()->email)->first()->patient_name;
-			return View::make('basic_info',compact('name','patient'));
-			
+			return View::make('basic_info',compact('name','patient'));	
 		}
+		public function edit_patientinfo(){
+			$data = Input::all();
+			$patient = Patient::where('email',Auth::user()->email)->first();
+			$patient->patient_name = $data['name'];
+			$patient->mobile = $data['mobile'];
+			$patient->gender = $data['gender'];
+			$patient->age = $data['age'];
+			$patient->bloodgroup = $data['bloodgroup'];
+			$patient->occupation = $data['occupation'];
+			$patient->address = $data['address'];
+			$patient->city = $data['city'];
+			$patient->state = $data['state'];
+			$patient->country = $data['country'];
+			$patient->pincode = $data['pincode'];
+			$patient->save();
+			return Redirect::route('basic_info');
+			}
 	}
 
 

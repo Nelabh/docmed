@@ -110,13 +110,13 @@
 											<section>
 												<label class="label">Name</label>
 												<label class="input">
-													<input type="text" disabled="disabled" value ="{{$patient->patient_name}}" >
+													<input type="text" disabled="disabled" placeholder = "Enter Your Name" value ="{{$patient->patient_name}}" >
 												</label>
 											</section>
 											<section>
 												<label class="label">Mobile</label>
 												<label class="input">
-													<input type="text" disabled="disabled" value ="{{$patient->mobile}}" >
+													<input type="text" disabled="disabled" placeholder = "Enter Your Mobile Number" value ="{{$patient->mobile}}" >
 												</label>
 											</section>
 											<section>
@@ -132,26 +132,26 @@
 											<section>
 												<label class="label">Blood Group</label>
 												<label class="input">
-													<input type="text" disabled="disabled" value ="{{$patient->bloodgroup}}" >
+													<input type="text" disabled="disabled" value ="{{$patient->bloodgroup}}" placeholder = "Enter Your Bloodgroup" >
 												</label>
 											</section>
 											<section>
 												<label class="label">Age</label>
 												<label class="input">
-													<input type="text" disabled="disabled" value ="{{$patient->age}}" >
+													<input type="text" placeholder = "Enter Your Age" disabled="disabled" value ="{{$patient->age}}" >
 												</label>
 											</section>
 											<section>
 												<label class="label">Occupation</label>
 												<label class="input">
-													<input type="text" disabled="disabled" value ="{{$patient->occupation}}" >
+													<input type="text" disabled="disabled" placeholder = "Enter Your Occupation" value ="{{$patient->occupation}}" >
 												</label>
 											</section>
 
 											<section>
 												<label class="label">Address</label>
 												<label class="textarea"> 										
-													<textarea rows="3" class="custom-scroll" disabled="disabled" value = "{{$patient->address}}"></textarea> 
+													<textarea rows="3" class="custom-scroll" disabled="disabled" placeholder = "Enter Your Address">{{$patient->address}}</textarea> 
 												</label>
 											</section>
 											<section>
@@ -175,7 +175,7 @@
 											<section>
 												<label class="label">Pincode</label>
 												<label class="input">
-													<input type="text" disabled="disabled" value ="{{$patient->pincode}}" >
+													<input type="text"  disabled="disabled" value ="{{$patient->pincode}}" >
 												</label>
 											</section>
 										</fieldset>
@@ -245,20 +245,52 @@
 													<label class="select">
 														<select name = "bloodgroup" required>
 															<option value="0">Choose Blood Group</option>
+															@if($patient->bloodgroup == "O+")
+															<option selected value="O+">O+</option>
+															@else
 															<option value="O+">O+</option>
+															@endif
+															@if($patient->bloodgroup == "O-")
+															<option selected value="O-">O-</option>
+															@else
 															<option value="O-">O-</option>
+															@endif
+															@if($patient->bloodgroup == "A-")
+															<option selected value="A-">A-</option>
+															@else
 															<option value="A-">A-</option>
+															@endif
+															@if($patient->bloodgroup == "A+")
+															<option selected value="A+">A+</option>
+															@else
 															<option value="A+">A+</option>
+															@endif
+															@if($patient->bloodgroup == "B-")
+															<option selected value="B-">B-</option>
+															@else
 															<option value="B-">B-</option>
+															@endif
+															@if($patient->bloodgroup == "B+")
+															<option selected value="B+">B+</option>
+															@else
 															<option value="B+">B+</option>
+															@endif
+															@if($patient->bloodgroup == "AB-")
+															<option selected value="AB-">AB-</option>
+															@else
 															<option value="AB-">AB-</option>
+															@endif
+															@if($patient->bloodgroup == "AB+")
+															<option selected value="AB+">AB+</option>
+															@else
 															<option value="AB+">AB+</option>
+															@endif
 														</select> <i></i> </label>
 													</section>
 													<section>
 														<label class="label">Occupation</label>
 														<label class="input">
-															<input type="text" name = "occupation" required value ="" >
+															<input type="text" name = "occupation" required value ="{{$patient->occupation}}" >
 														</label>
 													</section>
 													<section>
@@ -277,6 +309,7 @@
 														<label class="label">Country</label>
 														<label class="select">
 															<select name="country" class="countries" id="countryId">
+																<option selected value="{{$patient->country}}">{{$patient->country}}</option>
 																<option value="">Select Country</option>
 															</select>	</label>
 														</section>
@@ -284,6 +317,7 @@
 															<label class="label">State</label>
 															<label class="select">
 																<select name="state" class="states" id="stateId">
+																	<option selected value="{{$patient->state}}">{{$patient->state}}</option>
 																	<option value="">Select State</option>
 																</select>
 															</label>
@@ -293,6 +327,7 @@
 														<label class="label">City</label>
 														<label class="select">
 															<select name="city" class="cities" id="cityId">
+																<option selected value="{{$patient->city}}">{{$patient->city}}</option>
 																<option value="">Select City</option>
 															</select>
 														</label>

@@ -17,7 +17,6 @@ use App\User;
 use Redirect;
 use App\Speciality;
 use Auth;
-use Redirect;
 use Hash;
 use View;
 use Session;

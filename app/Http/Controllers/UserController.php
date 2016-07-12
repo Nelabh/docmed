@@ -14,6 +14,7 @@ use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\PathologyController;
 use App\Http\Controllers\MedVendController;
 use Session;
+use Redirect;
 use Auth;
 use App\Doctor;
 use App\Patient;

@@ -51,10 +51,17 @@
 						<a href="#"><i class="fa fa-lg fa-fw fa-bar-chart-o"></i> <span class="menu-item-parent">Health Records</span></a>
 						
 					</li>
-					<li>
-						<a href="#"><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">Basic Info</span></a>
+				@if(Request::path() == 'basic-info')
+					<li class = "active">
+						<a href="{{URL::route('basic_info')}}"><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">Basic Info</span></a>
 						
 					</li>
+					@else
+					<li>
+						<a href="{{URL::route('basic_info')}}"><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">Basic Info</span></a>
+						
+					</li>
+					@endif
 					
 <!-- 					<li class="top-menu-invisible">
 						<a href="#"><i class="fa fa-lg fa-fw fa-cube txt-color-blue"></i> <span class="menu-item-parent">SmartAdmin Intel</span></a>

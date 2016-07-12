@@ -25,6 +25,8 @@ Route::post('signmed',array('as'=>'signup_medvend','uses'=>'PagesController@veri
 Route::post('log',array('as'=>'login','uses'=>'PagesController@log'));
 Route::get('admin',array('as'=>'admin_login','uses'=>'PagesController@admin'));
 Route::post('logadmin',array('as'=>'logadmin','uses'=>'PagesController@logadmin'));
+Route::get('notverified',array('as'=>'notverified','uses'=>'PagesController@notverified'));
+
 
 });
 

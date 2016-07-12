@@ -37,7 +37,7 @@ class PagesController extends BaseController
 			if(Auth::user()->level > 4){
 				Auth::logout();
 				Session::forget('email');
-				return Redirect::route('admin');
+				return Redirect::route('admin_login');
 			}
 			else{
 				Auth::logout();
@@ -274,6 +274,11 @@ public function admin(){
 	}
 	return View::make('admin\home');
 
+}
+public function notverified(){
+
+		return view::make('notverified');
+	
 }
 
 

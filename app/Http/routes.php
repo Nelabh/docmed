@@ -42,13 +42,25 @@ Route::post('edit-patientinfo',array('as'=>'edit_patientinfo','uses'=>'UserContr
 Route::group(['prefix' => 'admin','middleware' => ['auth']], function () {
 Route::get('verify-doctor',array('as'=>'verify_doctor','uses'=>'AdminController@verify_doctor'));
 Route::get('verify-vendor',array('as'=>'verify_vendor','uses'=>'AdminController@verify_vendor'));
+Route::get('verify-pathologist',array('as'=>'verify_pathologist','uses'=>'AdminController@verify_pathologist'));
 Route::get('admin_dashboard',array('as'=>'admin_dashboard','uses'=>'AdminController@admin_dashboard'));
 Route::get('getdata',array('as'=>'getdata','uses'=>'AdminController@getdata'));
 Route::get('getdatamv',array('as'=>'getdatamv','uses'=>'AdminController@getdatamv'));
+Route::get('getdatap',array('as'=>'getdatap','uses'=>'AdminController@getdatap'));
+
 Route::get('/verify_d/{id}',array('as'=>'verify_d','uses'=>'AdminController@verify_d'));
 Route::get('/delete_doctor/{id}',array('as'=>'delete_doctor','uses'=>'AdminController@delete_doctor'));
+Route::get('/verify_v/{id}',array('as'=>'verify_v','uses'=>'AdminController@verify_v'));
+Route::get('/delete_vendor/{id}',array('as'=>'delete_vendor','uses'=>'AdminController@delete_vendor'));
+Route::get('/verify_p/{id}',array('as'=>'verify_p','uses'=>'AdminController@verify_p'));
+Route::get('/delete_pathologist/{id}',array('as'=>'delete_pathologist','uses'=>'AdminController@delete_pathologist'));
 Route::get('edit-doctor',array('as'=>'edit_doctor','uses'=>'AdminController@edit_doctor'));
 Route::post('editdoctor/{id}',array('as'=>'editdoctor','uses'=>'AdminController@editdoctor'));
+Route::get('edit-vendor',array('as'=>'edit_vendor','uses'=>'AdminController@edit_vendor'));
+Route::post('editvendor/{id}',array('as'=>'editvendor','uses'=>'AdminController@editvendor'));
+Route::get('edit-pathologist',array('as'=>'edit_pathologist','uses'=>'AdminController@edit_pathologist'));
+Route::post('editpathologist/{id}',array('as'=>'editpathologist','uses'=>'AdminController@editpathologist'));
+
 
 
 

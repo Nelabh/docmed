@@ -16,7 +16,7 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('email')->unique();
             $table->string('password');
-            $table->tinyInteger('level');
+            $table->tinyInteger('level'); //1=> Doctor,2=>Patient,3=>Med_provider,4=>Pathology,5=>ADMIN
             $table->rememberToken();
             $table->timestamps();
         });

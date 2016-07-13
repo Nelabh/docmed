@@ -21,6 +21,7 @@ use App\Patient;
 use App\MedVend;
 use App\Review;
 use App\User;
+use App\HealthStatus;
 use App\Speciality;
 class UserController extends BaseController
 {
@@ -162,6 +163,31 @@ class UserController extends BaseController
 			$patient->save();
 			return Redirect::route('basic_info');
 			}
+		public function health_status(){
+			if(Auth::user()->level == 2 ){
+				$health_status = HealthStatus::where('email',Auth::user()->email)->orderBy('created_at','desc')->get();
+			$name = Patient::where('email',Auth::user()->email)->first()->patient_name;
+				return View::make('health_status',compact('name','health_status'));
+			}
+			else{
+				return Redirect::route('dashboard');
+				}
+		}
+		public function edit_healthstatus(){
+			if(Auth::user()->level == 2 ){
+				$data = Input::all();
+				$health_status = new HealthStatus;
+				$health_status->problem = $data['problem'];
+				$health_status->statement = $data['statement'];
+				$health_status->email = Auth::user()->email;
+				$health_status->save();
+				return Redirect::route('health_status')->with('message','Successfully Addded');
+			}
+			else{
+				return Redirect::route('dashboard');
+				}
+
+		}
 	}
 
 

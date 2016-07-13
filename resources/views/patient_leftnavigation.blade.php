@@ -62,6 +62,17 @@
 						
 					</li>
 					@endif
+					@if(Request::path() == 'health-status')
+					<li class = "active">
+						<a href="{{URL::route('health_status')}}"><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">Current Health Status</span></a>
+						
+					</li>
+					@else
+					<li>
+						<a href="{{URL::route('health_status')}}"><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">Current Health Status</span></a>
+						
+					</li>
+					@endif
 					
 <!-- 					<li class="top-menu-invisible">
 						<a href="#"><i class="fa fa-lg fa-fw fa-cube txt-color-blue"></i> <span class="menu-item-parent">SmartAdmin Intel</span></a>

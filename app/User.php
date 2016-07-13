@@ -13,6 +13,9 @@ class User extends Authenticatable
      */
     protected $fillable = [
          'email', 'password','level'
+
+
+         // Levels   => [1=> Doctor,2=>Patient,3=>Med_provider,4=>Pathology,5=>ADMIN]
     ];
 
     /**

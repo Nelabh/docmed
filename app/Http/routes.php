@@ -36,6 +36,9 @@ Route::get('search',array('as'=>'search','uses'=>'UserController@search'));
 Route::get('profile/{id}',array('as'=>'profile','uses'=>'UserController@profile'));
 Route::get('basic-info',array('as'=>'basic_info','uses'=>'UserController@basic_info'));
 Route::post('edit-patientinfo',array('as'=>'edit_patientinfo','uses'=>'UserController@edit_patientinfo'));
+Route::get('health-status',array('as'=>'health_status','uses'=>'UserController@health_status'));
+Route::post('edit-healthstatus',array('as'=>'edit_healthstatus','uses'=>'UserController@edit_healthstatus'));
+
 });
 
 

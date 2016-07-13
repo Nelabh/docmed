@@ -68,10 +68,10 @@ class UserController extends BaseController
 			$speciality = Speciality::all();
 			$a=$b=0;
 			if($data != ""){
-				$doc = Doctor::where('email',$data)->orWhere('doc_name','like','%'.$data.'%')->orderBy('doc_id')->get()->toArray();
+				$doc = Doctor::where('email',$data)->orWhere('doc_name','like','%'.$data.'%')->orderBy('id')->get()->toArray();
 				$doc2 = array();
 				if(Speciality::where('speciality_name',$data)->first()){
-					$doc2 = Doctor::where('speciality',Speciality::where('speciality_name',$data)->first()->id)->orderBy('doc_id')->get()->toArray();
+					$doc2 = Doctor::where('speciality',Speciality::where('speciality_name',$data)->first()->id)->orderBy('id')->get()->toArray();
 					$b = count($doc2);
 				}
 
@@ -83,11 +83,11 @@ class UserController extends BaseController
 					$j=0;
 					$k=0;
 					while (($i < $a) ||($j < $b)) {
-						if($doc[$i]['doc_id'] < $doc2[$j]['doc_id']){
+						if($doc[$i]['id'] < $doc2[$j]['id']){
 							$result[] = $doc[$i];
 
 							$i++;
-						}else if($doc[$i]['doc_id'] > $doc2[$j]['doc_id']){
+						}else if($doc[$i]['id'] > $doc2[$j]['id']){
 							$result[] = $doc2[$j];
 							$j++;
 						}else{
@@ -124,7 +124,7 @@ class UserController extends BaseController
 
 		public function profile($id){
 			$name = Patient::where('email',Auth::user()->email)->first()->patient_name;
-			$doctor = Doctor::where('doc_id',$id)->first();
+			$doctor = Doctor::where('id',$id)->first();
 			$doctor->speci = Speciality::where('id',$doctor->speciality)->first()->speciality_name;
 			$sum = Review::where('doctor_email',$doctor->email)->sum('stars');
 			$count = Review::where('doctor_email',$doctor->email)->count();

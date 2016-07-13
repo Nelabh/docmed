@@ -146,6 +146,11 @@ input[type=text] {
 
 						</div>
 						<div class="row">
+							@if($data == "")
+							<div class = "text-center"><h2>Search Results</h2></div>
+							@else
+							<div class = "text-center"><h2>Search Results for "{{$data}}"</h2></div>
+							@endif
 							<div class="text">
 								@if(count($result))
 								@foreach($result as $re)
@@ -173,7 +178,7 @@ input[type=text] {
 											@endif
 										</span>
 										</div>
-										<a href="{{URL::route('profile',$re['doc_id'])}}" class="btn btn-xs btn-success margin-top-5 margin-bottom-5"> <span class="font-xs">View Profile</span> </a>
+										<a href="{{URL::route('profile',$re['id'])}}" class="btn btn-xs btn-success margin-top-5 margin-bottom-5"> <span class="font-xs">View Profile</span> </a>
 									</div>
 								</div>
 								@endforeach

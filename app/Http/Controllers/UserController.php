@@ -37,10 +37,30 @@ class UserController extends BaseController
 			return DoctorController::dashboard();
 			break;
 			case '2':
-			$name = Patient::where('email',Auth::user()->email)->first()->patient_name;
+			$patient = Patient::where('email',Auth::user()->email)->first();
+			$name = $patient->name;
 			if(Patient::where('email',Auth::user()->email)->first()->first == 0){
 				$speciality = Speciality::all();
-				return View::make('patient_dashboard_first',compact('name','speciality'));
+				$result = Doctor::where('city',$patient->city)->orWhere('state',$patient->state)->get()->toArray();
+				if(count($result)){
+
+					foreach ($result as $res) {
+						if(count(Review::where('doctor_email',$res['email'])->get())){
+							$sum = Review::where('doctor_email',$res['email'])->sum('stars');
+							$count = Review::where('doctor_email',$res['email'])->count();
+							if($count)
+								$review = array("".$res['email'].""=>intval($sum/$count));
+							else
+								$review = array("".$res['email'].""=>0); 
+						}
+					}
+
+				}
+				else{
+					$review = [];
+				}
+
+				return View::make('patient_dashboard_first',compact('name','speciality','result','review'));
 			}
 			else{
 				return View::make('patient_dashboard',compact('name'));
@@ -103,7 +123,6 @@ class UserController extends BaseController
 					else 
 						$result = $doc;
 				}
-
 			}
 			else{
 				$result = Doctor::all();
@@ -114,9 +133,9 @@ class UserController extends BaseController
 					$sum = Review::where('doctor_email',$res['email'])->sum('stars');
 					$count = Review::where('doctor_email',$res['email'])->count();
 					if($count)
-					$review = array("".$res['email'].""=>intval($sum/$count));
+						$review = array("".$res['email'].""=>intval($sum/$count));
 					else
-					$review = array("".$res['email'].""=>0); 
+						$review = array("".$res['email'].""=>0); 
 				}
 			}
 			return View::make('search',compact('name','speciality','result','data','review'));
@@ -162,16 +181,16 @@ class UserController extends BaseController
 			$patient->pincode = $data['pincode'];
 			$patient->save();
 			return Redirect::route('basic_info');
-			}
+		}
 		public function health_status(){
 			if(Auth::user()->level == 2 ){
 				$health_status = HealthStatus::where('email',Auth::user()->email)->orderBy('created_at','desc')->get();
-			$name = Patient::where('email',Auth::user()->email)->first()->patient_name;
+				$name = Patient::where('email',Auth::user()->email)->first()->patient_name;
 				return View::make('health_status',compact('name','health_status'));
 			}
 			else{
 				return Redirect::route('dashboard');
-				}
+			}
 		}
 		public function edit_healthstatus(){
 			if(Auth::user()->level == 2 ){
@@ -185,7 +204,7 @@ class UserController extends BaseController
 			}
 			else{
 				return Redirect::route('dashboard');
-				}
+			}
 
 		}
 	}

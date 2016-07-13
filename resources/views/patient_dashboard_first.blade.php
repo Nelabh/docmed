@@ -132,6 +132,49 @@ input[type=text] {
 
 						</div>
 
+	<div class="row">
+							<div class = "text-center"><h2>Recommended Doctors</h2></div>
+							<div class="text">
+								@if(count($result))
+								@foreach($result as $re)
+								<div class="col-sm-12 col-md-6 col-lg-3">
+									<div class="well text-center connect">
+										<img src="{{URL::asset('img/avatars/male.png')}}" alt="img" class="margin-bottom-5 margin-top-5">
+										<br>
+										<span class="font-xs"><b>{{$re['doc_name']}}</b></span>
+										<div class="row"><span class="font-xs">
+											@if(isset($review[$re['email']]))
+											
+											@for($i=1;$i <= $review[$re['email']]; $i++)
+											<i class="fa fa-star fa-2x text-primary"></i>
+											@endfor
+
+											@for($i=1;$i <= 5 - $review[$re['email']]; $i++)
+											<i class="fa fa-star fa-2x text-muted"></i>
+											@endfor
+											@else
+											<i class="fa fa-star fa-2x text-muted"></i>
+											<i class="fa fa-star fa-2x text-muted"></i>
+											<i class="fa fa-star fa-2x text-muted"></i>
+											<i class="fa fa-star fa-2x text-muted"></i>
+											<i class="fa fa-star fa-2x text-muted"></i>
+											@endif
+										</span>
+										</div>
+										<a href="{{URL::route('profile',$re['id'])}}" class="btn btn-xs btn-success margin-top-5 margin-bottom-5"> <span class="font-xs">View Profile</span> </a>
+									</div>
+								</div>
+								@endforeach
+								@else
+								<div class="col-sm-12 col-md-12 col-lg-12">
+									<div class="well text-center connect">
+										NO DOCTORS FOUND 	
+									</div>
+								</div>
+								@endif
+							</div>
+						</div>	
+
 					</div>
 
 

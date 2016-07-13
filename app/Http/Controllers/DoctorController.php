@@ -12,6 +12,7 @@ use Auth;
 use App\Http\Controllers\MedWendController;
 use App\Http\Controllers\DoctorController;
 use App\Doctor;
+use Redirect;
 class DoctorController extends BaseController
 {
     use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
@@ -23,12 +24,17 @@ public function __construct()
 
 		switch (Auth::user()->level) {
 			case '1':
-			return View::make('doctor_dashboard');
+			 $doc=Doctor::where('email',Auth::user()->email)->first();
+			 if($doc->verified==0)
+			 	return View::make('notverified');
+			 else
+				return View::make('doctor_dashboard');
 			break;
 			case '2':
 			return UserController::dashboard();
 			break;
 			case '3':
+
 			return MedVendController::dashboard();
 			break;
 		/*	default:

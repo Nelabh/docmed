@@ -27,35 +27,57 @@ class AdminController extends BaseController
 		$this->middleware('auth');
 	}
 	public function verify_doctor(){
+		if(Auth::user()->level>4)
 		return View::make('admin\verify_doctor');
+	return Redirect::route('home');
 	}
 	public function verify_pathologist(){
+		if(Auth::user()->level>4)
 		return View::make('admin\verify_pathologist');
+	return Redirect::route('home');
+
 	}
 	public function verify_vendor(){
+		if(Auth::user()->level>4)
 		return View::make('admin\verify_vendor');
+	return Redirect::route('home');
+
 	}
 	public function admin_dashboard(){
-		return View::make('admin\admin_dashboard');
+		if(Auth::user()->level>4)
+	return View::make('admin\admin_dashboard');
+	return Redirect::route('home');
+
 	}
 	
 	public function edit_doctor(){
 		$data = Doctor::all();
-		return View::make('admin\edit_doctor',compact('data'));
+		if(Auth::user()->level>4)
+	return View::make('admin\edit_doctor',compact('data'));
+	return Redirect::route('home');
+
 	}
 	public function edit_vendor(){
 		$data = MedVend::all();
-		return View::make('admin\edit_vendor',compact('data'));
+		if(Auth::user()->level>4)
+			return View::make('admin\edit_vendor',compact('data'));
+	return Redirect::route('home');
+
 	}
 	public function edit_pathologist(){
 		$data = Pathology::all();
+		if(Auth::user()->level>4)
 		return View::make('admin\edit_pathologist',compact('data'));
+	return Redirect::route('home');
+
 	}
 	public function delete_doctor($id)
 	{
 		$doc=Doctor::where('id',$id)->first();
 		$doc->delete();
-		return Redirect::to('admin\verify-doctor')->with('message','Successfully deleted');
+		if(Auth::user()->level>4)
+			return Redirect::to('admin\verify-doctor')->with('message','Successfully deleted');
+	return Redirect::route('home');
 
 	}
 	public function delete_vendor($id)
@@ -189,6 +211,8 @@ class AdminController extends BaseController
 		return Redirect::to('admin\edit-pathologist')->with('message','Successfully edited');
    		     
    }
+
+
 
 
    

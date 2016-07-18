@@ -133,9 +133,31 @@
 										</label>
 									</section>
 									
+									
 									<section>
-										<label class="input"> <i class="icon-append fa fa-location-arrow"></i>
-											<input type="text" name="city" placeholder="City">
+										<label class="select"> 
+											<select name="country" class= "countries" id="countryId" required >
+												<option>Select Country</option>
+											</select>
+											<i></i>
+										</label>
+									</section>
+
+									<section>
+										<label class="select"> 
+											<select name="state" id="stateId" class= "states"   required>
+												<option>Select State</option>
+											</select>
+											<i></i>
+										</label>
+									</section>
+
+									<section>
+										<label class="select"> 
+											<select name="city" id="cityId" class= "cities"  required placeholder="City">
+												<option>Select City</option>
+											</select>
+											<i></i>
 										</label>
 									</section>
 									<section>
@@ -235,6 +257,7 @@
 
 		<!-- JS TOUCH : include this plugin for mobile drag / drop touch events 		
 		<script src="js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script> -->
+		<script src="http://iamrohit.in/lab/js/location.js"></script>
 
 		<!-- BOOTSTRAP JS -->		
 		<script src="js/bootstrap/bootstrap.min.js"></script>

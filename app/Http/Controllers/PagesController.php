@@ -173,6 +173,8 @@ class PagesController extends BaseController
 		$pathology->email = $data['email'];
 		$pathology->gender = $data['gender'];
 		$pathology->mobile = $data['mobile'];
+		$pathology->country = $data['country'];
+		$pathology->state = $data['state'];
 		$pathology->city = $data['city'];
 		$pathology->mci = $data['registration'];
 		$pathology->save();
@@ -197,6 +199,8 @@ class PagesController extends BaseController
 		$patient->gender = $data['gender'];
 		$patient->mobile = $data['mobile'];
 		$patient->bloodgroup = $data['bloodgroup'];
+		$patient->country = $data['country'];
+		$patient->state = $data['state'];
 		$patient->city = $data['city'];
 		$patient->save();
 		if(Auth::login($user)){
@@ -221,6 +225,8 @@ class PagesController extends BaseController
 		$doctor->email = $data['email'];
 		$doctor->gender = $data['gender'];
 		$doctor->mobile = $data['mobile'];
+		$doctor->country = $data['country'];
+		$doctor->state = $data['state'];
 		$doctor->city = $data['city'];
 		$doctor->mci = $data['mci'];
 		$doctor->speciality = Speciality::where('id',$data['speciality'])->first()->id;
@@ -245,6 +251,8 @@ class PagesController extends BaseController
 		$medvend->email = $data['email'];
 		$medvend->gender = $data['gender'];
 		$medvend->mobile = $data['mobile'];
+		$medvend->country = $data['country'];
+		$medvend->state = $data['state'];
 		$medvend->city = $data['city'];
 		$medvend->mci = $data['registration'];
 		$medvend->save();
@@ -277,7 +285,7 @@ public function admin(){
 }
 public function notverified(){
 
-		return view::make('notverified');
+	return view::make('notverified');
 	
 }
 

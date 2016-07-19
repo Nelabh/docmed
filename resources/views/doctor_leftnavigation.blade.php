@@ -33,10 +33,22 @@
 					<a href="{{URL::route('dashboard')}}" title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Dashboard</span></a>
 				</li>
 				@endif
+
+
+
+
+
+				@if(Request::path() == 'profile_doctor')
 				<li class="active">
-					<a href="#" title="History"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">My Account</span></a>			
+					<a href="{{URL::route('profile_doctor')}}" title="Profile"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Profile</span></a>			
 				</li>
-				<li class="top-menu-invisible">
+				@else
+				<li>
+					<a href="{{URL::route('profile_doctor')}}" title="PRofile"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Profile</span></a>
+				</li>
+				@endif
+				
+					<li class="top-menu-invisible">
 						<a href="#"><i class="fa fa-lg fa-fw fa-cube"></i> <span class="menu-item-parent">My Reviews</span></a>
 						
 					</li>

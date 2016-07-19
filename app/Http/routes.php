@@ -31,7 +31,6 @@ Route::get('notverified',array('as'=>'notverified','uses'=>'PagesController@notv
 });
 
 Route::group(['middleware' => ['auth']], function () {
-Route::get('dashboard', array('as'=>'dashboard','uses'=>'UserController@hboard'));
 
 Route::get('dashboard', array('as'=>'dashboard','uses'=>'UserController@dashboard'));
 Route::get('history', array('as'=>'history','uses'=>'UserController@history'));
@@ -42,6 +41,14 @@ Route::get('basic-info',array('as'=>'basic_info','uses'=>'UserController@basic_i
 Route::post('edit-patientinfo',array('as'=>'edit_patientinfo','uses'=>'UserController@edit_patientinfo'));
 Route::get('health-status',array('as'=>'health_status','uses'=>'UserController@health_status'));
 Route::post('edit-healthstatus',array('as'=>'edit_healthstatus','uses'=>'UserController@edit_healthstatus'));
+Route::get('profile_doctor', array('as'=>'profile_doctor','uses'=>'DoctorController@profile_doctor'));
+Route::post('edit', array('as'=>'edit','uses'=>'DoctorController@edit'));
+Route::get('profile_vendor', array('as'=>'profile_vendor','uses'=>'MedVendController@profile_vendor'));
+Route::post('edit_vend', array('as'=>'edit_vend','uses'=>'MedVendController@edit_vend'));
+
+
+
+
 
 });
 

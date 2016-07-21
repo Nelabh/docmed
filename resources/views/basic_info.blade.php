@@ -310,7 +310,7 @@
 														<label class="select">
 															<select name="country" class="countries" id="countryId">
 																<option selected value="{{$patient->country}}">{{$patient->country}}</option>
-																<option value="">Select Country</option>
+																
 															</select>	</label>
 														</section>
 														<section>

@@ -134,14 +134,14 @@
 													Fees : &#8377;{{$doctor->fees}}
 													<small>*includes tax</small>
 												</h3>
-												<a href="javascript:void(0);" class="btn btn-primary">Consult </a>
+												<a   data-toggle="modal" href="#consult" class="btn btn-success header-btn btn btn-primary">Consult</a>
 											</div>
 											<div class="col-sm-6">
 												<h3 class="price-container">
 													Urgent : &#8377;{{$doctor->ufees}}
 													<small>*includes tax</small>
 												</h3>
-												<a href="javascript:void(0);" class="btn btn-danger">Consult With Urgency</a>
+												<a  data-toggle="modal" href="#urgent"  class="btn btn-danger">Consult With Urgency</a>
 											</div>
 										</div>
 										<hr>
@@ -260,6 +260,123 @@
 
 	<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
 	@include('js');
+	<!-- Modal -->
+	<div class="modal fade" id="consult" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+					<h4 class="modal-title">
+						Consult
+					</h4>
+				</div>
+				<div class="modal-body no-padding">
+
+					<form id="login-form" class="smart-form">
+
+						<fieldset>
+							<section>
+								<div class="row">
+									<label class="label col col-2">Problem</label>
+									<div class="col col-10">
+										<label class="input"> <i class="icon-append fa fa-user"></i>
+											<input type="email" name="email">
+										</label>
+									</div>
+								</div>
+							</section>
+
+							<section>
+								<div class="row">
+									<label class="label col col-2">Statement</label>
+									<div class="col col-10">
+										<label class="input"> <i class="icon-append fa fa-lock"></i>
+											<input type="password" name="password">
+										</label>
+									</div>
+								</div>
+							</section>
+
+						</fieldset>
+						
+						<footer>
+							<button type="submit" class="btn btn-primary">
+								Consult @  &#8377;{{$doctor->fees}}
+							</button>
+							<button type="button" class="btn btn-default" data-dismiss="modal">
+								Cancel
+							</button>
+
+						</footer>
+					</form>						
+					
+
+				</div>
+
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+	<!-- Modal -->
+	<div class="modal fade" id="urgent" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+					<h4 class="modal-title">
+						Consult Urgent
+					</h4>
+				</div>
+				<div class="modal-body no-padding">
+
+					<form id="login-form" class="smart-form">
+
+						<fieldset>
+							<section>
+								<div class="row">
+									<label class="label col col-2">Problem</label>
+									<div class="col col-10">
+										<label class="input"> <i class="icon-append fa fa-user"></i>
+											<input type="email" name="email">
+										</label>
+									</div>
+								</div>
+							</section>
+
+							<section>
+								<div class="row">
+									<label class="label col col-2">Statement</label>
+									<div class="col col-10">
+										<label class="input"> <i class="icon-append fa fa-lock"></i>
+											<input type="password" name="password">
+										</label>
+									</div>
+								</div>
+							</section>
+						</fieldset>
+						
+						<footer>
+							<button type="submit" class="btn btn-primary">
+								Consult Urgent @  &#8377;{{$doctor->ufees}}
+							</button>
+							<button type="button" class="btn btn-default" data-dismiss="modal">
+								Cancel
+							</button>
+
+						</footer>
+					</form>						
+					
+
+				</div>
+
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
 </body>
 
 </html>

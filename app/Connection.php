@@ -12,7 +12,7 @@ class Connection extends Model
      * @var array
      */
     protected $fillable = [
-         'doctor_email', 'patient_email',
+         'doctor_email', 'patient_email','health_record'
     ];
 
     /**

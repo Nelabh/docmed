@@ -17,6 +17,7 @@ use Session;
 use Redirect;
 use Auth;
 use App\Doctor;
+use App\Connection;
 use App\Patient;
 use App\MedVend;
 use App\Review;
@@ -157,7 +158,16 @@ class UserController extends BaseController
 			foreach ($review as $rev) {
 				$rev->name = User::where('email',$rev->patient_email)->first()->patient_name;
 			}
-			return View::make('profile',compact('name','doctor','review','stars'));
+			$conn = Connection::where('patient_email',Auth::user()->email)->where('doctor_email',Doctor::where('id',$id)->first()->email)->first();
+			if(count($conn)){
+				$connection = $conn->status;
+			}
+			else{
+				$connection = -1;
+
+			}
+			$health_status = HealthStatus::where('email',Auth::user()->email)->orderBy('created_at','desc')->first();
+			return View::make('profile',compact('name','doctor','review','stars','connection','health_status'));
 		}
 		public function basic_info()
 		{
@@ -205,7 +215,34 @@ class UserController extends BaseController
 			else{
 				return Redirect::route('dashboard');
 			}
+		}
+		public function consult(){
+			$data = Input::all();
+			$health_status = HealthStatus::where('email',Auth::user()->email)->orderBy('created_at','desc')->first();
 
+			if(count($health_status)){
+				if(strcmp($health_status->problem,$data['problem']) || strcmp($health_status->statement,$data['statement'])){
+					$health_status = new HealthStatus;
+					$health_status->problem = $data['problem'];
+					$health_status->statement = $data['statement'];
+					$health_status->email = Auth::user()->email;
+					$health_status->save();
+				}
+			}
+			else{
+				$health_status = new HealthStatus;
+				$health_status->problem = $data['problem'];
+				$health_status->statement = $data['statement'];
+				$health_status->email = Auth::user()->email;
+				$health_status->save();
+			}
+			$connection = new Connection;
+			$connection->patient_email = Auth::user()->email;
+			$connection->doctor_email = Doctor::where('id',$data['id'])->first()->email;
+			$connection->status = 0;
+			$connection->health_record = $health_status->id;
+			$connection->save();
+			return Redirect::back();
 		}
 	}
 

@@ -128,13 +128,14 @@
 											<span class="fa fa-2x"><h5>{{$doctor->tot_review}} Votes</h5></span>	
 										</h2>
 										<hr>
+										@if($connection == -1)
 										<div class="row">
 											<div class="col-sm-6">
 												<h3 class="price-container">
 													Fees : &#8377;{{$doctor->fees}}
 													<small>*includes tax</small>
 												</h3>
-												<a   data-toggle="modal" href="#consult" class="btn btn-success header-btn btn btn-primary">Consult</a>
+												<a   data-toggle="modal" href="#consult" class="btn  header-btn btn btn-primary">Consult</a>
 											</div>
 											<div class="col-sm-6">
 												<h3 class="price-container">
@@ -144,6 +145,24 @@
 												<a  data-toggle="modal" href="#urgent"  class="btn btn-danger">Consult With Urgency</a>
 											</div>
 										</div>
+										@else
+										<div class="row">
+											<div class="col-sm-12">
+												<h3 class="price-container">
+													Fees : &#8377;{{$doctor->fees}}
+													<small>*includes tax</small>
+												</h3>
+												<a  class="btn  header-btn btn btn-primary">Consultation Requested</a>
+											</div>
+											<div class="col-sm-6">
+												<h3 class="price-container">
+													Urgent : &#8377;{{$doctor->ufees}}
+													<small>*includes tax</small>
+												</h3>
+												<a class="btn btn-danger">Consultation Requested</a>
+											</div>
+										</div>
+										@endif
 										<hr>
 										<div class="description description-tabs">
 											<ul id="myTab2" class="nav nav-tabs">
@@ -274,15 +293,17 @@
 				</div>
 				<div class="modal-body no-padding">
 
-					<form id="login-form" class="smart-form">
-
+					<form id="login-form" class="smart-form" method="post" action = "{{URL::route('consult')}}" >
+						<input type = "hidden" name = "id" value = "{{$doctor->id}}">
+						{{csrf_field()}}
 						<fieldset>
+							@if(count($health_status))
 							<section>
 								<div class="row">
 									<label class="label col col-2">Problem</label>
 									<div class="col col-10">
-										<label class="input"> <i class="icon-append fa fa-user"></i>
-											<input type="email" name="email">
+										<label class="input">
+											<input type="text" name="problem" value = "{{$health_status->problem}}">
 										</label>
 									</div>
 								</div>
@@ -292,15 +313,37 @@
 								<div class="row">
 									<label class="label col col-2">Statement</label>
 									<div class="col col-10">
-										<label class="input"> <i class="icon-append fa fa-lock"></i>
-											<input type="password" name="password">
+										<label class="textarea"> 
+											<textarea name="statement">{{$health_status->statement}}</textarea>
+										</label>
+									</div>
+								</div>
+							</section>
+							@else
+							<section>
+								<div class="row">
+									<label class="label col col-2">Problem</label>
+									<div class="col col-10">
+										<label class="input">
+											<input type="text" name="problem" >
 										</label>
 									</div>
 								</div>
 							</section>
 
+							<section>
+								<div class="row">
+									<label class="label col col-2">Statement</label>
+									<div class="col col-10">
+										<label class="textarea"> 
+											<textarea name="statement"></textarea>
+										</label>
+									</div>
+								</div>
+							</section>
+							@endif
 						</fieldset>
-						
+
 						<footer>
 							<button type="submit" class="btn btn-primary">
 								Consult @  &#8377;{{$doctor->fees}}
@@ -311,7 +354,7 @@
 
 						</footer>
 					</form>						
-					
+
 
 				</div>
 
@@ -333,15 +376,18 @@
 				</div>
 				<div class="modal-body no-padding">
 
-					<form id="login-form" class="smart-form">
+					<form id="login-form" method="post" action = "{{URL::route('uconsult')}}" class="smart-form">
+						<input type = "hidden" name = "id" value = "{{$doctor->id}}">
+						{{csrf_field()}}
 
 						<fieldset>
+							@if(count($health_status))
 							<section>
 								<div class="row">
 									<label class="label col col-2">Problem</label>
 									<div class="col col-10">
-										<label class="input"> <i class="icon-append fa fa-user"></i>
-											<input type="email" name="email">
+										<label class="input">
+											<input type="text" name="problem" value = "{{$health_status->problem}}">
 										</label>
 									</div>
 								</div>
@@ -351,14 +397,37 @@
 								<div class="row">
 									<label class="label col col-2">Statement</label>
 									<div class="col col-10">
-										<label class="input"> <i class="icon-append fa fa-lock"></i>
-											<input type="password" name="password">
+										<label class="textarea"> 
+											<textarea name="statement">{{$health_status->statement}}</textarea>
 										</label>
 									</div>
 								</div>
 							</section>
+							@else
+							<section>
+								<div class="row">
+									<label class="label col col-2">Problem</label>
+									<div class="col col-10">
+										<label class="input">
+											<input type="text" name="problem" >
+										</label>
+									</div>
+								</div>
+							</section>
+
+							<section>
+								<div class="row">
+									<label class="label col col-2">Statement</label>
+									<div class="col col-10">
+										<label class="textarea"> 
+											<textarea name="statement"></textarea>
+										</label>
+									</div>
+								</div>
+							</section>
+							@endif
 						</fieldset>
-						
+
 						<footer>
 							<button type="submit" class="btn btn-primary">
 								Consult Urgent @  &#8377;{{$doctor->ufees}}
@@ -369,7 +438,7 @@
 
 						</footer>
 					</form>						
-					
+
 
 				</div>
 

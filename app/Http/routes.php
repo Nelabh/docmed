@@ -45,6 +45,8 @@ Route::get('profile_doctor', array('as'=>'profile_doctor','uses'=>'DoctorControl
 Route::post('edit', array('as'=>'edit','uses'=>'DoctorController@edit'));
 Route::get('profile_vendor', array('as'=>'profile_vendor','uses'=>'MedVendController@profile_vendor'));
 Route::post('edit_vend', array('as'=>'edit_vend','uses'=>'MedVendController@edit_vend'));
+Route::post('consult', array('as'=>'consult','uses'=>'UserController@consult'));
+Route::post('uconsult', array('as'=>'uconsult','uses'=>'UserController@uconsult'));
 
 
 

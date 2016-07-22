@@ -199,7 +199,7 @@
 										<label class="label">Qualification</label>
 
 									<label class="textarea"> 										
-										<textarea rows="3" required name="qualification" value="{{$doc->qualification}}" placeholder="Additional Qualification"></textarea> 
+										<textarea rows="3" required name="qualification" value="{{$doc->qualification}}" placeholder="Additional Qualification">{{$doc->qualification}}</textarea> 
 									</label>
 								</section>
 							</fieldset>

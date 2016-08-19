@@ -30,39 +30,36 @@ class DoctorController extends BaseController
 
 		switch (Auth::user()->level) {
 			case '1':
-			$doc=Doctor::where('email',Auth::user()->email)->first();
-			$con = Connection::where('doctor_email',Auth::user()->email)->get();
+			{
+				$doc=Doctor::where('email',Auth::user()->email)->first();
+			$con = Connection::where('doctor_email',Auth::user()->email)->where('status',0)->get();
 			if(count($con))
 			{
-				
 				foreach($con as $c)
 				{
 					$patient = Patient::where('email',$c->patient_email)->first();
-					$health = HealthStatus::where('id',$c->health_record)->first();
-					$c->problem = $health->problem;
-					$c->statement = $health->statement;
-					$c->name
-			
+					if($patient)
+					{
+					$c->problem = HealthStatus::where('id',$c->health_record)->first()->problem;
+					$c->statement = HealthStatus::where('id',$c->health_record)->first()->statement;
+					$c->patient = $patient;
+
+					}
 
 				}
-				
 			}
-			else
-			{
-				$patient=[];
-				$health=[];
-
-
-			}
-
+			
+			
 
 			if($doc->verified!=0)
-				return View::make('doctor_dashboard',compact('patient')); 	
+				return View::make('doctor_dashboard',compact('con')); 	
 			
 			else
 				return View::make('notverified');
 
 			break;
+			}
+			
 			case '2':
 			return UserController::dashboard();
 			break;

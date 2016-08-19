@@ -89,7 +89,34 @@
 			<!-- MAIN CONTENT -->
 			<div id="content">
 
-				
+				<div class="row">
+					<div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+						<h1 class="page-title txt-color-blueDark"><i class="fa-fw fa fa-home"></i> Dashboard </h1>
+					</div>
+					<div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">
+						<ul id="sparks" class="">
+							<li class="sparks-info">
+								<h5> My Income <span class="txt-color-blue">$47,171</span></h5>
+								<div class="sparkline txt-color-blue hidden-mobile hidden-md hidden-sm">
+									1300, 1877, 2500, 2577, 2000, 2100, 3000, 2700, 3631, 2471, 2700, 3631, 2471
+								</div>
+							</li>
+							<!-- <li class="sparks-info">
+								<h5> Site Traffic <span class="txt-color-purple"><i class="fa fa-arrow-circle-up"></i>&nbsp;45%</span></h5>
+								<div class="sparkline txt-color-purple hidden-mobile hidden-md hidden-sm">
+									110,150,300,130,400,240,220,310,220,300, 270, 210
+								</div>
+							</li>
+							<li class="sparks-info">
+								<h5> Site Orders <span class="txt-color-greenDark"><i class="fa fa-shopping-cart"></i>&nbsp;2447</span></h5>
+								<div class="sparkline txt-color-greenDark hidden-mobile hidden-md hidden-sm">
+									110,150,300,130,400,240,220,310,220,300, 270, 210
+								</div>
+							</li> -->
+						</ul>
+					</div>
+				</div>
+				<!-- widget grid -->
 				<section id="widget-grid" class="">
 
 		<div class="row">
@@ -99,7 +126,19 @@
 				
 							<!-- Widget ID (each widget will need unique ID)-->
 							<div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="false">
-								
+								<!-- widget options:
+								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+				
+								data-widget-colorbutton="false"
+								data-widget-editbutton="false"
+								data-widget-togglebutton="false"
+								data-widget-deletebutton="false"
+								data-widget-fullscreenbutton="false"
+								data-widget-custombutton="false"
+								data-widget-collapsed="true"
+								data-widget-sortable="false"
+				
+								-->
 								<header>
 									<span class="widget-icon"> <i class="fa fa-table"></i> </span>
 									<h2>List of Patients Request </h2>
@@ -124,81 +163,36 @@
 												<tr>
 													<th data-hide="phone">Sno.</th>
 													<th data-class="expand"><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i>Patient Name</th>
-													<th data-hide="phone,tablet">Problem</th>
-													<th data-hide="phone,tablet">Statement</th>
-													<th data-hide="phone,tablet">City</th>
-													<th data-hide="phone,tablet">Phone No.</th>
-
+													<th>Problem</th>
+													<th>Symptoms</th>
+													<th data-hide="phone,tablet">Location</th>
 													<th data-hide="phone,tablet">Status</th>
+
+
 													<th data-hide="phone,tablet">Accept</th>
 												</tr>
 											</thead>
 											<tbody>
-												@if(count($patient))
-												@foreach($patient as $p)
-													@if($p->status==0)
-
-												<tr bgcolor="#FF0000">
-													<?php $id=0; ?>
-													<td><?php  $id++; ?></td>
-													<td>$p->name</td>
-													<td>$p->problem</td>
-													<td>$p->statement</td>
-													<td>$p->city</td>
-													<td>$p->mobile</td>
-													<td>PENDING</td>
-
-													<td><a href="javascript:void(0);" class="btn btn-success btn-circle"><i class="fa fa-check"></i></a></td>
-
-												</tr>
-												@elseif($p->status==1)
-												<tr bgcolor="#FFFFFF">
-
-													<?php $id=1; ?>
-													<td><?php  $id++; ?></td>
-													<td>$p->name</td>
-													<td>$p->problem</td>
-													<td>$p->statement</td>
-													<td>$p->city</td>
-													<td>$p->mobile</td>
-													<td>ONGOING</td>
-
-													<td><a href="javascript:void(0);" class="btn btn-success btn-circle"><i class="fa fa-check"></i></a></td>
-
-												</tr>
-												@else
-												<tr bgcolor="#FFF000">
-
-													<?php $id=1; ?>
-													<td><?php  $id++; ?></td>
-													<td>$p->name</td>
-													<td>$p->problem</td>
-													<td>$p->statement</td>
-													<td>$p->city</td>
-													<td>$p->mobile</td>
-													<td>URGENT</td>
-
-													<td><a href="javascript:void(0);" class="btn btn-success btn-circle"><i class="fa fa-check"></i></a></td>
-
-												</tr>
-												@endif
-												@endforeach
-												@else
+												<?php $i=0;?>
+												@if(count($con))
+												@foreach($con as $c)
+												
 												<tr>
-												<td>-</td>
-												<td>-</td>
+													<td><?php $i++; ?></td>
+													<td>$c->patient->patient_name</td>
+													<td>$c->problem</td>
+													<td>$c->symptoms</td>
+													<td>$c->patient->city</td>
+													<td>$c->status</td>
 
-												<td>-</td>
-
-												<td>-</td>
-
-												<td>-</td>
-												<td>-</td>
-												<td>-</td>
-												<td>-</td>
+													<td><a href="javascript:void(0);" class="btn btn-success btn-circle"><i class="fa fa-check"></i></a></td>
 
 												</tr>
+														@endforeach
+												@else
+												<tr>NO RECORD FOUND!!</tr>
 												@endif
+										
 												
 												
 											</tbody>
@@ -243,5 +237,3 @@
 		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
 		@include('js');
 	</body>
-
-</html>

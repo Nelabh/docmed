@@ -179,13 +179,19 @@
 												
 												<tr>
 													<td><?php $i++; ?></td>
-													<td>$c->patient->patient_name</td>
-													<td>$c->problem</td>
-													<td>$c->symptoms</td>
-													<td>$c->patient->city</td>
-													<td>$c->status</td>
+													<td>{{$c->patient->patient_name}}</td>
+													<td>{{$c->problem}}</td>
+													<td>{{$c->symptoms}}</td>
+													<td>{{$c->patient->city}}</td>
+													@if($c->status==0)
+													<td>Pending</td>
+													@elseif($c->status==6)
+													<td>Urgent</td>
+													@else
+													<td>Ongoing</td>
+													@endif
 
-													<td><a href="javascript:void(0);" class="btn btn-success btn-circle"><i class="fa fa-check"></i></a></td>
+													<td><button onclick="accept($c->id)" class="btn btn-success btn-circle"><i class="fa fa-check"></i></button></td>
 
 												</tr>
 														@endforeach
@@ -221,6 +227,25 @@
 
 		</div>
 		<!-- END MAIN PANEL -->
+		<script>
+		function accept(id){
+ 
+    jQuery('#loading').show();
+    jQuery.ajax({
+      url:"{{URL::route('accept')}}",
+      type:"post",
+      data: {'id':id,'_token':jQuery('#token').val()},
+      success:function(data){
+      	
+     jQuery('#loading').hide();
+     }
+   });
+  }
+  else{
+    jQuery('#minus').prop('disabled', true);
+  }  
+}
+</script>
 
 		<!-- PAGE FOOTER -->
 		@include('footer')

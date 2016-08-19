@@ -32,7 +32,7 @@ class DoctorController extends BaseController
 			case '1':
 			{
 				$doc=Doctor::where('email',Auth::user()->email)->first();
-			$con = Connection::where('doctor_email',Auth::user()->email)->where('status',0)->get();
+			$con = Connection::where('doctor_email',Auth::user()->email)->get();
 			if(count($con))
 			{
 				foreach($con as $c)
@@ -48,6 +48,7 @@ class DoctorController extends BaseController
 
 				}
 			}
+
 			
 			
 
@@ -73,6 +74,35 @@ class DoctorController extends BaseController
 			break;
 */		}
 			
+		}
+		public function accept()
+		{
+			$data = Input::all();
+			$con = Connection::where('id',$data['id'])->first();
+			$con->status+= 1;
+			$doc=Doctor::where('email',Auth::user()->email)->first();
+			$con = Connection::where('doctor_email',Auth::user()->email)->get();
+			if(count($con))
+			{
+				foreach($con as $c)
+				{
+					$patient = Patient::where('email',$c->patient_email)->first();
+					if($patient)
+					{
+					$c->problem = HealthStatus::where('id',$c->health_record)->first()->problem;
+					$c->statement = HealthStatus::where('id',$c->health_record)->first()->statement;
+					$c->patient = $patient;
+
+					}
+
+				}
+			}
+
+			
+			
+
+			if($doc->verified!=0)
+				return View::make('doctor_dashboard',compact('con')); 	
 		}
 
 		public function profile_doctor(){

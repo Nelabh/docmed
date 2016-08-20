@@ -184,11 +184,11 @@
 													<td>{{$c->symptoms}}</td>
 													<td>{{$c->patient->city}}</td>
 													@if($c->status==0)
-													<td>Pending</td>
+													<td style="color:blue;"><b>Pending</b></td>
 													@elseif($c->status==6)
-													<td>Urgent</td>
+													<td style="color:red"><b>Urgent</b></td>
 													@else
-													<td>Ongoing</td>
+													<td style="color:green"><b>Ongoing</b></td>
 													@endif
 
 													<td><button onclick="accept($c->id)" class="btn btn-success btn-circle"><i class="fa fa-check"></i></button></td>
@@ -236,7 +236,7 @@
       type:"post",
       data: {'id':id,'_token':jQuery('#token').val()},
       success:function(data){
-      	
+
      jQuery('#loading').hide();
      }
    });

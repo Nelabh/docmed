@@ -146,6 +146,24 @@
 											</div>
 										</div>
 										@elseif($connection >= 0 && $connection < 6)
+										@if($connection == 1)
+										<div class="row">
+											<div class="col-sm-12">
+												<h3 class="price-container">
+													Fees : &#8377;{{$doctor->fees}}
+													<small>*includes tax</small>
+												</h3>
+												<a data-toggle="modal" href="#pay" class="btn  header-btn btn btn-primary">Pay Now</a>
+											</div>
+											<div class="col-sm-6">
+												<h3 class="price-container">
+													Urgent : &#8377;{{$doctor->ufees}}
+													<small>*includes tax</small>
+												</h3>
+												<a  class="btn btn-danger">Normal Consultation Requested</a>
+											</div>
+										</div>
+										@else
 										<div class="row">
 											<div class="col-sm-12">
 												<h3 class="price-container">
@@ -162,7 +180,10 @@
 												<a  class="btn btn-danger">Normal Consultation Requested</a>
 											</div>
 										</div>
+										
+										@endif
 										@elseif($connection >= 6)
+										@if($connection == 7)
 										<div class="row">
 											<div class="col-sm-12">
 												<h3 class="price-container">
@@ -176,9 +197,28 @@
 													Urgent : &#8377;{{$doctor->ufees}}
 													<small>*includes tax</small>
 												</h3>
-												<a data-toggle="modal" href="#editurgent" class="btn btn-danger">Update Consultation Request</a>
+												<a data-toggle="modal" href="#pay" class="btn btn-danger">Pay Now</a>
 											</div>
 										</div>
+										@else
+										<div class="row">
+											<div class="col-sm-12">
+												<h3 class="price-container">
+													Fees : &#8377;{{$doctor->fees}}
+													<small>*includes tax</small>
+												</h3>
+												<a data-toggle="modal" href="#editconsult" class="btn  header-btn btn btn-primary">Update Consultation Request</a>
+											</div>
+											<div class="col-sm-6">
+												<h3 class="price-container">
+													Urgent : &#8377;{{$doctor->ufees}}
+													<small>*includes tax</small>
+												</h3>
+												<a  class="btn btn-danger">Normal Consultation Requested</a>
+											</div>
+										</div>
+										
+										@endif
 										@endif
 										<hr>
 										<div class="description description-tabs">

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-us">
 
-	@include('header')
-	
+@include('header')
+
 	<!--
 
 	TABLE OF CONTENTS.
@@ -31,9 +31,9 @@
 	
 	===================================================================
 	
-	-->
-	
-	<!-- #BODY -->
+-->
+
+<!-- #BODY -->
 	<!-- Possible Classes
 
 		* 'smart-style-{SKIN#}'
@@ -81,26 +81,26 @@
 				<span id="search" class="btn btn-ribbon hidden-xs" data-title="search"><i class="fa-grid"></i> Change Grid</span>
 				<span id="add" class="btn btn-ribbon hidden-xs" data-title="add"><i class="fa-plus"></i> Add</span>
 				<span id="search" class="btn btn-ribbon" data-title="search"><i class="fa-search"></i> <span class="hidden-mobile">Search</span></span>
-				</span> -->
+			</span> -->
 
-			</div>
-			<!-- END RIBBON -->
+		</div>
+		<!-- END RIBBON -->
 
-			<!-- MAIN CONTENT -->
-			<div id="content">
+		<!-- MAIN CONTENT -->
+		<div id="content">
 
-				<div class="row">
-					<div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
-						<h1 class="page-title txt-color-blueDark"><i class="fa-fw fa fa-home"></i> Dashboard </h1>
-					</div>
-					<div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">
-						<ul id="sparks" class="">
-							<li class="sparks-info">
-								<h5> My Income <span class="txt-color-blue">$47,171</span></h5>
-								<div class="sparkline txt-color-blue hidden-mobile hidden-md hidden-sm">
-									1300, 1877, 2500, 2577, 2000, 2100, 3000, 2700, 3631, 2471, 2700, 3631, 2471
-								</div>
-							</li>
+			<div class="row">
+				<div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+					<h1 class="page-title txt-color-blueDark"><i class="fa-fw fa fa-home"></i> Dashboard </h1>
+				</div>
+				<div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">
+					<ul id="sparks" class="">
+						<li class="sparks-info">
+							<h5> My Income <span class="txt-color-blue">$47,171</span></h5>
+							<div class="sparkline txt-color-blue hidden-mobile hidden-md hidden-sm">
+								1300, 1877, 2500, 2577, 2000, 2100, 3000, 2700, 3631, 2471, 2700, 3631, 2471
+							</div>
+						</li>
 							<!-- <li class="sparks-info">
 								<h5> Site Traffic <span class="txt-color-purple"><i class="fa fa-arrow-circle-up"></i>&nbsp;45%</span></h5>
 								<div class="sparkline txt-color-purple hidden-mobile hidden-md hidden-sm">
@@ -119,11 +119,11 @@
 				<!-- widget grid -->
 				<section id="widget-grid" class="">
 
-		<div class="row">
-				
+					<div class="row">
+
 						<!-- NEW WIDGET START -->
 						<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				
+
 							<!-- Widget ID (each widget will need unique ID)-->
 							<div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="false">
 								<!-- widget options:
@@ -138,127 +138,104 @@
 								data-widget-collapsed="true"
 								data-widget-sortable="false"
 				
-								-->
-								<header>
-									<span class="widget-icon"> <i class="fa fa-table"></i> </span>
-									<h2>List of Patients Request </h2>
-				
-								</header>
-				
-								<!-- widget div-->
-								<div>
-				
-									<!-- widget edit box -->
-									<div class="jarviswidget-editbox">
-										<!-- This area used as dropdown edit box -->
-				
-									</div>
-									<!-- end widget edit box -->
-				
-									<!-- widget content -->
-									<div class="widget-body no-padding">
-				
-										<table id="dt_basic" class="table table-striped table-bordered table-hover" width="80%">
-											<thead>			                
-												<tr>
-													<th data-hide="phone">Sno.</th>
-													<th data-class="expand"><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i>Patient Name</th>
-													<th>Problem</th>
-													<th>Symptoms</th>
-													<th data-hide="phone,tablet">Location</th>
-													<th data-hide="phone,tablet">Status</th>
+							-->
+							<header>
+								<span class="widget-icon"> <i class="fa fa-table"></i> </span>
+								<h2>List of Patients Request </h2>
 
+							</header>
 
-													<th data-hide="phone,tablet">Accept</th>
-												</tr>
-											</thead>
-											<tbody>
-												<?php $i=0;?>
-												@if(count($con))
-												@foreach($con as $c)
-												
-												<tr>
-													<td><?php $i++; ?></td>
-													<td>{{$c->patient->patient_name}}</td>
-													<td>{{$c->problem}}</td>
-													<td>{{$c->symptoms}}</td>
-													<td>{{$c->patient->city}}</td>
-													@if($c->status==0)
-													<td>Pending</td>
-													@elseif($c->status==6)
-													<td>Urgent</td>
-													@else
-													<td>Ongoing</td>
-													@endif
+							<!-- widget div-->
+							<div>
 
-													<td><button onclick="accept($c->id)" class="btn btn-success btn-circle"><i class="fa fa-check"></i></button></td>
+								<!-- widget edit box -->
+								<div class="jarviswidget-editbox">
+									<!-- This area used as dropdown edit box -->
 
-												</tr>
-														@endforeach
-												@else
-												<tr>NO RECORD FOUND!!</tr>
-												@endif
-										
-												
-												
-											</tbody>
-										</table>
-
-									</div>
-									<!-- end widget content -->
-				
 								</div>
-								<!-- end widget div -->
-				
-							</div>
-							<!-- end widget -->
-				
-				
-						</article>
-						<!-- WIDGET END -->
-				
-					</div>
-			
-				</section>
-				<!-- end widget grid -->
+								<!-- end widget edit box -->
 
-			</div>
-			<!-- END MAIN CONTENT -->
+								<!-- widget content -->
+								<div class="widget-body no-padding">
+
+									<table id="dt_basic" class="table table-striped table-bordered table-hover" width="80%">
+										<thead>			                
+											<tr>
+												<th data-hide="phone">Sno.</th>
+												<th data-class="expand"><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i>Patient Name</th>
+												<th>Problem</th>
+												<th>Symptoms</th>
+												<th data-hide="phone,tablet">Location</th>
+												<th data-hide="phone,tablet">Status</th>
+												<th data-hide="phone,tablet">Accept</th>
+											</tr>
+										</thead>
+										<tbody>
+											<?php $i=1;?>
+											@if(count($con))
+											@foreach($con as $c)
+											<tr>
+												<td><?php echo $i++; ?></td>
+												<td>{{$c->patient->patient_name}}</td>
+												<td>{{$c->problem}}</td>
+												<td>{{$c->statement}}</td>
+												<td>{{$c->patient->city}}</td>
+												@if($c->status==0)
+												<td>Pending</td>
+												@elseif($c->status==6)
+												<td>Urgent</td>
+												@else
+												<td>Ongoing</td>
+												@endif
+												<td><a href = "{{URL::route('accept',$c->id)}}" class="btn btn-success btn-circle"><i class="fa fa-check"></i></a></td>
+											</tr>
+											@endforeach
+											@else
+											<tr><td colspan = "7">NO RECORD FOUND!!!</td></tr>
+											@endif
+
+
+
+										</tbody>
+									</table>
+
+								</div>
+								<!-- end widget content -->
+
+							</div>
+							<!-- end widget div -->
+
+						</div>
+						<!-- end widget -->
+
+
+					</article>
+					<!-- WIDGET END -->
+
+				</div>
+
+			</section>
+			<!-- end widget grid -->
 
 		</div>
-		<!-- END MAIN PANEL -->
-		<script>
-		function accept(id){
- 
-    jQuery('#loading').show();
-    jQuery.ajax({
-      url:"{{URL::route('accept')}}",
-      type:"post",
-      data: {'id':id,'_token':jQuery('#token').val()},
-      success:function(data){
-      	
-     jQuery('#loading').hide();
-     }
-   });
-  }
-  else{
-    jQuery('#minus').prop('disabled', true);
-  }  
-}
-</script>
+		<!-- END MAIN CONTENT -->
 
-		<!-- PAGE FOOTER -->
-		@include('footer')
-		<!-- END PAGE FOOTER -->
+	</div>
+	<!-- END MAIN PANEL -->
+
+
+	<!-- PAGE FOOTER -->
+	@include('footer')
+	<!-- END PAGE FOOTER -->
 
 		<!-- SHORTCUT AREA : With large tiles (activated via clicking user name tag)
 		Note: These tiles are completely responsive,
 		you can add as many as you like
-		-->
-		<!-- END SHORTCUT AREA -->
+	-->
+	<!-- END SHORTCUT AREA -->
 
-		<!--================================================== -->
+	<!--================================================== -->
 
-		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
-		@include('js');
-	</body>
+	<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
+	@include('js');
+</body>

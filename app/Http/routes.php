@@ -42,7 +42,7 @@ Route::post('edit-patientinfo',array('as'=>'edit_patientinfo','uses'=>'UserContr
 Route::get('health-status',array('as'=>'health_status','uses'=>'UserController@health_status'));
 Route::post('edit-healthstatus',array('as'=>'edit_healthstatus','uses'=>'UserController@edit_healthstatus'));
 Route::get('profile_doctor', array('as'=>'profile_doctor','uses'=>'DoctorController@profile_doctor'));
-Route::post('accept', array('as'=>'accept','uses'=>'DoctorController@accept'));
+Route::get('accept/{id}', array('as'=>'accept','uses'=>'DoctorController@accept'));
 
 Route::post('edit', array('as'=>'edit','uses'=>'DoctorController@edit'));
 Route::get('profile_vendor', array('as'=>'profile_vendor','uses'=>'MedVendController@profile_vendor'));

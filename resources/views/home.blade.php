@@ -126,7 +126,7 @@
         <div class="row">
         <div class="col-sm-12 top-strip">
             <h2 class="delt-bord">Email :<a href="#">info@medicaltheme.com</a></h2>
-            <h2>Call :<a href="#"> 8876 7786 999</a></h2>
+            <h2>Call :<a href="#">9999999</a></h2>
         </div><!-- /.col-sm-12 -->
         <div class="col-sm-12 bottom-strip p-both">
         <div class="col-sm-3 logo">
@@ -501,8 +501,6 @@
 			<script src="js/plugin/pace/pace.min.js"></script>
 
 			<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
-			<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-			<script> if (!window.jQuery) { document.write('<script src="js/libs/jquery-2.1.1.min.js"><\/script>');} </script>
 
 			<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 			<script> if (!window.jQuery.ui) { document.write('<script src="js/libs/jquery-ui-1.10.3.min.js"><\/script>');} </script>
@@ -517,7 +515,7 @@
 		<script src="js/bootstrap/bootstrap.min.js"></script>
 
 		<!-- JQUERY VALIDATE -->
-		<script src="js/plugin/jquery-validate/jquery.validate.min.js"></script>
+	
 		
 		<!-- JQUERY MASKED INPUT -->
 		<script src="js/plugin/masked-input/jquery.maskedinput.min.js"></script>

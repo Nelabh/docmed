@@ -145,21 +145,38 @@
 												<a  data-toggle="modal" href="#urgent"  class="btn btn-danger">Consult With Urgency</a>
 											</div>
 										</div>
-										@else
+										@elseif($connection >= 0 && $connection < 6)
 										<div class="row">
 											<div class="col-sm-12">
 												<h3 class="price-container">
 													Fees : &#8377;{{$doctor->fees}}
 													<small>*includes tax</small>
 												</h3>
-												<a  class="btn  header-btn btn btn-primary">Consultation Requested</a>
+												<a data-toggle="modal" href="#editconsult" class="btn  header-btn btn btn-primary">Update Consultation Request</a>
 											</div>
 											<div class="col-sm-6">
 												<h3 class="price-container">
 													Urgent : &#8377;{{$doctor->ufees}}
 													<small>*includes tax</small>
 												</h3>
-												<a class="btn btn-danger">Consultation Requested</a>
+												<a  class="btn btn-danger">Normal Consultation Requested</a>
+											</div>
+										</div>
+										@elseif($connection >= 6)
+										<div class="row">
+											<div class="col-sm-12">
+												<h3 class="price-container">
+													Fees : &#8377;{{$doctor->fees}}
+													<small>*includes tax</small>
+												</h3>
+												<a  class="btn  header-btn btn btn-primary">Urgent Consultation Requested</a>
+											</div>
+											<div class="col-sm-6">
+												<h3 class="price-container">
+													Urgent : &#8377;{{$doctor->ufees}}
+													<small>*includes tax</small>
+												</h3>
+												<a data-toggle="modal" href="#editurgent" class="btn btn-danger">Update Consultation Request</a>
 											</div>
 										</div>
 										@endif
@@ -279,6 +296,173 @@
 
 	<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
 	@include('js');
+		<!-- Modal -->
+	<div class="modal fade" id="editurgent" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+					<h4 class="modal-title">
+						Urgent Consult
+					</h4>
+				</div>
+				<div class="modal-body no-padding">
+
+					<form id="login-form" class="smart-form" method="post" action = "{{URL::route('updateconsult')}}" >
+						<input type = "hidden" name = "id" value = "{{$doctor->id}}">
+
+						{{csrf_field()}}
+						<fieldset>
+							@if(count($health))
+							<section>
+								<div class="row">
+									<label class="label col col-2">Problem</label>
+									<div class="col col-10">
+										<label class="input">
+											<input type="text" name="problem" value = "{{$health->problem}}">
+										</label>
+									</div>
+								</div>
+							</section>
+
+							<section>
+								<div class="row">
+									<label class="label col col-2">Statement</label>
+									<div class="col col-10">
+										<label class="textarea"> 
+											<textarea name="statement">{{$health->statement}}</textarea>
+										</label>
+									</div>
+								</div>
+							</section>
+							@else
+							<section>
+								<div class="row">
+									<label class="label col col-2">Problem</label>
+									<div class="col col-10">
+										<label class="input">
+											<input type="text" name="problem" >
+										</label>
+									</div>
+								</div>
+							</section>
+
+							<section>
+								<div class="row">
+									<label class="label col col-2">Statement</label>
+									<div class="col col-10">
+										<label class="textarea"> 
+											<textarea name="statement"></textarea>
+										</label>
+									</div>
+								</div>
+							</section>
+							@endif
+						</fieldset>
+
+						<footer>
+							<button type="submit" class="btn btn-primary">
+								Update Urgent Consultation Request
+							</button>
+							<button type="button" class="btn btn-default" data-dismiss="modal">
+								Cancel
+							</button>
+
+						</footer>
+					</form>						
+
+
+				</div>
+
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+		<!-- Modal -->
+	<div class="modal fade" id="editconsult" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+					<h4 class="modal-title">
+						Consult
+					</h4>
+				</div>
+				<div class="modal-body no-padding">
+
+					<form id="login-form" class="smart-form" method="post" action = "{{URL::route('updateconsult')}}" >
+						<input type = "hidden" name = "id" value = "{{$doctor->id}}">
+						{{csrf_field()}}
+						<fieldset>
+							@if(count($health))
+							<section>
+								<div class="row">
+									<label class="label col col-2">Problem</label>
+									<div class="col col-10">
+										<label class="input">
+											<input type="text" name="problem" value = "{{$health->problem}}">
+										</label>
+									</div>
+								</div>
+							</section>
+
+							<section>
+								<div class="row">
+									<label class="label col col-2">Statement</label>
+									<div class="col col-10">
+										<label class="textarea"> 
+											<textarea name="statement">{{$health->statement}}</textarea>
+										</label>
+									</div>
+								</div>
+							</section>
+							@else
+							<section>
+								<div class="row">
+									<label class="label col col-2">Problem</label>
+									<div class="col col-10">
+										<label class="input">
+											<input type="text" name="problem" >
+										</label>
+									</div>
+								</div>
+							</section>
+
+							<section>
+								<div class="row">
+									<label class="label col col-2">Statement</label>
+									<div class="col col-10">
+										<label class="textarea"> 
+											<textarea name="statement"></textarea>
+										</label>
+									</div>
+								</div>
+							</section>
+							@endif
+						</fieldset>
+
+						<footer>
+							<button type="submit" class="btn btn-primary">
+								Update Consultation Request
+							</button>
+							<button type="button" class="btn btn-default" data-dismiss="modal">
+								Cancel
+							</button>
+
+						</footer>
+					</form>						
+
+
+				</div>
+
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
 	<!-- Modal -->
 	<div class="modal fade" id="consult" tabindex="-1" role="dialog">
 		<div class="modal-dialog">

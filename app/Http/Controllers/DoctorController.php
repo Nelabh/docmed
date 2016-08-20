@@ -49,10 +49,7 @@ class DoctorController extends BaseController
 				}
 			}
 
-			
-			
-
-			if($doc->verified!=0)
+	if($doc->verified!=0)
 				return View::make('doctor_dashboard',compact('con')); 	
 			
 			else
@@ -75,11 +72,11 @@ class DoctorController extends BaseController
 */		}
 			
 		}
-		public function accept()
+		public function accept($id)
 		{
-			$data = Input::all();
-			$con = Connection::where('id',$data['id'])->first();
+			$con = Connection::where('id',$id)->first();
 			$con->status+= 1;
+			$con->save();/*
 			$doc=Doctor::where('email',Auth::user()->email)->first();
 			$con = Connection::where('doctor_email',Auth::user()->email)->get();
 			if(count($con))
@@ -102,7 +99,8 @@ class DoctorController extends BaseController
 			
 
 			if($doc->verified!=0)
-				return View::make('doctor_dashboard',compact('con')); 	
+				return View::make('doctor_dashboard',compact('con')); 	*/
+				return Redirect::route('dashboard');
 		}
 
 		public function profile_doctor(){

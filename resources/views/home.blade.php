@@ -50,12 +50,28 @@
 		<link rel="apple-touch-startup-image" href="img/splash/ipad-landscape.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)">
 		<link rel="apple-touch-startup-image" href="img/splash/ipad-portrait.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)">
 		<link rel="apple-touch-startup-image" href="img/splash/iphone.png" media="screen and (max-device-width: 320px)">
+		<link rel="stylesheet" href="front/css/bootstrap.min.css">
+    <link rel="stylesheet" href="front/css/font-awesome.css">
+    <link rel="stylesheet" href="front/css/custom-variation2.css">
+    <link rel="stylesheet" href="front/css/responsive.css"> 
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:500,600,700,800,900,400,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,400italic' rel='stylesheet' type='text/css'>
+    
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="js/vendor/html5shiv.min.js"></script>
+      <script src="js/vendor/respond.min.js"></script>
+    <![endif]-->
+
 
 	</head>
 	
 	<body class="container-fluid animated fadeInDown">
 
-		<header class="row" id="header1" style="margin-bottom:2%; padding-top:10px;">
+
+		<!-- <header class="row" id="header1" style="margin-bottom:2%; padding-top:10px;">
 
 			<div class="col-sm-3 col-xs-12" id="logo-group">
 				<span id="logo"> <img src="img/logo.png" alt="SmartAdmin"> </span>
@@ -64,6 +80,60 @@
 			<div class = "alert alert-block alert-danger">{{Session::get('message')}}</div>
 			@endif
 			<div class="col-sm-4 col-xs-12 col-sm-push-5" >
+
+				<div class="project-context col-xs-4 col-sm-push-3 col-xs-push-4">
+
+					<span class="project-selector dropdown-toggle " data-toggle="dropdown"><a class="btn btn-danger" data-toggle="modal" data-target="#myModal">Login </a></span>
+					
+
+				</div>
+				
+				<div class="project-context col-xs-4 col-xs-push-3">
+					@if($errors->has())
+					<div class="has-error" >
+						<p>
+							{{$errors->first('email',':message')}} </p>
+							<p>  {{$errors->first('password',':message')}} </p>
+						</div>
+						@endif
+						<span class="project-selector dropdown-toggle " data-toggle="dropdown"><a class="btn btn-danger">Sign Up</a><i class="fa fa-angle-down"></i></span>
+						<ul class="dropdown-menu">
+							<li><a href="{{URL::route('signupform_doctor')}}">As Doctor</a></li>
+							<li><a href="{{URL::route('signupform_patient')}}">As Patient</a></li>
+							<li><a href="{{URL::route('signupform_medvend')}}">As Medicine Vendor</a></li>
+							<li><a href="{{URL::route('signupform_pathology')}}">As Pathology Labs</a></li>
+
+
+
+							
+						</ul>
+					
+					</div>
+				</div>
+				
+
+			</header> -->
+
+			<div id="main" role="main" style="padding:0; background: transparent;">
+
+			
+<div class="outer-sync var2">
+      <!--==================================
+       		 Header parts starts here
+        ==================================-->
+	<header id="header1">
+    	<div class="container">
+        <div class="row">
+        <div class="col-sm-12 top-strip">
+            <h2 class="delt-bord">Email :<a href="#">info@medicaltheme.com</a></h2>
+            <h2>Call :<a href="#"> 8876 7786 999</a></h2>
+        </div><!-- /.col-sm-12 -->
+        <div class="col-sm-12 bottom-strip p-both">
+        <div class="col-sm-3 logo">
+        	<a href="#"><img src="front/images/logo-var2.png" alt="medical theams" /></a>
+        </div><!-- /.col-sm-3 -->
+        <div class="col-sm-9 navigation">
+      			<div class="col-sm-4 col-xs-12 col-sm-push-5" >
 
 				<div class="project-context col-xs-4 col-sm-push-3 col-xs-push-4">
 
@@ -82,7 +152,7 @@
 							<p>  {{$errors->first('password',':message')}} </p>
 						</div>
 						@endif
-						<span class="project-selector dropdown-toggle " data-toggle="dropdown"><a class="btn btn-danger">Sign Up</a><i class="fa fa-angle-down"></i></span>
+						<span class="project-selector dropdown-toggle" data-toggle="dropdown"><a class="btn btn-danger">Sign Up</a><i class="fa fa-angle-down"></i></span>
 						<!-- Suggestion: populate this list with fetch and push technique -->
 						<ul class="dropdown-menu">
 							<li><a href="{{URL::route('signupform_doctor')}}">As Doctor</a></li>
@@ -98,14 +168,171 @@
 
 					</div>
 				</div>
-				
+        </div><!-- /.col-sm-9 -->
+        </div><!-- /.col-sm-12 -->
+        </div><!-- /.row -->
+        </div><!-- /.container -->
 
-			</header>
+    </header><!-- #header -->                                            
 
-			<div id="main" role="main" style="padding:0; background: transparent;">
+      <!--==================================
+       		 Header parts ends here
+       	  ==================================-->
+      <!--==================================
+       		Banner parts starts here
+          ==================================-->
+<div class="banner-wrapper">
+	<div class="banner">
+    	<img src="front/images/banner2.jpg" alt="banner" />
+    </div><!-- /.banner -->
+    <div class="magnet">
+    <div class="container">
+    <div class="row">
+    	
+    </div><!-- /.row -->
+    </div><!-- /.container -->  
+    </div><!-- /.magnet -->
+</div><!-- /.banner-wrapper -->    
+      <!--==================================
+       		Banner parts ends here
+          ==================================-->
+      <!--==================================
+       		service Quick links starts here
+          ==================================-->    
+    <div class="first-section p82-topbot">
+    <div class="container">
+    <div class="row">
+       			 <div class="col-sm-3 element-lft lft-bottom">
+                      <img src="front/images/icons/icon-doc-var1.png" alt="Find a Doctor">
+                      <div class="text-needleft">
+                      <h2>Find a Doctor</h2>
+                      <p>Scrambled it to make a type specimen book. It has survived not only five centuries</p>
+                      </div>
+                       </div>
 
-				<!-- MAIN CONTENT -->
-				<img class="img-responsive" src="{{URL::asset('img/banner02.jpg')}}" >
+                 <div class="col-sm-3 element-lft lft-bottom">
+                      <img src="front/images/icons/icon-dep-var1.png" alt="Departments">
+                      <div class="text-needleft">
+                      <h2>Departments</h2>
+                      <p>Scrambled it to make a type specimen book. It has survived not only five centuries</p>
+                      </div>
+                 </div>
+
+                 <div class="col-sm-3 element-lft">
+                       <img src="front/images/icons/icon-loc-var1.png" alt="Our Locations">
+                       <div class="text-needleft">
+                       <h2>Our Locations</h2>
+                       <p>Scrambled it to make a type specimen book. It has survived not only five centuries</p>
+                       </div>
+                 </div>
+
+                 <div class="col-sm-3 element-lft">
+                       <img src="front/images/icons/icon-pay-var1.png" alt="Pay your bill online">
+                       <div class="text-needleft">
+                       <h2>pay your bill online</h2>
+                       <p>Scrambled it to make a type specimen book. It has survived not only five centuries</p>
+                       </div>
+                 </div>
+    </div><!-- /.row -->
+    </div><!-- /.container -->  
+    </div><!-- /.first-section -->      
+     <!--==================================
+       		Service Quick liniks ends here
+          ==================================-->
+                  
+     <!--==================================
+       		Service section starts here
+          ==================================-->
+    <div class="third-section p82-topbot">
+    <div class="container">
+    <div class="row">
+    	<div class="col-sm-12">
+    	<h2 class="title-grp">
+                        <span>Our</span>
+                        Services
+                    </h2>
+        </div>            
+        <div class="col-md-3 col-sm-6">
+            <div class="service-box">
+                <img src="front/images/icons/icon-med-var2.png" alt="med">
+                <h2>medical SERVICE</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+            <div class="service-box">
+                <img src="front/images/icons/icon-serv-var2.png" alt="serv">
+                <h2>24 Hours Service</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+            <div class="service-box">
+                <img src="front/images/icons/icon-emerg-var2.png" alt="emerg">
+                <h2>Emergency Departments</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+            <div class="service-box">
+                <img src="front/images/icons/icon-xray-var2.png" alt="xray">
+                <h2>x-RAY</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+                <div class="service-box">
+                    <img src="front/images/icons/icon-card-var2.png" alt="card">
+                    <h2>CARDIOLOGY</h2>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+           
+               </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+                <div class="service-box">
+                    <img src="front/images/icons/icon-neur-var2.png" alt="neur">
+                    <h2>nEUROLOGY</h2>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+                <div class="service-box">
+                    <img src="front/images/icons/icon-preg-var2.png" alt="preg">
+                    <h2>PREGNANCY</h2>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                 
+                </div>
+        </div>
+
+         <div class="col-md-3 col-sm-6">
+                <div class="service-box">
+                    <img src="front/images/icons/icon-dent-var2.png" alt="dent">
+                    <h2>DENTAL</h2>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                  </div>
+         </div>
+
+    </div><!-- /.row -->
+    </div><!-- /.container -->  
+    </div><!-- /.second-section -->      
+           
+     <!--==================================
+       		Service section ends here
+          ==================================-->  
+     <!--==================================
+       		footer parts starts here
+          ==================================-->     
+     
+    <div class="copyrights">
+    	<p>Gary Global Solutions © 2016 | All Rights Reserved</p>
+    </div><!-- /.copy-rights -->
+                   
 
 			</div>
 
@@ -303,6 +530,28 @@
 
 			<!-- MAIN APP JS FILE -->
 			<script src="js/app.min.js"></script>
+
+    <script src="front/js/vendor/jquery-min.js"></script>
+    <script src="front/js/vendor/modernizr.custom.68477.js"></script>
+    <script src="front/js/vendor/bootstrap.min.js"></script>
+    <script src="front/js/plugins.js"></script>
+    <script src="front/js/vendor/jquery.bxslider.js"></script>
+    <script src="front/js/main.js"></script>
+    <script type="text/javascript" src="front/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+	<script type="text/javascript">
+	"use strict";
+        $('.form_date').datetimepicker({
+            language:  'fr',
+            weekStart: 1,
+            todayBtn:  1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            minView: 2,
+            forceParse: 0
+        });
+    
+    </script>
 
 			<script type="text/javascript">
 			runAllForms();
